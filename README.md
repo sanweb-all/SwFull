@@ -18,25 +18,29 @@ O **WebFull** é um framework Full Stack moderno, ultra leve e modular, desenvol
 
 ### Via CDN (Recomendado)
 
-Adicione os arquivos diretamente no seu `<head>` e antes do fechamento do `<body>`:
+Utilize o JSDelivr para carregar os arquivos diretamente do repositório GitHub com alta performance:
 
 ```html
 <!-- CSS Core -->
 <link
   rel="stylesheet"
-  href="https://webfull.sanweb.com.br/dist/webfull.min.css"
+  href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css"
 />
 
 <!-- JS Core (Module) -->
 <script
   type="module"
-  src="https://webfull.sanweb.com.br/dist/webfull.min.js"
+  src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"
 ></script>
 ```
 
 ### Download Manual
 
-Você pode baixar os arquivos compilados diretamente da pasta `dist/` deste repositório:
+Você pode baixar os arquivos compilados diretamente da pasta `dist/` deste repositório ou clonar o projeto:
+
+```bash
+git clone https://github.com/sanweb-all/SwFull.git
+```
 
 - `dist/webfull.min.js`
 - `dist/webfull.min.css`
@@ -55,7 +59,7 @@ O WebFull utiliza atributos HTML personalizados (ex: `WfBtn`, `WfMasc`) para ini
     <title>Exemplo WebFull</title>
     <link
       rel="stylesheet"
-      href="https://webfull.sanweb.com.br/dist/webfull.min.css"
+      href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css"
     />
   </head>
   <body>
@@ -82,7 +86,7 @@ O WebFull utiliza atributos HTML personalizados (ex: `WfBtn`, `WfMasc`) para ini
 
     <script
       type="module"
-      src="https://webfull.sanweb.com.br/dist/webfull.min.js"
+      src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"
     ></script>
   </body>
 </html>

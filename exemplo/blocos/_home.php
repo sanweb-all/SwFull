@@ -21,11 +21,11 @@
             Construído com PHP, JavaScript e CSS puro para máxima performance.
           </p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://webfull.sanweb.com.br/dist/webfull.min.js" download class="btn btn-prim btn-lg">
-              <i class="wf wf-download-alt"></i> Download JS (v1.6.0)
+            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.js" download class="btn btn-prim btn-lg">
+              <i class="wf wf-download-alt"></i> Download JS (Latest)
             </a>
-            <a href="https://webfull.sanweb.com.br/dist/webfull.min.css" download class="btn btn-sec btn-lg">
-              <i class="wf wf-download-alt"></i> Download CSS (v1.6.0)
+            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.css" download class="btn btn-sec btn-lg">
+              <i class="wf wf-download-alt"></i> Download CSS (Latest)
             </a>
           </div>
         </div>
@@ -86,7 +86,7 @@
     <title>Meu Projeto WebFull</title>
     
     <!-- CSS Core -->
-    <link rel="stylesheet" href="https://webfull.sanweb.com.br/dist/webfull.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css">
 </head>
 <body>
     
@@ -96,7 +96,7 @@
     </div>
 
     <!-- JS Core (Module) -->
-    <script type="module" src="https://webfull.sanweb.com.br/dist/webfull.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"></script>
 </body>
 </html>
 </script></pre>
@@ -122,7 +122,7 @@
                 <td>~526 KB</td>
                 <td>Core JavaScript Minificado</td>
                 <td>
-                  <a href="https://webfull.sanweb.com.br/dist/webfull.min.js" download class="btn btn-sm btn-prim">
+                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.js" download class="btn btn-sm btn-prim">
                     <i class="wf wf-download"></i>
                   </a>
                 </td>
@@ -132,7 +132,7 @@
                 <td>~245 KB</td>
                 <td>Core CSS Minificado</td>
                 <td>
-                  <a href="https://webfull.sanweb.com.br/dist/webfull.min.css" download class="btn btn-sm btn-sec">
+                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.css" download class="btn btn-sm btn-sec">
                     <i class="wf wf-download"></i>
                   </a>
                 </td>
@@ -142,7 +142,7 @@
                 <td>~841 KB</td>
                 <td>JavaScript Fonte (Dev)</td>
                 <td>
-                  <a href="https://webfull.sanweb.com.br/dist/webfull.js" download class="btn btn-sm btn-info">
+                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.js" download class="btn btn-sm btn-info">
                     <i class="wf wf-code"></i>
                   </a>
                 </td>
