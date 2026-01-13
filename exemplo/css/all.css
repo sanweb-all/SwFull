@@ -1,0 +1,69 @@
+a {
+    color: var(--prin);
+}
+
+.listmenu-item+.listmenu-item {
+    color: var(--wf-color--);
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+[WfSidebar] {
+    width: 22rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    z-index: 999;
+    position: relative;
+}
+
+article {
+    width: 100%;
+    padding-left: 22rem;
+    position: absolute;
+    height: 100vh;
+    z-index: 10;
+}
+
+article .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--wf-border);
+}
+
+article .topo ol.listmenu {
+    padding-right: 2rem !important;
+}
+
+article .topo h1 {
+    font-family: var(--font3b);
+    line-height: 0;
+    color: var(--prin);
+    font-size: 5rem;
+}
+
+/**/
+section {
+    padding: 20px 40px 100px 40px;
+}
+
+section h3 {
+    font-family: var(--font3b);
+    color: var(--prin);
+    padding: 10px 0 0 0;
+}
+
+section p {
+    padding: 2px 0 8px 0;
+    line-height: 1.3;
+}

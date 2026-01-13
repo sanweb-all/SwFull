@@ -1,0 +1,122 @@
+<div class="bloco">
+  <article class="aniline-t g-xg">
+    <h3>Teste de Registro de Componentes (Webfull)</h3>
+    <nav class="listmenu">
+      <ol class="listmenu">
+        <li class="listmenu-item">
+          <a
+            SwAjax
+            SwAjax-effect="fadeRight"
+            SwAjax-url="./page/_home.php"
+            SwAjax-dest="ContentAjax"
+            >Home</a
+          >
+        </li>
+        <li class="listmenu-item active">Teste de Registro</li>
+      </ol>
+    </nav>
+  </article>
+  <section class="wf-registry-test">
+    <div class="g-xg">
+      <div class="l">
+        <div class="co12-g">
+          <p>
+            Este teste tenta carregar cada componente registrado no
+            <code>webfull.js</code> e verifica se o global e
+            <code>initAll</code> existem.
+          </p>
+          <div
+            id="results"
+            class="tabela"
+            style="
+              border: 1px solid var(--wf-border);
+              border-radius: 6px;
+              overflow: auto;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script type="module">
+  const keys = [
+    "sw-alert",
+    "sw-aba",
+    "sw-ajax",
+    "sw-anime",
+    "sw-code",
+    "sw-container",
+    "sw-iconsinit",
+    "sw-cotacao",
+    "sw-day",
+    "sw-div",
+    "sw-img",
+    "sw-load",
+    "sw-modal",
+    "sw-nolink",
+    "sw-panel",
+    "sw-panel-ajax",
+    "sw-panel1",
+    "sw-parallax",
+    "sw-pag",
+    "sw-paginfinite",
+    "sw-accord",
+    "sw-slid1",
+    "sw-slid2",
+    "sw-preload",
+    "sw-select",
+    "sw-sidebar",
+    "sw-text-limit",
+    "sw-tool",
+    "sw-top",
+    "sw-table",
+    "sw-table-ajax",
+    "sw-text",
+    "sw-valid",
+    "sw-type",
+    "sw-lazy",
+    "sw-masc",
+    "sw-move",
+    "sw-lessons-toggle",
+    "sw-file2",
+    "sw-lgpd",
+    "sw-navbar",
+  ];
+
+  const results = document.getElementById("results");
+  const row = (k, ok, msg) =>
+    `<div style="display:flex; gap:8px; padding:8px; border-bottom:1px solid var(--wf-border)"><div style="width:220px">${k}</div><div style="color:${
+      ok ? "#2e7d32" : "#c62828"
+    }">${ok ? "OK" : "FALHOU"}</div><div style="flex:1">${
+      msg || ""
+    }</div></div>`;
+
+  function pascal(key) {
+    return key
+      .split("-")
+      .filter(Boolean)
+      .map((p) => p[0].toUpperCase() + p.slice(1))
+      .join("");
+  }
+
+  async function run() {
+    const out = [];
+    for (const k of keys) {
+      try {
+        await WebfullLoader.load(k);
+        const p = pascal(k);
+        const g = window[p];
+        const hasInit = !!(g && typeof g.initAll === "function");
+        out.push(
+          row(k, !!g, hasInit ? "initAll disponível" : "global sem initAll")
+        );
+      } catch (e) {
+        out.push(row(k, false, (e && e.message) || "erro"));
+      }
+    }
+    results.innerHTML = out.join("");
+  }
+  run();
+</script>
+<script type="module" src="/assets/components/webfull.js"></script>

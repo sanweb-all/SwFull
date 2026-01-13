@@ -1,0 +1,28 @@
+{
+  "name": "webfull",
+  "version": "1.0.0",
+  "description": "WebFull - Framework JavaScript e CSS completo para desenvolvimento web",
+  "main": "dist/latest/webfull.min.js",
+  "scripts": {
+    "build": "node build.js",
+    "build:prod": "node build.js --production",
+    "watch": "node build.js --watch",
+    "serve": "node server.js",
+    "validate": "node validate.js",
+    "test": "node validate.js"
+  },
+  "keywords": [
+    "framework",
+    "javascript",
+    "css",
+    "ui",
+    "components",
+    "cdn"
+  ],
+  "author": "SandroWeb",
+  "license": "MIT",
+  "devDependencies": {
+    "terser": "^5.36.0",
+    "clean-css": "^5.3.3"
+  }
+}

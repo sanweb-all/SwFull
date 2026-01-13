@@ -1,0 +1,3870 @@
+[
+  {
+    "class": "wf-500px",
+    "name": "500px"
+  },
+  {
+    "class": "wf-99designs",
+    "name": "99designs"
+  },
+  {
+    "class": "wf-abacus",
+    "name": "abacus"
+  },
+  {
+    "class": "wf-accessibility",
+    "name": "accessibility"
+  },
+  {
+    "class": "wf-add-to-queue",
+    "name": "add-to-queue"
+  },
+  {
+    "class": "wf-adjust",
+    "name": "adjust"
+  },
+  {
+    "class": "wf-adobe",
+    "name": "adobe"
+  },
+  {
+    "class": "wf-airbnb",
+    "name": "airbnb"
+  },
+  {
+    "class": "wf-alarm",
+    "name": "alarm"
+  },
+  {
+    "class": "wf-alarm-add",
+    "name": "alarm-add"
+  },
+  {
+    "class": "wf-alarm-exclamation",
+    "name": "alarm-exclamation"
+  },
+  {
+    "class": "wf-alarm-off",
+    "name": "alarm-off"
+  },
+  {
+    "class": "wf-alarm-snooze",
+    "name": "alarm-snooze"
+  },
+  {
+    "class": "wf-album",
+    "name": "album"
+  },
+  {
+    "class": "wf-algolia",
+    "name": "algolia"
+  },
+  {
+    "class": "wf-align-justify",
+    "name": "align-justify"
+  },
+  {
+    "class": "wf-align-left",
+    "name": "align-left"
+  },
+  {
+    "class": "wf-align-middle",
+    "name": "align-middle"
+  },
+  {
+    "class": "wf-align-right",
+    "name": "align-right"
+  },
+  {
+    "class": "wf-amazon",
+    "name": "amazon"
+  },
+  {
+    "class": "wf-analyse",
+    "name": "analyse"
+  },
+  {
+    "class": "wf-anchor",
+    "name": "anchor"
+  },
+  {
+    "class": "wf-android",
+    "name": "android"
+  },
+  {
+    "class": "wf-angry",
+    "name": "angry"
+  },
+  {
+    "class": "wf-angular",
+    "name": "angular"
+  },
+  {
+    "class": "wf-aperture",
+    "name": "aperture"
+  },
+  {
+    "class": "wf-apple",
+    "name": "apple"
+  },
+  {
+    "class": "wf-arch",
+    "name": "arch"
+  },
+  {
+    "class": "wf-archive",
+    "name": "archive"
+  },
+  {
+    "class": "wf-archive-in",
+    "name": "archive-in"
+  },
+  {
+    "class": "wf-archive-out",
+    "name": "archive-out"
+  },
+  {
+    "class": "wf-area",
+    "name": "area"
+  },
+  {
+    "class": "wf-arrow-back",
+    "name": "arrow-back"
+  },
+  {
+    "class": "wf-arrow-from-bottom",
+    "name": "arrow-from-bottom"
+  },
+  {
+    "class": "wf-arrow-from-left",
+    "name": "arrow-from-left"
+  },
+  {
+    "class": "wf-arrow-from-right",
+    "name": "arrow-from-right"
+  },
+  {
+    "class": "wf-arrow-from-top",
+    "name": "arrow-from-top"
+  },
+  {
+    "class": "wf-arrow-to-bottom",
+    "name": "arrow-to-bottom"
+  },
+  {
+    "class": "wf-arrow-to-left",
+    "name": "arrow-to-left"
+  },
+  {
+    "class": "wf-arrow-to-right",
+    "name": "arrow-to-right"
+  },
+  {
+    "class": "wf-arrow-to-top",
+    "name": "arrow-to-top"
+  },
+  {
+    "class": "wf-at",
+    "name": "at"
+  },
+  {
+    "class": "wf-atom",
+    "name": "atom"
+  },
+  {
+    "class": "wf-audible",
+    "name": "audible"
+  },
+  {
+    "class": "wf-award",
+    "name": "award"
+  },
+  {
+    "class": "wf-aws",
+    "name": "aws"
+  },
+  {
+    "class": "wf-badge",
+    "name": "badge"
+  },
+  {
+    "class": "wf-badge-check",
+    "name": "badge-check"
+  },
+  {
+    "class": "wf-baguette",
+    "name": "baguette"
+  },
+  {
+    "class": "wf-baidu",
+    "name": "baidu"
+  },
+  {
+    "class": "wf-ball",
+    "name": "ball"
+  },
+  {
+    "class": "wf-band-aid",
+    "name": "band-aid"
+  },
+  {
+    "class": "wf-bar-chart",
+    "name": "bar-chart"
+  },
+  {
+    "class": "wf-bar-chart-alt",
+    "name": "bar-chart-alt"
+  },
+  {
+    "class": "wf-bar-chart-alt-2",
+    "name": "bar-chart-alt-2"
+  },
+  {
+    "class": "wf-bar-chart-square",
+    "name": "bar-chart-square"
+  },
+  {
+    "class": "wf-barcode",
+    "name": "barcode"
+  },
+  {
+    "class": "wf-barcode-reader",
+    "name": "barcode-reader"
+  },
+  {
+    "class": "wf-baseball",
+    "name": "baseball"
+  },
+  {
+    "class": "wf-basket",
+    "name": "basket"
+  },
+  {
+    "class": "wf-basketball",
+    "name": "basketball"
+  },
+  {
+    "class": "wf-bath",
+    "name": "bath"
+  },
+  {
+    "class": "wf-battery",
+    "name": "battery"
+  },
+  {
+    "class": "wf-bed",
+    "name": "bed"
+  },
+  {
+    "class": "wf-been-here",
+    "name": "been-here"
+  },
+  {
+    "class": "wf-beer",
+    "name": "beer"
+  },
+  {
+    "class": "wf-behance",
+    "name": "behance"
+  },
+  {
+    "class": "wf-bell",
+    "name": "bell"
+  },
+  {
+    "class": "wf-bell-minus",
+    "name": "bell-minus"
+  },
+  {
+    "class": "wf-bell-off",
+    "name": "bell-off"
+  },
+  {
+    "class": "wf-bell-plus",
+    "name": "bell-plus"
+  },
+  {
+    "class": "wf-bible",
+    "name": "bible"
+  },
+  {
+    "class": "wf-bing",
+    "name": "bing"
+  },
+  {
+    "class": "wf-bitcoin",
+    "name": "bitcoin"
+  },
+  {
+    "class": "wf-blanket",
+    "name": "blanket"
+  },
+  {
+    "class": "wf-blender",
+    "name": "blender"
+  },
+  {
+    "class": "wf-block",
+    "name": "block"
+  },
+  {
+    "class": "wf-blogger",
+    "name": "blogger"
+  },
+  {
+    "class": "wf-bluetooth",
+    "name": "bluetooth"
+  },
+  {
+    "class": "wf-body",
+    "name": "body"
+  },
+  {
+    "class": "wf-bold",
+    "name": "bold"
+  },
+  {
+    "class": "wf-bolt-circle",
+    "name": "bolt-circle"
+  },
+  {
+    "class": "wf-bomb",
+    "name": "bomb"
+  },
+  {
+    "class": "wf-bone",
+    "name": "bone"
+  },
+  {
+    "class": "wf-bong",
+    "name": "bong"
+  },
+  {
+    "class": "wf-book",
+    "name": "book"
+  },
+  {
+    "class": "wf-book-add",
+    "name": "book-add"
+  },
+  {
+    "class": "wf-book-alt",
+    "name": "book-alt"
+  },
+  {
+    "class": "wf-book-bookmark",
+    "name": "book-bookmark"
+  },
+  {
+    "class": "wf-book-content",
+    "name": "book-content"
+  },
+  {
+    "class": "wf-book-heart",
+    "name": "book-heart"
+  },
+  {
+    "class": "wf-book-open",
+    "name": "book-open"
+  },
+  {
+    "class": "wf-book-reader",
+    "name": "book-reader"
+  },
+  {
+    "class": "wf-bookmark",
+    "name": "bookmark"
+  },
+  {
+    "class": "wf-bookmark-alt",
+    "name": "bookmark-alt"
+  },
+  {
+    "class": "wf-bookmark-alt-minus",
+    "name": "bookmark-alt-minus"
+  },
+  {
+    "class": "wf-bookmark-alt-plus",
+    "name": "bookmark-alt-plus"
+  },
+  {
+    "class": "wf-bookmark-heart",
+    "name": "bookmark-heart"
+  },
+  {
+    "class": "wf-bookmark-minus",
+    "name": "bookmark-minus"
+  },
+  {
+    "class": "wf-bookmark-plus",
+    "name": "bookmark-plus"
+  },
+  {
+    "class": "wf-bookmarks",
+    "name": "bookmarks"
+  },
+  {
+    "class": "wf-bootstrap",
+    "name": "bootstrap"
+  },
+  {
+    "class": "wf-border-all",
+    "name": "border-all"
+  },
+  {
+    "class": "wf-border-bottom",
+    "name": "border-bottom"
+  },
+  {
+    "class": "wf-border-inner",
+    "name": "border-inner"
+  },
+  {
+    "class": "wf-border-left",
+    "name": "border-left"
+  },
+  {
+    "class": "wf-border-none",
+    "name": "border-none"
+  },
+  {
+    "class": "wf-border-outer",
+    "name": "border-outer"
+  },
+  {
+    "class": "wf-border-radius",
+    "name": "border-radius"
+  },
+  {
+    "class": "wf-border-right",
+    "name": "border-right"
+  },
+  {
+    "class": "wf-border-top",
+    "name": "border-top"
+  },
+  {
+    "class": "wf-bot",
+    "name": "bot"
+  },
+  {
+    "class": "wf-bowl-hot",
+    "name": "bowl-hot"
+  },
+  {
+    "class": "wf-bowl-rice",
+    "name": "bowl-rice"
+  },
+  {
+    "class": "wf-bowling-ball",
+    "name": "bowling-ball"
+  },
+  {
+    "class": "wf-box",
+    "name": "box"
+  },
+  {
+    "class": "wf-bracket",
+    "name": "bracket"
+  },
+  {
+    "class": "wf-braille",
+    "name": "braille"
+  },
+  {
+    "class": "wf-brain",
+    "name": "brain"
+  },
+  {
+    "class": "wf-briefcase",
+    "name": "briefcase"
+  },
+  {
+    "class": "wf-briefcase-alt",
+    "name": "briefcase-alt"
+  },
+  {
+    "class": "wf-briefcase-alt-2",
+    "name": "briefcase-alt-2"
+  },
+  {
+    "class": "wf-brightness",
+    "name": "brightness"
+  },
+  {
+    "class": "wf-brightness-half",
+    "name": "brightness-half"
+  },
+  {
+    "class": "wf-broadcast",
+    "name": "broadcast"
+  },
+  {
+    "class": "wf-brush",
+    "name": "brush"
+  },
+  {
+    "class": "wf-brush-alt",
+    "name": "brush-alt"
+  },
+  {
+    "class": "wf-bug",
+    "name": "bug"
+  },
+  {
+    "class": "wf-bug-alt",
+    "name": "bug-alt"
+  },
+  {
+    "class": "wf-building",
+    "name": "building"
+  },
+  {
+    "class": "wf-building-house",
+    "name": "building-house"
+  },
+  {
+    "class": "wf-buildings",
+    "name": "buildings"
+  },
+  {
+    "class": "wf-bulb",
+    "name": "bulb"
+  },
+  {
+    "class": "wf-bullseye",
+    "name": "bullseye"
+  },
+  {
+    "class": "wf-buoy",
+    "name": "buoy"
+  },
+  {
+    "class": "wf-bus",
+    "name": "bus"
+  },
+  {
+    "class": "wf-bus-school",
+    "name": "bus-school"
+  },
+  {
+    "class": "wf-c-plus-plus",
+    "name": "c-plus-plus"
+  },
+  {
+    "class": "wf-cabinet",
+    "name": "cabinet"
+  },
+  {
+    "class": "wf-cable-car",
+    "name": "cable-car"
+  },
+  {
+    "class": "wf-cake",
+    "name": "cake"
+  },
+  {
+    "class": "wf-calculator",
+    "name": "calculator"
+  },
+  {
+    "class": "wf-calendar",
+    "name": "calendar"
+  },
+  {
+    "class": "wf-calendar-alt",
+    "name": "calendar-alt"
+  },
+  {
+    "class": "wf-calendar-check",
+    "name": "calendar-check"
+  },
+  {
+    "class": "wf-calendar-edit",
+    "name": "calendar-edit"
+  },
+  {
+    "class": "wf-calendar-event",
+    "name": "calendar-event"
+  },
+  {
+    "class": "wf-calendar-exclamation",
+    "name": "calendar-exclamation"
+  },
+  {
+    "class": "wf-calendar-heart",
+    "name": "calendar-heart"
+  },
+  {
+    "class": "wf-calendar-minus",
+    "name": "calendar-minus"
+  },
+  {
+    "class": "wf-calendar-plus",
+    "name": "calendar-plus"
+  },
+  {
+    "class": "wf-calendar-star",
+    "name": "calendar-star"
+  },
+  {
+    "class": "wf-calendar-week",
+    "name": "calendar-week"
+  },
+  {
+    "class": "wf-calendar-x",
+    "name": "calendar-x"
+  },
+  {
+    "class": "wf-camera",
+    "name": "camera"
+  },
+  {
+    "class": "wf-camera-home",
+    "name": "camera-home"
+  },
+  {
+    "class": "wf-camera-movie",
+    "name": "camera-movie"
+  },
+  {
+    "class": "wf-camera-off",
+    "name": "camera-off"
+  },
+  {
+    "class": "wf-candles",
+    "name": "candles"
+  },
+  {
+    "class": "wf-capsule",
+    "name": "capsule"
+  },
+  {
+    "class": "wf-captions",
+    "name": "captions"
+  },
+  {
+    "class": "wf-car",
+    "name": "car"
+  },
+  {
+    "class": "wf-card",
+    "name": "card"
+  },
+  {
+    "class": "wf-caret-down",
+    "name": "caret-down"
+  },
+  {
+    "class": "wf-caret-down-circle",
+    "name": "caret-down-circle"
+  },
+  {
+    "class": "wf-caret-down-square",
+    "name": "caret-down-square"
+  },
+  {
+    "class": "wf-caret-left",
+    "name": "caret-left"
+  },
+  {
+    "class": "wf-caret-left-circle",
+    "name": "caret-left-circle"
+  },
+  {
+    "class": "wf-caret-left-square",
+    "name": "caret-left-square"
+  },
+  {
+    "class": "wf-caret-right",
+    "name": "caret-right"
+  },
+  {
+    "class": "wf-caret-right-circle",
+    "name": "caret-right-circle"
+  },
+  {
+    "class": "wf-caret-right-square",
+    "name": "caret-right-square"
+  },
+  {
+    "class": "wf-caret-up",
+    "name": "caret-up"
+  },
+  {
+    "class": "wf-caret-up-circle",
+    "name": "caret-up-circle"
+  },
+  {
+    "class": "wf-caret-up-square",
+    "name": "caret-up-square"
+  },
+  {
+    "class": "wf-carousel",
+    "name": "carousel"
+  },
+  {
+    "class": "wf-cart",
+    "name": "cart"
+  },
+  {
+    "class": "wf-cart-add",
+    "name": "cart-add"
+  },
+  {
+    "class": "wf-cart-alt",
+    "name": "cart-alt"
+  },
+  {
+    "class": "wf-cart-download",
+    "name": "cart-download"
+  },
+  {
+    "class": "wf-cast",
+    "name": "cast"
+  },
+  {
+    "class": "wf-category",
+    "name": "category"
+  },
+  {
+    "class": "wf-category-alt",
+    "name": "category-alt"
+  },
+  {
+    "class": "wf-cctv",
+    "name": "cctv"
+  },
+  {
+    "class": "wf-certification",
+    "name": "certification"
+  },
+  {
+    "class": "wf-chair",
+    "name": "chair"
+  },
+  {
+    "class": "wf-chalkboard",
+    "name": "chalkboard"
+  },
+  {
+    "class": "wf-chart",
+    "name": "chart"
+  },
+  {
+    "class": "wf-chat",
+    "name": "chat"
+  },
+  {
+    "class": "wf-check",
+    "name": "check"
+  },
+  {
+    "class": "wf-check-circle",
+    "name": "check-circle"
+  },
+  {
+    "class": "wf-check-double",
+    "name": "check-double"
+  },
+  {
+    "class": "wf-check-shield",
+    "name": "check-shield"
+  },
+  {
+    "class": "wf-check-square",
+    "name": "check-square"
+  },
+  {
+    "class": "wf-checkbox",
+    "name": "checkbox"
+  },
+  {
+    "class": "wf-checkbox-checked",
+    "name": "checkbox-checked"
+  },
+  {
+    "class": "wf-checkbox-minus",
+    "name": "checkbox-minus"
+  },
+  {
+    "class": "wf-checkbox-square",
+    "name": "checkbox-square"
+  },
+  {
+    "class": "wf-cheese",
+    "name": "cheese"
+  },
+  {
+    "class": "wf-chevron-down",
+    "name": "chevron-down"
+  },
+  {
+    "class": "wf-chevron-down-circle",
+    "name": "chevron-down-circle"
+  },
+  {
+    "class": "wf-chevron-down-square",
+    "name": "chevron-down-square"
+  },
+  {
+    "class": "wf-chevron-left",
+    "name": "chevron-left"
+  },
+  {
+    "class": "wf-chevron-left-circle",
+    "name": "chevron-left-circle"
+  },
+  {
+    "class": "wf-chevron-left-square",
+    "name": "chevron-left-square"
+  },
+  {
+    "class": "wf-chevron-right",
+    "name": "chevron-right"
+  },
+  {
+    "class": "wf-chevron-right-circle",
+    "name": "chevron-right-circle"
+  },
+  {
+    "class": "wf-chevron-right-square",
+    "name": "chevron-right-square"
+  },
+  {
+    "class": "wf-chevron-up",
+    "name": "chevron-up"
+  },
+  {
+    "class": "wf-chevron-up-circle",
+    "name": "chevron-up-circle"
+  },
+  {
+    "class": "wf-chevron-up-square",
+    "name": "chevron-up-square"
+  },
+  {
+    "class": "wf-chevrons-down",
+    "name": "chevrons-down"
+  },
+  {
+    "class": "wf-chevrons-left",
+    "name": "chevrons-left"
+  },
+  {
+    "class": "wf-chevrons-right",
+    "name": "chevrons-right"
+  },
+  {
+    "class": "wf-chevrons-up",
+    "name": "chevrons-up"
+  },
+  {
+    "class": "wf-child",
+    "name": "child"
+  },
+  {
+    "class": "wf-chip",
+    "name": "chip"
+  },
+  {
+    "class": "wf-chrome",
+    "name": "chrome"
+  },
+  {
+    "class": "wf-church",
+    "name": "church"
+  },
+  {
+    "class": "wf-circle",
+    "name": "circle"
+  },
+  {
+    "class": "wf-circle-half",
+    "name": "circle-half"
+  },
+  {
+    "class": "wf-circle-quarter",
+    "name": "circle-quarter"
+  },
+  {
+    "class": "wf-circle-three-quarter",
+    "name": "circle-three-quarter"
+  },
+  {
+    "class": "wf-clinic",
+    "name": "clinic"
+  },
+  {
+    "class": "wf-clipboard",
+    "name": "clipboard"
+  },
+  {
+    "class": "wf-closet",
+    "name": "closet"
+  },
+  {
+    "class": "wf-cloud",
+    "name": "cloud"
+  },
+  {
+    "class": "wf-cloud-download",
+    "name": "cloud-download"
+  },
+  {
+    "class": "wf-cloud-drizzle",
+    "name": "cloud-drizzle"
+  },
+  {
+    "class": "wf-cloud-light-rain",
+    "name": "cloud-light-rain"
+  },
+  {
+    "class": "wf-cloud-lightning",
+    "name": "cloud-lightning"
+  },
+  {
+    "class": "wf-cloud-rain",
+    "name": "cloud-rain"
+  },
+  {
+    "class": "wf-cloud-snow",
+    "name": "cloud-snow"
+  },
+  {
+    "class": "wf-cloud-upload",
+    "name": "cloud-upload"
+  },
+  {
+    "class": "wf-code",
+    "name": "code"
+  },
+  {
+    "class": "wf-code-alt",
+    "name": "code-alt"
+  },
+  {
+    "class": "wf-code-block",
+    "name": "code-block"
+  },
+  {
+    "class": "wf-code-curly",
+    "name": "code-curly"
+  },
+  {
+    "class": "wf-codepen",
+    "name": "codepen"
+  },
+  {
+    "class": "wf-coffee",
+    "name": "coffee"
+  },
+  {
+    "class": "wf-coffee-togo",
+    "name": "coffee-togo"
+  },
+  {
+    "class": "wf-cog",
+    "name": "cog"
+  },
+  {
+    "class": "wf-coin",
+    "name": "coin"
+  },
+  {
+    "class": "wf-coin-stack",
+    "name": "coin-stack"
+  },
+  {
+    "class": "wf-collapse",
+    "name": "collapse"
+  },
+  {
+    "class": "wf-collapse-alt",
+    "name": "collapse-alt"
+  },
+  {
+    "class": "wf-collapse-horizontal",
+    "name": "collapse-horizontal"
+  },
+  {
+    "class": "wf-collapse-vertical",
+    "name": "collapse-vertical"
+  },
+  {
+    "class": "wf-collection",
+    "name": "collection"
+  },
+  {
+    "class": "wf-color",
+    "name": "color"
+  },
+  {
+    "class": "wf-color-fill",
+    "name": "color-fill"
+  },
+  {
+    "class": "wf-columns",
+    "name": "columns"
+  },
+  {
+    "class": "wf-command",
+    "name": "command"
+  },
+  {
+    "class": "wf-comment",
+    "name": "comment"
+  },
+  {
+    "class": "wf-comment-add",
+    "name": "comment-add"
+  },
+  {
+    "class": "wf-comment-check",
+    "name": "comment-check"
+  },
+  {
+    "class": "wf-comment-detail",
+    "name": "comment-detail"
+  },
+  {
+    "class": "wf-comment-dots",
+    "name": "comment-dots"
+  },
+  {
+    "class": "wf-comment-edit",
+    "name": "comment-edit"
+  },
+  {
+    "class": "wf-comment-error",
+    "name": "comment-error"
+  },
+  {
+    "class": "wf-comment-minus",
+    "name": "comment-minus"
+  },
+  {
+    "class": "wf-comment-x",
+    "name": "comment-x"
+  },
+  {
+    "class": "wf-compass",
+    "name": "compass"
+  },
+  {
+    "class": "wf-confused",
+    "name": "confused"
+  },
+  {
+    "class": "wf-conversation",
+    "name": "conversation"
+  },
+  {
+    "class": "wf-cookie",
+    "name": "cookie"
+  },
+  {
+    "class": "wf-cool",
+    "name": "cool"
+  },
+  {
+    "class": "wf-copy",
+    "name": "copy"
+  },
+  {
+    "class": "wf-copy-alt",
+    "name": "copy-alt"
+  },
+  {
+    "class": "wf-copyright",
+    "name": "copyright"
+  },
+  {
+    "class": "wf-creative-commons",
+    "name": "creative-commons"
+  },
+  {
+    "class": "wf-credit-card",
+    "name": "credit-card"
+  },
+  {
+    "class": "wf-credit-card-alt",
+    "name": "credit-card-alt"
+  },
+  {
+    "class": "wf-credit-card-front",
+    "name": "credit-card-front"
+  },
+  {
+    "class": "wf-cricket-ball",
+    "name": "cricket-ball"
+  },
+  {
+    "class": "wf-crop",
+    "name": "crop"
+  },
+  {
+    "class": "wf-cross",
+    "name": "cross"
+  },
+  {
+    "class": "wf-crosshair",
+    "name": "crosshair"
+  },
+  {
+    "class": "wf-crown",
+    "name": "crown"
+  },
+  {
+    "class": "wf-css3",
+    "name": "css3"
+  },
+  {
+    "class": "wf-cube",
+    "name": "cube"
+  },
+  {
+    "class": "wf-cube-alt",
+    "name": "cube-alt"
+  },
+  {
+    "class": "wf-cuboid",
+    "name": "cuboid"
+  },
+  {
+    "class": "wf-current-location",
+    "name": "current-location"
+  },
+  {
+    "class": "wf-customize",
+    "name": "customize"
+  },
+  {
+    "class": "wf-cut",
+    "name": "cut"
+  },
+  {
+    "class": "wf-cycling",
+    "name": "cycling"
+  },
+  {
+    "class": "wf-cylinder",
+    "name": "cylinder"
+  },
+  {
+    "class": "wf-dailymotion",
+    "name": "dailymotion"
+  },
+  {
+    "class": "wf-data",
+    "name": "data"
+  },
+  {
+    "class": "wf-deezer",
+    "name": "deezer"
+  },
+  {
+    "class": "wf-desktop",
+    "name": "desktop"
+  },
+  {
+    "class": "wf-detail",
+    "name": "detail"
+  },
+  {
+    "class": "wf-dev-to",
+    "name": "dev-to"
+  },
+  {
+    "class": "wf-deviantart",
+    "name": "deviantart"
+  },
+  {
+    "class": "wf-devices",
+    "name": "devices"
+  },
+  {
+    "class": "wf-dialpad",
+    "name": "dialpad"
+  },
+  {
+    "class": "wf-dialpad-alt",
+    "name": "dialpad-alt"
+  },
+  {
+    "class": "wf-diamond",
+    "name": "diamond"
+  },
+  {
+    "class": "wf-dice-1",
+    "name": "dice-1"
+  },
+  {
+    "class": "wf-dice-2",
+    "name": "dice-2"
+  },
+  {
+    "class": "wf-dice-3",
+    "name": "dice-3"
+  },
+  {
+    "class": "wf-dice-4",
+    "name": "dice-4"
+  },
+  {
+    "class": "wf-dice-5",
+    "name": "dice-5"
+  },
+  {
+    "class": "wf-dice-6",
+    "name": "dice-6"
+  },
+  {
+    "class": "wf-digg",
+    "name": "digg"
+  },
+  {
+    "class": "wf-digitalocean",
+    "name": "digitalocean"
+  },
+  {
+    "class": "wf-directions",
+    "name": "directions"
+  },
+  {
+    "class": "wf-disc",
+    "name": "disc"
+  },
+  {
+    "class": "wf-discord",
+    "name": "discord"
+  },
+  {
+    "class": "wf-discord-alt",
+    "name": "discord-alt"
+  },
+  {
+    "class": "wf-discourse",
+    "name": "discourse"
+  },
+  {
+    "class": "wf-dish",
+    "name": "dish"
+  },
+  {
+    "class": "wf-dislike",
+    "name": "dislike"
+  },
+  {
+    "class": "wf-dizzy",
+    "name": "dizzy"
+  },
+  {
+    "class": "wf-django",
+    "name": "django"
+  },
+  {
+    "class": "wf-dna",
+    "name": "dna"
+  },
+  {
+    "class": "wf-dock-bottom",
+    "name": "dock-bottom"
+  },
+  {
+    "class": "wf-dock-left",
+    "name": "dock-left"
+  },
+  {
+    "class": "wf-dock-right",
+    "name": "dock-right"
+  },
+  {
+    "class": "wf-dock-top",
+    "name": "dock-top"
+  },
+  {
+    "class": "wf-docker",
+    "name": "docker"
+  },
+  {
+    "class": "wf-dollar",
+    "name": "dollar"
+  },
+  {
+    "class": "wf-dollar-circle",
+    "name": "dollar-circle"
+  },
+  {
+    "class": "wf-donate-blood",
+    "name": "donate-blood"
+  },
+  {
+    "class": "wf-donate-heart",
+    "name": "donate-heart"
+  },
+  {
+    "class": "wf-door-open",
+    "name": "door-open"
+  },
+  {
+    "class": "wf-dots-horizontal",
+    "name": "dots-horizontal"
+  },
+  {
+    "class": "wf-dots-horizontal-rounded",
+    "name": "dots-horizontal-rounded"
+  },
+  {
+    "class": "wf-dots-vertical",
+    "name": "dots-vertical"
+  },
+  {
+    "class": "wf-dots-vertical-rounded",
+    "name": "dots-vertical-rounded"
+  },
+  {
+    "class": "wf-doughnut-chart",
+    "name": "doughnut-chart"
+  },
+  {
+    "class": "wf-down-arrow",
+    "name": "down-arrow"
+  },
+  {
+    "class": "wf-down-arrow-alt",
+    "name": "down-arrow-alt"
+  },
+  {
+    "class": "wf-down-arrow-circle",
+    "name": "down-arrow-circle"
+  },
+  {
+    "class": "wf-download",
+    "name": "download"
+  },
+  {
+    "class": "wf-downvote",
+    "name": "downvote"
+  },
+  {
+    "class": "wf-dribbble",
+    "name": "dribbble"
+  },
+  {
+    "class": "wf-drink",
+    "name": "drink"
+  },
+  {
+    "class": "wf-dropbox",
+    "name": "dropbox"
+  },
+  {
+    "class": "wf-droplet",
+    "name": "droplet"
+  },
+  {
+    "class": "wf-drupal",
+    "name": "drupal"
+  },
+  {
+    "class": "wf-dumbbell",
+    "name": "dumbbell"
+  },
+  {
+    "class": "wf-duplicate",
+    "name": "duplicate"
+  },
+  {
+    "class": "wf-ebay",
+    "name": "ebay"
+  },
+  {
+    "class": "wf-edge",
+    "name": "edge"
+  },
+  {
+    "class": "wf-edit",
+    "name": "edit"
+  },
+  {
+    "class": "wf-edit-alt",
+    "name": "edit-alt"
+  },
+  {
+    "class": "wf-envelope",
+    "name": "envelope"
+  },
+  {
+    "class": "wf-envelope-open",
+    "name": "envelope-open"
+  },
+  {
+    "class": "wf-equalizer",
+    "name": "equalizer"
+  },
+  {
+    "class": "wf-eraser",
+    "name": "eraser"
+  },
+  {
+    "class": "wf-error",
+    "name": "error"
+  },
+  {
+    "class": "wf-error-alt",
+    "name": "error-alt"
+  },
+  {
+    "class": "wf-error-circle",
+    "name": "error-circle"
+  },
+  {
+    "class": "wf-etsy",
+    "name": "etsy"
+  },
+  {
+    "class": "wf-euro",
+    "name": "euro"
+  },
+  {
+    "class": "wf-exclude",
+    "name": "exclude"
+  },
+  {
+    "class": "wf-exit",
+    "name": "exit"
+  },
+  {
+    "class": "wf-exit-fullscreen",
+    "name": "exit-fullscreen"
+  },
+  {
+    "class": "wf-expand",
+    "name": "expand"
+  },
+  {
+    "class": "wf-expand-alt",
+    "name": "expand-alt"
+  },
+  {
+    "class": "wf-expand-horizontal",
+    "name": "expand-horizontal"
+  },
+  {
+    "class": "wf-expand-vertical",
+    "name": "expand-vertical"
+  },
+  {
+    "class": "wf-export",
+    "name": "export"
+  },
+  {
+    "class": "wf-extension",
+    "name": "extension"
+  },
+  {
+    "class": "wf-face",
+    "name": "face"
+  },
+  {
+    "class": "wf-facebook",
+    "name": "facebook"
+  },
+  {
+    "class": "wf-facebook-circle",
+    "name": "facebook-circle"
+  },
+  {
+    "class": "wf-facebook-square",
+    "name": "facebook-square"
+  },
+  {
+    "class": "wf-fast-forward",
+    "name": "fast-forward"
+  },
+  {
+    "class": "wf-fast-forward-circle",
+    "name": "fast-forward-circle"
+  },
+  {
+    "class": "wf-female",
+    "name": "female"
+  },
+  {
+    "class": "wf-female-sign",
+    "name": "female-sign"
+  },
+  {
+    "class": "wf-figma",
+    "name": "figma"
+  },
+  {
+    "class": "wf-file",
+    "name": "file"
+  },
+  {
+    "class": "wf-file-blank",
+    "name": "file-blank"
+  },
+  {
+    "class": "wf-file-find",
+    "name": "file-find"
+  },
+  {
+    "class": "wf-film",
+    "name": "film"
+  },
+  {
+    "class": "wf-filter",
+    "name": "filter"
+  },
+  {
+    "class": "wf-filter-alt",
+    "name": "filter-alt"
+  },
+  {
+    "class": "wf-fingerprint",
+    "name": "fingerprint"
+  },
+  {
+    "class": "wf-firebase",
+    "name": "firebase"
+  },
+  {
+    "class": "wf-firefox",
+    "name": "firefox"
+  },
+  {
+    "class": "wf-first-aid",
+    "name": "first-aid"
+  },
+  {
+    "class": "wf-first-page",
+    "name": "first-page"
+  },
+  {
+    "class": "wf-flag",
+    "name": "flag"
+  },
+  {
+    "class": "wf-flask",
+    "name": "flask"
+  },
+  {
+    "class": "wf-flickr",
+    "name": "flickr"
+  },
+  {
+    "class": "wf-flickr-square",
+    "name": "flickr-square"
+  },
+  {
+    "class": "wf-flutter",
+    "name": "flutter"
+  },
+  {
+    "class": "wf-folder",
+    "name": "folder"
+  },
+  {
+    "class": "wf-folder-minus",
+    "name": "folder-minus"
+  },
+  {
+    "class": "wf-folder-open",
+    "name": "folder-open"
+  },
+  {
+    "class": "wf-folder-plus",
+    "name": "folder-plus"
+  },
+  {
+    "class": "wf-font",
+    "name": "font"
+  },
+  {
+    "class": "wf-font-color",
+    "name": "font-color"
+  },
+  {
+    "class": "wf-font-family",
+    "name": "font-family"
+  },
+  {
+    "class": "wf-font-size",
+    "name": "font-size"
+  },
+  {
+    "class": "wf-food-menu",
+    "name": "food-menu"
+  },
+  {
+    "class": "wf-food-tag",
+    "name": "food-tag"
+  },
+  {
+    "class": "wf-football",
+    "name": "football"
+  },
+  {
+    "class": "wf-fork",
+    "name": "fork"
+  },
+  {
+    "class": "wf-foursquare",
+    "name": "foursquare"
+  },
+  {
+    "class": "wf-fridge",
+    "name": "fridge"
+  },
+  {
+    "class": "wf-fullscreen",
+    "name": "fullscreen"
+  },
+  {
+    "class": "wf-game",
+    "name": "game"
+  },
+  {
+    "class": "wf-gas-pump",
+    "name": "gas-pump"
+  },
+  {
+    "class": "wf-ghost",
+    "name": "ghost"
+  },
+  {
+    "class": "wf-gift",
+    "name": "gift"
+  },
+  {
+    "class": "wf-git",
+    "name": "git"
+  },
+  {
+    "class": "wf-git-branch",
+    "name": "git-branch"
+  },
+  {
+    "class": "wf-git-commit",
+    "name": "git-commit"
+  },
+  {
+    "class": "wf-git-compare",
+    "name": "git-compare"
+  },
+  {
+    "class": "wf-git-merge",
+    "name": "git-merge"
+  },
+  {
+    "class": "wf-git-pull-request",
+    "name": "git-pull-request"
+  },
+  {
+    "class": "wf-git-repo-forked",
+    "name": "git-repo-forked"
+  },
+  {
+    "class": "wf-github",
+    "name": "github"
+  },
+  {
+    "class": "wf-gitlab",
+    "name": "gitlab"
+  },
+  {
+    "class": "wf-glasses",
+    "name": "glasses"
+  },
+  {
+    "class": "wf-glasses-alt",
+    "name": "glasses-alt"
+  },
+  {
+    "class": "wf-globe",
+    "name": "globe"
+  },
+  {
+    "class": "wf-globe-alt",
+    "name": "globe-alt"
+  },
+  {
+    "class": "wf-gmail",
+    "name": "gmail"
+  },
+  {
+    "class": "wf-go-lang",
+    "name": "go-lang"
+  },
+  {
+    "class": "wf-google",
+    "name": "google"
+  },
+  {
+    "class": "wf-google-cloud",
+    "name": "google-cloud"
+  },
+  {
+    "class": "wf-google-plus",
+    "name": "google-plus"
+  },
+  {
+    "class": "wf-google-plus-circle",
+    "name": "google-plus-circle"
+  },
+  {
+    "class": "wf-graphql",
+    "name": "graphql"
+  },
+  {
+    "class": "wf-grid",
+    "name": "grid"
+  },
+  {
+    "class": "wf-grid-alt",
+    "name": "grid-alt"
+  },
+  {
+    "class": "wf-grid-horizontal",
+    "name": "grid-horizontal"
+  },
+  {
+    "class": "wf-grid-small",
+    "name": "grid-small"
+  },
+  {
+    "class": "wf-grid-vertical",
+    "name": "grid-vertical"
+  },
+  {
+    "class": "wf-group",
+    "name": "group"
+  },
+  {
+    "class": "wf-handicap",
+    "name": "handicap"
+  },
+  {
+    "class": "wf-happy",
+    "name": "happy"
+  },
+  {
+    "class": "wf-happy-alt",
+    "name": "happy-alt"
+  },
+  {
+    "class": "wf-happy-beaming",
+    "name": "happy-beaming"
+  },
+  {
+    "class": "wf-happy-heart-eyes",
+    "name": "happy-heart-eyes"
+  },
+  {
+    "class": "wf-hard-hat",
+    "name": "hard-hat"
+  },
+  {
+    "class": "wf-hash",
+    "name": "hash"
+  },
+  {
+    "class": "wf-hdd",
+    "name": "hdd"
+  },
+  {
+    "class": "wf-heading",
+    "name": "heading"
+  },
+  {
+    "class": "wf-headphone",
+    "name": "headphone"
+  },
+  {
+    "class": "wf-health",
+    "name": "health"
+  },
+  {
+    "class": "wf-heart",
+    "name": "heart"
+  },
+  {
+    "class": "wf-heart-circle",
+    "name": "heart-circle"
+  },
+  {
+    "class": "wf-heart-square",
+    "name": "heart-square"
+  },
+  {
+    "class": "wf-help-circle",
+    "name": "help-circle"
+  },
+  {
+    "class": "wf-heroku",
+    "name": "heroku"
+  },
+  {
+    "class": "wf-hide",
+    "name": "hide"
+  },
+  {
+    "class": "wf-highlight",
+    "name": "highlight"
+  },
+  {
+    "class": "wf-history",
+    "name": "history"
+  },
+  {
+    "class": "wf-hive",
+    "name": "hive"
+  },
+  {
+    "class": "wf-home",
+    "name": "home"
+  },
+  {
+    "class": "wf-home-alt",
+    "name": "home-alt"
+  },
+  {
+    "class": "wf-home-alt-2",
+    "name": "home-alt-2"
+  },
+  {
+    "class": "wf-home-circle",
+    "name": "home-circle"
+  },
+  {
+    "class": "wf-home-heart",
+    "name": "home-heart"
+  },
+  {
+    "class": "wf-home-smile",
+    "name": "home-smile"
+  },
+  {
+    "class": "wf-horizontal-center",
+    "name": "horizontal-center"
+  },
+  {
+    "class": "wf-horizontal-left",
+    "name": "horizontal-left"
+  },
+  {
+    "class": "wf-horizontal-right",
+    "name": "horizontal-right"
+  },
+  {
+    "class": "wf-hotel",
+    "name": "hotel"
+  },
+  {
+    "class": "wf-hourglass",
+    "name": "hourglass"
+  },
+  {
+    "class": "wf-html5",
+    "name": "html5"
+  },
+  {
+    "class": "wf-id-card",
+    "name": "id-card"
+  },
+  {
+    "class": "wf-image",
+    "name": "image"
+  },
+  {
+    "class": "wf-image-add",
+    "name": "image-add"
+  },
+  {
+    "class": "wf-image-alt",
+    "name": "image-alt"
+  },
+  {
+    "class": "wf-images",
+    "name": "images"
+  },
+  {
+    "class": "wf-imdb",
+    "name": "imdb"
+  },
+  {
+    "class": "wf-import",
+    "name": "import"
+  },
+  {
+    "class": "wf-infinite",
+    "name": "infinite"
+  },
+  {
+    "class": "wf-info-circle",
+    "name": "info-circle"
+  },
+  {
+    "class": "wf-info-square",
+    "name": "info-square"
+  },
+  {
+    "class": "wf-injection",
+    "name": "injection"
+  },
+  {
+    "class": "wf-instagram",
+    "name": "instagram"
+  },
+  {
+    "class": "wf-instagram-alt",
+    "name": "instagram-alt"
+  },
+  {
+    "class": "wf-internet-explorer",
+    "name": "internet-explorer"
+  },
+  {
+    "class": "wf-intersect",
+    "name": "intersect"
+  },
+  {
+    "class": "wf-invision",
+    "name": "invision"
+  },
+  {
+    "class": "wf-italic",
+    "name": "italic"
+  },
+  {
+    "class": "wf-java",
+    "name": "java"
+  },
+  {
+    "class": "wf-javascript",
+    "name": "javascript"
+  },
+  {
+    "class": "wf-joomla",
+    "name": "joomla"
+  },
+  {
+    "class": "wf-joystick",
+    "name": "joystick"
+  },
+  {
+    "class": "wf-joystick-alt",
+    "name": "joystick-alt"
+  },
+  {
+    "class": "wf-joystick-button",
+    "name": "joystick-button"
+  },
+  {
+    "class": "wf-jquery",
+    "name": "jquery"
+  },
+  {
+    "class": "wf-jsfiddle",
+    "name": "jsfiddle"
+  },
+  {
+    "class": "wf-key",
+    "name": "key"
+  },
+  {
+    "class": "wf-kickstarter",
+    "name": "kickstarter"
+  },
+  {
+    "class": "wf-knife",
+    "name": "knife"
+  },
+  {
+    "class": "wf-kubernetes",
+    "name": "kubernetes"
+  },
+  {
+    "class": "wf-label",
+    "name": "label"
+  },
+  {
+    "class": "wf-landscape",
+    "name": "landscape"
+  },
+  {
+    "class": "wf-laptop",
+    "name": "laptop"
+  },
+  {
+    "class": "wf-last-page",
+    "name": "last-page"
+  },
+  {
+    "class": "wf-laugh",
+    "name": "laugh"
+  },
+  {
+    "class": "wf-layer",
+    "name": "layer"
+  },
+  {
+    "class": "wf-layer-minus",
+    "name": "layer-minus"
+  },
+  {
+    "class": "wf-layer-plus",
+    "name": "layer-plus"
+  },
+  {
+    "class": "wf-layout",
+    "name": "layout"
+  },
+  {
+    "class": "wf-leaf",
+    "name": "leaf"
+  },
+  {
+    "class": "wf-left-arrow",
+    "name": "left-arrow"
+  },
+  {
+    "class": "wf-left-arrow-alt",
+    "name": "left-arrow-alt"
+  },
+  {
+    "class": "wf-left-arrow-circle",
+    "name": "left-arrow-circle"
+  },
+  {
+    "class": "wf-left-down-arrow-circle",
+    "name": "left-down-arrow-circle"
+  },
+  {
+    "class": "wf-left-indent",
+    "name": "left-indent"
+  },
+  {
+    "class": "wf-left-top-arrow-circle",
+    "name": "left-top-arrow-circle"
+  },
+  {
+    "class": "wf-lemon",
+    "name": "lemon"
+  },
+  {
+    "class": "wf-less",
+    "name": "less"
+  },
+  {
+    "class": "wf-library",
+    "name": "library"
+  },
+  {
+    "class": "wf-like",
+    "name": "like"
+  },
+  {
+    "class": "wf-line-chart",
+    "name": "line-chart"
+  },
+  {
+    "class": "wf-line-chart-down",
+    "name": "line-chart-down"
+  },
+  {
+    "class": "wf-link",
+    "name": "link"
+  },
+  {
+    "class": "wf-link-alt",
+    "name": "link-alt"
+  },
+  {
+    "class": "wf-link-external",
+    "name": "link-external"
+  },
+  {
+    "class": "wf-linkedin",
+    "name": "linkedin"
+  },
+  {
+    "class": "wf-linkedin-square",
+    "name": "linkedin-square"
+  },
+  {
+    "class": "wf-lira",
+    "name": "lira"
+  },
+  {
+    "class": "wf-list-check",
+    "name": "list-check"
+  },
+  {
+    "class": "wf-list-minus",
+    "name": "list-minus"
+  },
+  {
+    "class": "wf-list-ol",
+    "name": "list-ol"
+  },
+  {
+    "class": "wf-list-plus",
+    "name": "list-plus"
+  },
+  {
+    "class": "wf-list-ul",
+    "name": "list-ul"
+  },
+  {
+    "class": "wf-loader",
+    "name": "loader"
+  },
+  {
+    "class": "wf-loader-alt",
+    "name": "loader-alt"
+  },
+  {
+    "class": "wf-loader-circle",
+    "name": "loader-circle"
+  },
+  {
+    "class": "wf-location-plus",
+    "name": "location-plus"
+  },
+  {
+    "class": "wf-lock",
+    "name": "lock"
+  },
+  {
+    "class": "wf-lock-alt",
+    "name": "lock-alt"
+  },
+  {
+    "class": "wf-lock-open",
+    "name": "lock-open"
+  },
+  {
+    "class": "wf-lock-open-alt",
+    "name": "lock-open-alt"
+  },
+  {
+    "class": "wf-log-in",
+    "name": "log-in"
+  },
+  {
+    "class": "wf-log-in-circle",
+    "name": "log-in-circle"
+  },
+  {
+    "class": "wf-log-out",
+    "name": "log-out"
+  },
+  {
+    "class": "wf-log-out-circle",
+    "name": "log-out-circle"
+  },
+  {
+    "class": "wf-low-vision",
+    "name": "low-vision"
+  },
+  {
+    "class": "wf-magento",
+    "name": "magento"
+  },
+  {
+    "class": "wf-magnet",
+    "name": "magnet"
+  },
+  {
+    "class": "wf-mail-send",
+    "name": "mail-send"
+  },
+  {
+    "class": "wf-mailchimp",
+    "name": "mailchimp"
+  },
+  {
+    "class": "wf-male",
+    "name": "male"
+  },
+  {
+    "class": "wf-male-female",
+    "name": "male-female"
+  },
+  {
+    "class": "wf-male-sign",
+    "name": "male-sign"
+  },
+  {
+    "class": "wf-map",
+    "name": "map"
+  },
+  {
+    "class": "wf-map-alt",
+    "name": "map-alt"
+  },
+  {
+    "class": "wf-map-pin",
+    "name": "map-pin"
+  },
+  {
+    "class": "wf-markdown",
+    "name": "markdown"
+  },
+  {
+    "class": "wf-mask",
+    "name": "mask"
+  },
+  {
+    "class": "wf-mastercard",
+    "name": "mastercard"
+  },
+  {
+    "class": "wf-mastodon",
+    "name": "mastodon"
+  },
+  {
+    "class": "wf-math",
+    "name": "math"
+  },
+  {
+    "class": "wf-medal",
+    "name": "medal"
+  },
+  {
+    "class": "wf-medium",
+    "name": "medium"
+  },
+  {
+    "class": "wf-medium-old",
+    "name": "medium-old"
+  },
+  {
+    "class": "wf-medium-square",
+    "name": "medium-square"
+  },
+  {
+    "class": "wf-meh",
+    "name": "meh"
+  },
+  {
+    "class": "wf-meh-alt",
+    "name": "meh-alt"
+  },
+  {
+    "class": "wf-meh-blank",
+    "name": "meh-blank"
+  },
+  {
+    "class": "wf-memory-card",
+    "name": "memory-card"
+  },
+  {
+    "class": "wf-menu",
+    "name": "menu"
+  },
+  {
+    "class": "wf-menu-alt-left",
+    "name": "menu-alt-left"
+  },
+  {
+    "class": "wf-menu-alt-right",
+    "name": "menu-alt-right"
+  },
+  {
+    "class": "wf-merge",
+    "name": "merge"
+  },
+  {
+    "class": "wf-message",
+    "name": "message"
+  },
+  {
+    "class": "wf-message-add",
+    "name": "message-add"
+  },
+  {
+    "class": "wf-message-alt",
+    "name": "message-alt"
+  },
+  {
+    "class": "wf-message-alt-add",
+    "name": "message-alt-add"
+  },
+  {
+    "class": "wf-message-alt-check",
+    "name": "message-alt-check"
+  },
+  {
+    "class": "wf-message-alt-detail",
+    "name": "message-alt-detail"
+  },
+  {
+    "class": "wf-message-alt-dots",
+    "name": "message-alt-dots"
+  },
+  {
+    "class": "wf-message-alt-edit",
+    "name": "message-alt-edit"
+  },
+  {
+    "class": "wf-message-alt-error",
+    "name": "message-alt-error"
+  },
+  {
+    "class": "wf-message-alt-minus",
+    "name": "message-alt-minus"
+  },
+  {
+    "class": "wf-message-alt-x",
+    "name": "message-alt-x"
+  },
+  {
+    "class": "wf-message-check",
+    "name": "message-check"
+  },
+  {
+    "class": "wf-message-detail",
+    "name": "message-detail"
+  },
+  {
+    "class": "wf-message-dots",
+    "name": "message-dots"
+  },
+  {
+    "class": "wf-message-edit",
+    "name": "message-edit"
+  },
+  {
+    "class": "wf-message-error",
+    "name": "message-error"
+  },
+  {
+    "class": "wf-message-minus",
+    "name": "message-minus"
+  },
+  {
+    "class": "wf-message-rounded",
+    "name": "message-rounded"
+  },
+  {
+    "class": "wf-message-rounded-add",
+    "name": "message-rounded-add"
+  },
+  {
+    "class": "wf-message-rounded-check",
+    "name": "message-rounded-check"
+  },
+  {
+    "class": "wf-message-rounded-detail",
+    "name": "message-rounded-detail"
+  },
+  {
+    "class": "wf-message-rounded-dots",
+    "name": "message-rounded-dots"
+  },
+  {
+    "class": "wf-message-rounded-edit",
+    "name": "message-rounded-edit"
+  },
+  {
+    "class": "wf-message-rounded-error",
+    "name": "message-rounded-error"
+  },
+  {
+    "class": "wf-message-rounded-minus",
+    "name": "message-rounded-minus"
+  },
+  {
+    "class": "wf-message-rounded-x",
+    "name": "message-rounded-x"
+  },
+  {
+    "class": "wf-message-square",
+    "name": "message-square"
+  },
+  {
+    "class": "wf-message-square-add",
+    "name": "message-square-add"
+  },
+  {
+    "class": "wf-message-square-check",
+    "name": "message-square-check"
+  },
+  {
+    "class": "wf-message-square-detail",
+    "name": "message-square-detail"
+  },
+  {
+    "class": "wf-message-square-dots",
+    "name": "message-square-dots"
+  },
+  {
+    "class": "wf-message-square-edit",
+    "name": "message-square-edit"
+  },
+  {
+    "class": "wf-message-square-error",
+    "name": "message-square-error"
+  },
+  {
+    "class": "wf-message-square-minus",
+    "name": "message-square-minus"
+  },
+  {
+    "class": "wf-message-square-x",
+    "name": "message-square-x"
+  },
+  {
+    "class": "wf-message-x",
+    "name": "message-x"
+  },
+  {
+    "class": "wf-messenger",
+    "name": "messenger"
+  },
+  {
+    "class": "wf-meta",
+    "name": "meta"
+  },
+  {
+    "class": "wf-meteor",
+    "name": "meteor"
+  },
+  {
+    "class": "wf-microchip",
+    "name": "microchip"
+  },
+  {
+    "class": "wf-microphone",
+    "name": "microphone"
+  },
+  {
+    "class": "wf-microphone-off",
+    "name": "microphone-off"
+  },
+  {
+    "class": "wf-microsoft",
+    "name": "microsoft"
+  },
+  {
+    "class": "wf-microsoft-teams",
+    "name": "microsoft-teams"
+  },
+  {
+    "class": "wf-minus",
+    "name": "minus"
+  },
+  {
+    "class": "wf-minus-back",
+    "name": "minus-back"
+  },
+  {
+    "class": "wf-minus-circle",
+    "name": "minus-circle"
+  },
+  {
+    "class": "wf-minus-front",
+    "name": "minus-front"
+  },
+  {
+    "class": "wf-mobile",
+    "name": "mobile"
+  },
+  {
+    "class": "wf-mobile-alt",
+    "name": "mobile-alt"
+  },
+  {
+    "class": "wf-mobile-landscape",
+    "name": "mobile-landscape"
+  },
+  {
+    "class": "wf-mobile-vibration",
+    "name": "mobile-vibration"
+  },
+  {
+    "class": "wf-money",
+    "name": "money"
+  },
+  {
+    "class": "wf-money-withdraw",
+    "name": "money-withdraw"
+  },
+  {
+    "class": "wf-mongodb",
+    "name": "mongodb"
+  },
+  {
+    "class": "wf-moon",
+    "name": "moon"
+  },
+  {
+    "class": "wf-mouse",
+    "name": "mouse"
+  },
+  {
+    "class": "wf-mouse-alt",
+    "name": "mouse-alt"
+  },
+  {
+    "class": "wf-move",
+    "name": "move"
+  },
+  {
+    "class": "wf-move-horizontal",
+    "name": "move-horizontal"
+  },
+  {
+    "class": "wf-move-vertical",
+    "name": "move-vertical"
+  },
+  {
+    "class": "wf-movie",
+    "name": "movie"
+  },
+  {
+    "class": "wf-movie-play",
+    "name": "movie-play"
+  },
+  {
+    "class": "wf-music",
+    "name": "music"
+  },
+  {
+    "class": "wf-navigation",
+    "name": "navigation"
+  },
+  {
+    "class": "wf-netlify",
+    "name": "netlify"
+  },
+  {
+    "class": "wf-network-chart",
+    "name": "network-chart"
+  },
+  {
+    "class": "wf-news",
+    "name": "news"
+  },
+  {
+    "class": "wf-no-entry",
+    "name": "no-entry"
+  },
+  {
+    "class": "wf-no-signal",
+    "name": "no-signal"
+  },
+  {
+    "class": "wf-nodejs",
+    "name": "nodejs"
+  },
+  {
+    "class": "wf-note",
+    "name": "note"
+  },
+  {
+    "class": "wf-notepad",
+    "name": "notepad"
+  },
+  {
+    "class": "wf-notification",
+    "name": "notification"
+  },
+  {
+    "class": "wf-notification-off",
+    "name": "notification-off"
+  },
+  {
+    "class": "wf-objects-horizontal-center",
+    "name": "objects-horizontal-center"
+  },
+  {
+    "class": "wf-objects-horizontal-left",
+    "name": "objects-horizontal-left"
+  },
+  {
+    "class": "wf-objects-horizontal-right",
+    "name": "objects-horizontal-right"
+  },
+  {
+    "class": "wf-objects-vertical-bottom",
+    "name": "objects-vertical-bottom"
+  },
+  {
+    "class": "wf-objects-vertical-center",
+    "name": "objects-vertical-center"
+  },
+  {
+    "class": "wf-objects-vertical-top",
+    "name": "objects-vertical-top"
+  },
+  {
+    "class": "wf-ok-ru",
+    "name": "ok-ru"
+  },
+  {
+    "class": "wf-opera",
+    "name": "opera"
+  },
+  {
+    "class": "wf-outline",
+    "name": "outline"
+  },
+  {
+    "class": "wf-package",
+    "name": "package"
+  },
+  {
+    "class": "wf-paint",
+    "name": "paint"
+  },
+  {
+    "class": "wf-paint-roll",
+    "name": "paint-roll"
+  },
+  {
+    "class": "wf-palette",
+    "name": "palette"
+  },
+  {
+    "class": "wf-paper-plane",
+    "name": "paper-plane"
+  },
+  {
+    "class": "wf-paperclip",
+    "name": "paperclip"
+  },
+  {
+    "class": "wf-paragraph",
+    "name": "paragraph"
+  },
+  {
+    "class": "wf-party",
+    "name": "party"
+  },
+  {
+    "class": "wf-paste",
+    "name": "paste"
+  },
+  {
+    "class": "wf-patreon",
+    "name": "patreon"
+  },
+  {
+    "class": "wf-pause",
+    "name": "pause"
+  },
+  {
+    "class": "wf-pause-circle",
+    "name": "pause-circle"
+  },
+  {
+    "class": "wf-paypal",
+    "name": "paypal"
+  },
+  {
+    "class": "wf-pen",
+    "name": "pen"
+  },
+  {
+    "class": "wf-pencil",
+    "name": "pencil"
+  },
+  {
+    "class": "wf-periscope",
+    "name": "periscope"
+  },
+  {
+    "class": "wf-phone",
+    "name": "phone"
+  },
+  {
+    "class": "wf-phone-call",
+    "name": "phone-call"
+  },
+  {
+    "class": "wf-phone-incoming",
+    "name": "phone-incoming"
+  },
+  {
+    "class": "wf-phone-off",
+    "name": "phone-off"
+  },
+  {
+    "class": "wf-phone-outgoing",
+    "name": "phone-outgoing"
+  },
+  {
+    "class": "wf-photo-album",
+    "name": "photo-album"
+  },
+  {
+    "class": "wf-php",
+    "name": "php"
+  },
+  {
+    "class": "wf-pie-chart",
+    "name": "pie-chart"
+  },
+  {
+    "class": "wf-pie-chart-alt",
+    "name": "pie-chart-alt"
+  },
+  {
+    "class": "wf-pie-chart-alt-2",
+    "name": "pie-chart-alt-2"
+  },
+  {
+    "class": "wf-pin",
+    "name": "pin"
+  },
+  {
+    "class": "wf-pinterest",
+    "name": "pinterest"
+  },
+  {
+    "class": "wf-pinterest-alt",
+    "name": "pinterest-alt"
+  },
+  {
+    "class": "wf-planet",
+    "name": "planet"
+  },
+  {
+    "class": "wf-play",
+    "name": "play"
+  },
+  {
+    "class": "wf-play-circle",
+    "name": "play-circle"
+  },
+  {
+    "class": "wf-play-store",
+    "name": "play-store"
+  },
+  {
+    "class": "wf-plug",
+    "name": "plug"
+  },
+  {
+    "class": "wf-plus",
+    "name": "plus"
+  },
+  {
+    "class": "wf-plus-circle",
+    "name": "plus-circle"
+  },
+  {
+    "class": "wf-plus-medical",
+    "name": "plus-medical"
+  },
+  {
+    "class": "wf-pocket",
+    "name": "pocket"
+  },
+  {
+    "class": "wf-podcast",
+    "name": "podcast"
+  },
+  {
+    "class": "wf-pointer",
+    "name": "pointer"
+  },
+  {
+    "class": "wf-poll",
+    "name": "poll"
+  },
+  {
+    "class": "wf-polygon",
+    "name": "polygon"
+  },
+  {
+    "class": "wf-popsicle",
+    "name": "popsicle"
+  },
+  {
+    "class": "wf-postgresql",
+    "name": "postgresql"
+  },
+  {
+    "class": "wf-pound",
+    "name": "pound"
+  },
+  {
+    "class": "wf-power-off",
+    "name": "power-off"
+  },
+  {
+    "class": "wf-printer",
+    "name": "printer"
+  },
+  {
+    "class": "wf-product-hunt",
+    "name": "product-hunt"
+  },
+  {
+    "class": "wf-pulse",
+    "name": "pulse"
+  },
+  {
+    "class": "wf-purchase-tag",
+    "name": "purchase-tag"
+  },
+  {
+    "class": "wf-purchase-tag-alt",
+    "name": "purchase-tag-alt"
+  },
+  {
+    "class": "wf-pyramid",
+    "name": "pyramid"
+  },
+  {
+    "class": "wf-python",
+    "name": "python"
+  },
+  {
+    "class": "wf-qr",
+    "name": "qr"
+  },
+  {
+    "class": "wf-qr-scan",
+    "name": "qr-scan"
+  },
+  {
+    "class": "wf-question-mark",
+    "name": "question-mark"
+  },
+  {
+    "class": "wf-quora",
+    "name": "quora"
+  },
+  {
+    "class": "wf-radar",
+    "name": "radar"
+  },
+  {
+    "class": "wf-radio",
+    "name": "radio"
+  },
+  {
+    "class": "wf-radio-circle",
+    "name": "radio-circle"
+  },
+  {
+    "class": "wf-radio-circle-marked",
+    "name": "radio-circle-marked"
+  },
+  {
+    "class": "wf-react",
+    "name": "react"
+  },
+  {
+    "class": "wf-receipt",
+    "name": "receipt"
+  },
+  {
+    "class": "wf-rectangle",
+    "name": "rectangle"
+  },
+  {
+    "class": "wf-recycle",
+    "name": "recycle"
+  },
+  {
+    "class": "wf-redbubble",
+    "name": "redbubble"
+  },
+  {
+    "class": "wf-reddit",
+    "name": "reddit"
+  },
+  {
+    "class": "wf-redo",
+    "name": "redo"
+  },
+  {
+    "class": "wf-redux",
+    "name": "redux"
+  },
+  {
+    "class": "wf-reflect-horizontal",
+    "name": "reflect-horizontal"
+  },
+  {
+    "class": "wf-reflect-vertical",
+    "name": "reflect-vertical"
+  },
+  {
+    "class": "wf-refresh",
+    "name": "refresh"
+  },
+  {
+    "class": "wf-registered",
+    "name": "registered"
+  },
+  {
+    "class": "wf-rename",
+    "name": "rename"
+  },
+  {
+    "class": "wf-repeat",
+    "name": "repeat"
+  },
+  {
+    "class": "wf-reply",
+    "name": "reply"
+  },
+  {
+    "class": "wf-reply-all",
+    "name": "reply-all"
+  },
+  {
+    "class": "wf-repost",
+    "name": "repost"
+  },
+  {
+    "class": "wf-reset",
+    "name": "reset"
+  },
+  {
+    "class": "wf-restaurant",
+    "name": "restaurant"
+  },
+  {
+    "class": "wf-revision",
+    "name": "revision"
+  },
+  {
+    "class": "wf-rewind",
+    "name": "rewind"
+  },
+  {
+    "class": "wf-rewind-circle",
+    "name": "rewind-circle"
+  },
+  {
+    "class": "wf-rfid",
+    "name": "rfid"
+  },
+  {
+    "class": "wf-right-arrow",
+    "name": "right-arrow"
+  },
+  {
+    "class": "wf-right-arrow-alt",
+    "name": "right-arrow-alt"
+  },
+  {
+    "class": "wf-right-arrow-circle",
+    "name": "right-arrow-circle"
+  },
+  {
+    "class": "wf-right-down-arrow-circle",
+    "name": "right-down-arrow-circle"
+  },
+  {
+    "class": "wf-right-indent",
+    "name": "right-indent"
+  },
+  {
+    "class": "wf-right-top-arrow-circle",
+    "name": "right-top-arrow-circle"
+  },
+  {
+    "class": "wf-rocket",
+    "name": "rocket"
+  },
+  {
+    "class": "wf-rotate-left",
+    "name": "rotate-left"
+  },
+  {
+    "class": "wf-rotate-right",
+    "name": "rotate-right"
+  },
+  {
+    "class": "wf-rss",
+    "name": "rss"
+  },
+  {
+    "class": "wf-ruble",
+    "name": "ruble"
+  },
+  {
+    "class": "wf-ruler",
+    "name": "ruler"
+  },
+  {
+    "class": "wf-run",
+    "name": "run"
+  },
+  {
+    "class": "wf-rupee",
+    "name": "rupee"
+  },
+  {
+    "class": "wf-sad",
+    "name": "sad"
+  },
+  {
+    "class": "wf-sass",
+    "name": "sass"
+  },
+  {
+    "class": "wf-save",
+    "name": "save"
+  },
+  {
+    "class": "wf-scan",
+    "name": "scan"
+  },
+  {
+    "class": "wf-scatter-chart",
+    "name": "scatter-chart"
+  },
+  {
+    "class": "wf-screenshot",
+    "name": "screenshot"
+  },
+  {
+    "class": "wf-search",
+    "name": "search"
+  },
+  {
+    "class": "wf-search-alt",
+    "name": "search-alt"
+  },
+  {
+    "class": "wf-search-alt-2",
+    "name": "search-alt-2"
+  },
+  {
+    "class": "wf-select-multiple",
+    "name": "select-multiple"
+  },
+  {
+    "class": "wf-selection",
+    "name": "selection"
+  },
+  {
+    "class": "wf-send",
+    "name": "send"
+  },
+  {
+    "class": "wf-server",
+    "name": "server"
+  },
+  {
+    "class": "wf-shape-circle",
+    "name": "shape-circle"
+  },
+  {
+    "class": "wf-shape-polygon",
+    "name": "shape-polygon"
+  },
+  {
+    "class": "wf-shape-square",
+    "name": "shape-square"
+  },
+  {
+    "class": "wf-shape-triangle",
+    "name": "shape-triangle"
+  },
+  {
+    "class": "wf-share",
+    "name": "share"
+  },
+  {
+    "class": "wf-share-alt",
+    "name": "share-alt"
+  },
+  {
+    "class": "wf-shekel",
+    "name": "shekel"
+  },
+  {
+    "class": "wf-shield",
+    "name": "shield"
+  },
+  {
+    "class": "wf-shield-alt",
+    "name": "shield-alt"
+  },
+  {
+    "class": "wf-shield-alt-2",
+    "name": "shield-alt-2"
+  },
+  {
+    "class": "wf-shield-minus",
+    "name": "shield-minus"
+  },
+  {
+    "class": "wf-shield-plus",
+    "name": "shield-plus"
+  },
+  {
+    "class": "wf-shield-quarter",
+    "name": "shield-quarter"
+  },
+  {
+    "class": "wf-shield-x",
+    "name": "shield-x"
+  },
+  {
+    "class": "wf-shocked",
+    "name": "shocked"
+  },
+  {
+    "class": "wf-shopify",
+    "name": "shopify"
+  },
+  {
+    "class": "wf-shopping-bag",
+    "name": "shopping-bag"
+  },
+  {
+    "class": "wf-show",
+    "name": "show"
+  },
+  {
+    "class": "wf-show-alt",
+    "name": "show-alt"
+  },
+  {
+    "class": "wf-shower",
+    "name": "shower"
+  },
+  {
+    "class": "wf-shuffle",
+    "name": "shuffle"
+  },
+  {
+    "class": "wf-sidebar",
+    "name": "sidebar"
+  },
+  {
+    "class": "wf-signal-1",
+    "name": "signal-1"
+  },
+  {
+    "class": "wf-signal-2",
+    "name": "signal-2"
+  },
+  {
+    "class": "wf-signal-3",
+    "name": "signal-3"
+  },
+  {
+    "class": "wf-signal-4",
+    "name": "signal-4"
+  },
+  {
+    "class": "wf-signal-5",
+    "name": "signal-5"
+  },
+  {
+    "class": "wf-sitemap",
+    "name": "sitemap"
+  },
+  {
+    "class": "wf-sketch",
+    "name": "sketch"
+  },
+  {
+    "class": "wf-skip-next",
+    "name": "skip-next"
+  },
+  {
+    "class": "wf-skip-next-circle",
+    "name": "skip-next-circle"
+  },
+  {
+    "class": "wf-skip-previous",
+    "name": "skip-previous"
+  },
+  {
+    "class": "wf-skip-previous-circle",
+    "name": "skip-previous-circle"
+  },
+  {
+    "class": "wf-skype",
+    "name": "skype"
+  },
+  {
+    "class": "wf-slack",
+    "name": "slack"
+  },
+  {
+    "class": "wf-slack-old",
+    "name": "slack-old"
+  },
+  {
+    "class": "wf-sleepy",
+    "name": "sleepy"
+  },
+  {
+    "class": "wf-slider",
+    "name": "slider"
+  },
+  {
+    "class": "wf-slider-alt",
+    "name": "slider-alt"
+  },
+  {
+    "class": "wf-slideshow",
+    "name": "slideshow"
+  },
+  {
+    "class": "wf-smile",
+    "name": "smile"
+  },
+  {
+    "class": "wf-snapchat",
+    "name": "snapchat"
+  },
+  {
+    "class": "wf-sort",
+    "name": "sort"
+  },
+  {
+    "class": "wf-sort-a-z",
+    "name": "sort-a-z"
+  },
+  {
+    "class": "wf-sort-alt-2",
+    "name": "sort-alt-2"
+  },
+  {
+    "class": "wf-sort-down",
+    "name": "sort-down"
+  },
+  {
+    "class": "wf-sort-up",
+    "name": "sort-up"
+  },
+  {
+    "class": "wf-sort-z-a",
+    "name": "sort-z-a"
+  },
+  {
+    "class": "wf-soundcloud",
+    "name": "soundcloud"
+  },
+  {
+    "class": "wf-spa",
+    "name": "spa"
+  },
+  {
+    "class": "wf-space-bar",
+    "name": "space-bar"
+  },
+  {
+    "class": "wf-speaker",
+    "name": "speaker"
+  },
+  {
+    "class": "wf-spotify",
+    "name": "spotify"
+  },
+  {
+    "class": "wf-spray-can",
+    "name": "spray-can"
+  },
+  {
+    "class": "wf-spreadsheet",
+    "name": "spreadsheet"
+  },
+  {
+    "class": "wf-spring-boot",
+    "name": "spring-boot"
+  },
+  {
+    "class": "wf-square",
+    "name": "square"
+  },
+  {
+    "class": "wf-square-rounded",
+    "name": "square-rounded"
+  },
+  {
+    "class": "wf-squarespace",
+    "name": "squarespace"
+  },
+  {
+    "class": "wf-stack-overflow",
+    "name": "stack-overflow"
+  },
+  {
+    "class": "wf-star",
+    "name": "star"
+  },
+  {
+    "class": "wf-station",
+    "name": "station"
+  },
+  {
+    "class": "wf-stats",
+    "name": "stats"
+  },
+  {
+    "class": "wf-steam",
+    "name": "steam"
+  },
+  {
+    "class": "wf-sticker",
+    "name": "sticker"
+  },
+  {
+    "class": "wf-stop",
+    "name": "stop"
+  },
+  {
+    "class": "wf-stop-circle",
+    "name": "stop-circle"
+  },
+  {
+    "class": "wf-stopwatch",
+    "name": "stopwatch"
+  },
+  {
+    "class": "wf-store",
+    "name": "store"
+  },
+  {
+    "class": "wf-store-alt",
+    "name": "store-alt"
+  },
+  {
+    "class": "wf-street-view",
+    "name": "street-view"
+  },
+  {
+    "class": "wf-strikethrough",
+    "name": "strikethrough"
+  },
+  {
+    "class": "wf-stripe",
+    "name": "stripe"
+  },
+  {
+    "class": "wf-subdirectory-left",
+    "name": "subdirectory-left"
+  },
+  {
+    "class": "wf-subdirectory-right",
+    "name": "subdirectory-right"
+  },
+  {
+    "class": "wf-sun",
+    "name": "sun"
+  },
+  {
+    "class": "wf-support",
+    "name": "support"
+  },
+  {
+    "class": "wf-sushi",
+    "name": "sushi"
+  },
+  {
+    "class": "wf-swim",
+    "name": "swim"
+  },
+  {
+    "class": "wf-sync",
+    "name": "sync"
+  },
+  {
+    "class": "wf-tab",
+    "name": "tab"
+  },
+  {
+    "class": "wf-table",
+    "name": "table"
+  },
+  {
+    "class": "wf-tachometer",
+    "name": "tachometer"
+  },
+  {
+    "class": "wf-tag",
+    "name": "tag"
+  },
+  {
+    "class": "wf-tag-alt",
+    "name": "tag-alt"
+  },
+  {
+    "class": "wf-tailwind-css",
+    "name": "tailwind-css"
+  },
+  {
+    "class": "wf-target-lock",
+    "name": "target-lock"
+  },
+  {
+    "class": "wf-task",
+    "name": "task"
+  },
+  {
+    "class": "wf-task-x",
+    "name": "task-x"
+  },
+  {
+    "class": "wf-taxi",
+    "name": "taxi"
+  },
+  {
+    "class": "wf-telegram",
+    "name": "telegram"
+  },
+  {
+    "class": "wf-tennis-ball",
+    "name": "tennis-ball"
+  },
+  {
+    "class": "wf-terminal",
+    "name": "terminal"
+  },
+  {
+    "class": "wf-test-tube",
+    "name": "test-tube"
+  },
+  {
+    "class": "wf-text",
+    "name": "text"
+  },
+  {
+    "class": "wf-tiktok",
+    "name": "tiktok"
+  },
+  {
+    "class": "wf-time",
+    "name": "time"
+  },
+  {
+    "class": "wf-time-five",
+    "name": "time-five"
+  },
+  {
+    "class": "wf-timer",
+    "name": "timer"
+  },
+  {
+    "class": "wf-tired",
+    "name": "tired"
+  },
+  {
+    "class": "wf-toggle-left",
+    "name": "toggle-left"
+  },
+  {
+    "class": "wf-toggle-right",
+    "name": "toggle-right"
+  },
+  {
+    "class": "wf-tone",
+    "name": "tone"
+  },
+  {
+    "class": "wf-traffic-cone",
+    "name": "traffic-cone"
+  },
+  {
+    "class": "wf-train",
+    "name": "train"
+  },
+  {
+    "class": "wf-transfer",
+    "name": "transfer"
+  },
+  {
+    "class": "wf-transfer-alt",
+    "name": "transfer-alt"
+  },
+  {
+    "class": "wf-trash",
+    "name": "trash"
+  },
+  {
+    "class": "wf-trash-alt",
+    "name": "trash-alt"
+  },
+  {
+    "class": "wf-trello",
+    "name": "trello"
+  },
+  {
+    "class": "wf-trending-down",
+    "name": "trending-down"
+  },
+  {
+    "class": "wf-trending-up",
+    "name": "trending-up"
+  },
+  {
+    "class": "wf-trim",
+    "name": "trim"
+  },
+  {
+    "class": "wf-trip",
+    "name": "trip"
+  },
+  {
+    "class": "wf-trip-advisor",
+    "name": "trip-advisor"
+  },
+  {
+    "class": "wf-trophy",
+    "name": "trophy"
+  },
+  {
+    "class": "wf-tumblr",
+    "name": "tumblr"
+  },
+  {
+    "class": "wf-tux",
+    "name": "tux"
+  },
+  {
+    "class": "wf-tv",
+    "name": "tv"
+  },
+  {
+    "class": "wf-twitch",
+    "name": "twitch"
+  },
+  {
+    "class": "wf-twitter",
+    "name": "twitter"
+  },
+  {
+    "class": "wf-typescript",
+    "name": "typescript"
+  },
+  {
+    "class": "wf-underline",
+    "name": "underline"
+  },
+  {
+    "class": "wf-undo",
+    "name": "undo"
+  },
+  {
+    "class": "wf-unite",
+    "name": "unite"
+  },
+  {
+    "class": "wf-unity",
+    "name": "unity"
+  },
+  {
+    "class": "wf-universal-access",
+    "name": "universal-access"
+  },
+  {
+    "class": "wf-unlink",
+    "name": "unlink"
+  },
+  {
+    "class": "wf-unsplash",
+    "name": "unsplash"
+  },
+  {
+    "class": "wf-up-arrow",
+    "name": "up-arrow"
+  },
+  {
+    "class": "wf-up-arrow-alt",
+    "name": "up-arrow-alt"
+  },
+  {
+    "class": "wf-up-arrow-circle",
+    "name": "up-arrow-circle"
+  },
+  {
+    "class": "wf-upload",
+    "name": "upload"
+  },
+  {
+    "class": "wf-upside-down",
+    "name": "upside-down"
+  },
+  {
+    "class": "wf-upvote",
+    "name": "upvote"
+  },
+  {
+    "class": "wf-upwork",
+    "name": "upwork"
+  },
+  {
+    "class": "wf-usb",
+    "name": "usb"
+  },
+  {
+    "class": "wf-user",
+    "name": "user"
+  },
+  {
+    "class": "wf-user-check",
+    "name": "user-check"
+  },
+  {
+    "class": "wf-user-circle",
+    "name": "user-circle"
+  },
+  {
+    "class": "wf-user-minus",
+    "name": "user-minus"
+  },
+  {
+    "class": "wf-user-pin",
+    "name": "user-pin"
+  },
+  {
+    "class": "wf-user-plus",
+    "name": "user-plus"
+  },
+  {
+    "class": "wf-user-voice",
+    "name": "user-voice"
+  },
+  {
+    "class": "wf-user-x",
+    "name": "user-x"
+  },
+  {
+    "class": "wf-vector",
+    "name": "vector"
+  },
+  {
+    "class": "wf-venmo",
+    "name": "venmo"
+  },
+  {
+    "class": "wf-vertical-bottom",
+    "name": "vertical-bottom"
+  },
+  {
+    "class": "wf-vertical-center",
+    "name": "vertical-center"
+  },
+  {
+    "class": "wf-vertical-top",
+    "name": "vertical-top"
+  },
+  {
+    "class": "wf-vial",
+    "name": "vial"
+  },
+  {
+    "class": "wf-video",
+    "name": "video"
+  },
+  {
+    "class": "wf-video-off",
+    "name": "video-off"
+  },
+  {
+    "class": "wf-video-plus",
+    "name": "video-plus"
+  },
+  {
+    "class": "wf-video-recording",
+    "name": "video-recording"
+  },
+  {
+    "class": "wf-vimeo",
+    "name": "vimeo"
+  },
+  {
+    "class": "wf-visa",
+    "name": "visa"
+  },
+  {
+    "class": "wf-visual-studio",
+    "name": "visual-studio"
+  },
+  {
+    "class": "wf-vk",
+    "name": "vk"
+  },
+  {
+    "class": "wf-voicemail",
+    "name": "voicemail"
+  },
+  {
+    "class": "wf-volume",
+    "name": "volume"
+  },
+  {
+    "class": "wf-volume-full",
+    "name": "volume-full"
+  },
+  {
+    "class": "wf-volume-low",
+    "name": "volume-low"
+  },
+  {
+    "class": "wf-volume-mute",
+    "name": "volume-mute"
+  },
+  {
+    "class": "wf-vuejs",
+    "name": "vuejs"
+  },
+  {
+    "class": "wf-walk",
+    "name": "walk"
+  },
+  {
+    "class": "wf-wallet",
+    "name": "wallet"
+  },
+  {
+    "class": "wf-wallet-alt",
+    "name": "wallet-alt"
+  },
+  {
+    "class": "wf-water",
+    "name": "water"
+  },
+  {
+    "class": "wf-webcam",
+    "name": "webcam"
+  },
+  {
+    "class": "wf-whatsapp",
+    "name": "whatsapp"
+  },
+  {
+    "class": "wf-whatsapp-square",
+    "name": "whatsapp-square"
+  },
+  {
+    "class": "wf-wifi",
+    "name": "wifi"
+  },
+  {
+    "class": "wf-wifi-0",
+    "name": "wifi-0"
+  },
+  {
+    "class": "wf-wifi-1",
+    "name": "wifi-1"
+  },
+  {
+    "class": "wf-wifi-2",
+    "name": "wifi-2"
+  },
+  {
+    "class": "wf-wifi-off",
+    "name": "wifi-off"
+  },
+  {
+    "class": "wf-wikipedia",
+    "name": "wikipedia"
+  },
+  {
+    "class": "wf-wind",
+    "name": "wind"
+  },
+  {
+    "class": "wf-window",
+    "name": "window"
+  },
+  {
+    "class": "wf-window-alt",
+    "name": "window-alt"
+  },
+  {
+    "class": "wf-window-close",
+    "name": "window-close"
+  },
+  {
+    "class": "wf-window-open",
+    "name": "window-open"
+  },
+  {
+    "class": "wf-windows",
+    "name": "windows"
+  },
+  {
+    "class": "wf-wine",
+    "name": "wine"
+  },
+  {
+    "class": "wf-wink-smile",
+    "name": "wink-smile"
+  },
+  {
+    "class": "wf-wink-tongue",
+    "name": "wink-tongue"
+  },
+  {
+    "class": "wf-wix",
+    "name": "wix"
+  },
+  {
+    "class": "wf-won",
+    "name": "won"
+  },
+  {
+    "class": "wf-wordpress",
+    "name": "wordpress"
+  },
+  {
+    "class": "wf-world",
+    "name": "world"
+  },
+  {
+    "class": "wf-wrench",
+    "name": "wrench"
+  },
+  {
+    "class": "wf-x",
+    "name": "x"
+  },
+  {
+    "class": "wf-x-circle",
+    "name": "x-circle"
+  },
+  {
+    "class": "wf-xing",
+    "name": "xing"
+  },
+  {
+    "class": "wf-yahoo",
+    "name": "yahoo"
+  },
+  {
+    "class": "wf-yelp",
+    "name": "yelp"
+  },
+  {
+    "class": "wf-yen",
+    "name": "yen"
+  },
+  {
+    "class": "wf-youtube",
+    "name": "youtube"
+  },
+  {
+    "class": "wf-zoom",
+    "name": "zoom"
+  },
+  {
+    "class": "wf-zoom-in",
+    "name": "zoom-in"
+  },
+  {
+    "class": "wf-zoom-out",
+    "name": "zoom-out"
+  }
+]

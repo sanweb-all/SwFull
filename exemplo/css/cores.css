@@ -1,0 +1,179 @@
+/**/
+.colors, .colors-opa, .colors1 {
+    width: 100%;
+    margin-bottom: 18px;
+    background-color: var(--wf-bg-) !important;
+}
+
+.colors ul, .colors1 ul {
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0.5% auto;
+    flex-wrap: wrap;
+    padding: 0 0 12px 0;
+    background-color: var(--wf-bg-);
+}
+
+.colors ul.x, .colors1 ul.x {
+    background-color: var(--pret);
+}
+
+.colors ul li {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.colors1 ul li {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.colors-opa ul li, .colors1-opa ul li {
+    width: 24%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colors ul li small, .colors1 ul li small {
+    display: block;
+}
+
+.colors ul .titulo, .colors1 ul .titulo {
+    display: inline-block;
+    width: 100%;
+    padding: 4px 10px;
+    font-family: var(--font3b);
+    font-size: 22px;
+}
+
+.colors ul .titulo.x, .colors1 ul .titulo.x {
+    color: var(--bran) !important;
+}
+
+.colors ul .titulo small, .colors1 ul .titulo small {
+    font-family: var(--font2);
+    font-size: 15px;
+}
+
+ul.Linhas li {
+    border: 8px solid;
+    margin: 12px 5px;
+}
+
+/**/
+.bl-text {
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 30px;
+    font-family: var(--font1);
+    font-weight: 600;
+}
+
+.bl-text__ {
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 16px;
+    font-family: var(--font1);
+    font-weight: 600;
+}
+/**/
+.bbl {
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    margin: 10px;
+    background: var(--wf-bg-);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--wf-border--);
+    color: var(--wf-color);
+}
+
+.blshadow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    gap: 4rem;
+}
+
+.blshadow .blshaw {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blopa {
+    background-color: var(--prin);
+    width: 160px;
+    height: 160px;
+    margin: 1.4rem;
+    border-radius: 10px;
+    display: inline-block;
+    color: var(--bran);
+    padding: 30px;
+    font-size: 30px;
+}
+
+.blimg {
+    width: 220px;
+    height: 220px;
+    border: 4px solid #979797;
+    margin: 2.5rem;
+    border-radius: 10px;
+}
+.bbV {
+    display: flex;
+    margin: 0 0 50px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 32px 16px;
+    margin-top: 32px;
+}
+
+.anime-box {
+    width: 100%;
+    min-height: 90px;
+    background: var(--prin);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: box-shadow 0.2s;
+}
+
+.legend {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    text-align: center;
+}

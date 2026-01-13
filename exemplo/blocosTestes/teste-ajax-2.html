@@ -1,0 +1,16 @@
+<div style="padding: 20px; background: var(--bl); border-radius: 8px; border-left: 4px solid #4caf50; height: 600px; color: var(--color);">
+   <h3>🎉 Conteúdo Carregado com Sucesso!</h3>
+   <p><strong>Arquivo:</strong> teste-ajax-2.html</p>
+   <p><strong>Método:</strong> SwAjax com JavaScript</p>
+   <p><strong>Efeito:</strong> Bounce</p>
+   <p><strong>Timestamp:</strong> <span id="timestamp2"></span></p>
+   <div style="margin-top: 15px;">
+      <button onclick="SwAjax.load({url: './docs/teste-ajax-3.html', dest: 'test3', effect: 'flip'})" class="btn btn-sm Bverd10 Tbran">
+         Carregar Próximo
+      </button>
+   </div>
+</div>
+
+<script>
+   document.getElementById('timestamp2').textContent = new Date().toLocaleString();
+</script>

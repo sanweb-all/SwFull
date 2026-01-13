@@ -1,0 +1,50 @@
+<div style="padding: 20px; background: var(--bl); color: var(--color); border-radius: 10px;">
+  <h3>🪗 SwAccord via AJAX</h3>
+  <p>Este conteúdo demonstra o SwAccord funcionando após carregamento via SwAjax, incluindo dois cenários:</p>
+
+  <h4>1) Com wrapper [SwAccordItem]</h4>
+  <div SwAccord SwAccord-multiple="true" SwAccord-active="1" style="margin: 10px 0;">
+    <div SwAccordItem class="swaccord-item swaccord-primary">
+      <div SwAccordHeader class="swaccord-header">Seção 1</div>
+      <div SwAccordContent class="swaccord-content">
+        <p>Conteúdo da seção 1. Este acordeão permite múltiplas seções abertas.</p>
+      </div>
+    </div>
+    <div SwAccordItem class="swaccord-item swaccord-success">
+      <div SwAccordHeader class="swaccord-header">Seção 2</div>
+      <div SwAccordContent class="swaccord-content">
+        <p>Conteúdo da seção 2. Usa o wrapper [SwAccordItem] para montagem.</p>
+      </div>
+    </div>
+    <div SwAccordItem class="swaccord-item swaccord-warning">
+      <div SwAccordHeader class="swaccord-header">Seção 3</div>
+      <div SwAccordContent class="swaccord-content">
+        <p>Conteúdo da seção 3. Teste de tema e múltiplas aberturas.</p>
+      </div>
+    </div>
+  </div>
+
+  <h4>2) Sem wrapper [SwAccordItem] (fallback header/content)</h4>
+  <div SwAccord class="swaccord" SwAccord-active="1" style="margin: 10px 0;">
+    <h5 class="swaccord-header">Item A (fallback)</h5>
+    <div class="swaccord-content">
+      <p>Conteúdo A montado via fallback. Deve abrir/fechar corretamente.</p>
+    </div>
+
+    <h5 class="swaccord-header">Item B (fallback)</h5>
+    <div class="swaccord-content">
+      <p>Conteúdo B montado via fallback, sem [SwAccordItem].</p>
+    </div>
+
+    <h5 class="swaccord-header">Item C (fallback)</h5>
+    <div class="swaccord-content">
+      <p>Conteúdo C montado via fallback com cabeçalhos e conteúdos.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <button onclick="SwAjax.load({url: './pageTestes/teste-ajax-3.html', dest: 'component-demo', effect: 'zoom'})" class="btn btn-sm Bazul10 Tbran">
+      🔄 Carregar outro conteúdo
+    </button>
+  </div>
+</div>

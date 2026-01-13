@@ -1,0 +1,114 @@
+# ============================================================
+# SWFull CDN - Configuração Apache
+# ============================================================
+# Copie este arquivo para a pasta dist/ no seu servidor
+# Renomeie para: .htaccess
+# ============================================================
+
+# ===== CORS (Cross-Origin Resource Sharing) =====
+# Permite que qualquer site use seus arquivos
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Accept"
+    Header set Access-Control-Max-Age "86400"
+</IfModule>
+
+# ===== CACHE =====
+# Cache agressivo para arquivos estáticos (1 ano)
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # JavaScript e CSS
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+
+    # JSON (info CDN)
+    ExpiresByType application/json "access plus 1 day"
+</IfModule>
+
+# Cache via Headers (fallback)
+<FilesMatch "\.(js|css)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "public, max-age=86400"
+    </IfModule>
+</FilesMatch>
+
+# ===== COMPRESSÃO GZIP =====
+<IfModule mod_deflate.c>
+    # Comprimir JavaScript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/javascript
+
+    # Comprimir CSS
+    AddOutputFilterByType DEFLATE text/css
+
+    # Comprimir JSON
+    AddOutputFilterByType DEFLATE application/json
+
+    # Comprimir HTML
+    AddOutputFilterByType DEFLATE text/html
+</IfModule>
+
+# ===== SEGURANÇA =====
+<IfModule mod_headers.c>
+    # Prevenir MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Clickjacking protection
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # XSS Protection (legado, mas ainda útil)
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ===== FORÇA HTTPS (Opcional - descomente se usar SSL) =====
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ===== TIPOS MIME =====
+<IfModule mod_mime.c>
+    AddType application/javascript js
+    AddType text/css css
+    AddType application/json json
+
+    # Fonts
+    AddType font/woff woff
+    AddType font/woff2 woff2
+    AddType font/ttf ttf
+    AddType font/otf otf
+    AddType font/eot eot
+</IfModule>
+
+# ===== CHARSET =====
+AddDefaultCharset UTF-8
+
+# ===== DESABILITAR LISTAGEM DE DIRETÓRIOS =====
+Options -Indexes
+
+# ===== PREVENIR ACESSO A ARQUIVOS OCULTOS =====
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ===== CUSTOM ERROR PAGES (Opcional) =====
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+
+# ===== LOGS (Desabilitar para CDN - economiza recursos) =====
+# SetEnv DONT_LOG 1
+
+# ===== FIM =====

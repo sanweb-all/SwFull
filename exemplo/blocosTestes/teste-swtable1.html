@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste SwTableAjax</title>
+    <link rel="stylesheet" href="../../../assets/css/webfull.css">
+</head>
+<body>
+
+    <table SwTableAjax class="swtableajax"
+        SwTableAjax-url="/assets/json/usuariosTestes.json"
+        SwTableAjax-features="search,sort,pagination,export"
+        SwTableAjax-page-size="5"
+        SwTableAjax-columns='[
+            {"data": "id", "title": "ID"},
+            {"data": "name", "title": "Nome"},
+            {"data": "email", "title": "E-mail"},
+            {"data": "role", "title": "Função"},
+            {
+                "data": "status",
+                "title": "Status",
+                "render": "function(data) { return data === `active` ? `<span class=\"badge badge-success\">Ativo</span>` : `<span class=\"badge badge-danger\">Inativo</span>`; }"
+            }
+        ]'>
+    </table>
+
+    <script type="module" src="../../../assets/components/webfull.js"></script>
+</body>
+</html>

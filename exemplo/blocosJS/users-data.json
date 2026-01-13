@@ -1,0 +1,87 @@
+{
+  "draw": 1,
+  "recordsTotal": 10,
+  "recordsFiltered": 10,
+  "data": [
+    {
+      "id": 1,
+      "name": "Ana Silva",
+      "email": "ana.silva@example.com",
+      "role": "Admin",
+      "status": "active",
+      "last_login": "2024-09-10T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Bruno Costa",
+      "email": "bruno.costa@example.com",
+      "role": "Editor",
+      "status": "active",
+      "last_login": "2024-09-09T15:30:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Carla Dias",
+      "email": "carla.dias@example.com",
+      "role": "Viewer",
+      "status": "inactive",
+      "last_login": "2024-08-20T11:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Daniel Faria",
+      "email": "daniel.faria@example.com",
+      "role": "Editor",
+      "status": "active",
+      "last_login": "2024-09-10T09:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Elisa Martins",
+      "email": "elisa.martins@example.com",
+      "role": "Admin",
+      "status": "active",
+      "last_login": "2024-09-10T11:25:00Z"
+    },
+    {
+      "id": 6,
+      "name": "Fábio Gomes",
+      "email": "fabio.gomes@example.com",
+      "role": "Viewer",
+      "status": "active",
+      "last_login": "2024-09-08T18:45:00Z"
+    },
+    {
+      "id": 7,
+      "name": "Gabriela Lima",
+      "email": "gabriela.lima@example.com",
+      "role": "Editor",
+      "status": "inactive",
+      "last_login": "2024-07-15T14:00:00Z"
+    },
+    {
+      "id": 8,
+      "name": "Hugo Pereira",
+      "email": "hugo.pereira@example.com",
+      "role": "Admin",
+      "status": "active",
+      "last_login": "2024-09-10T12:00:00Z"
+    },
+    {
+      "id": 9,
+      "name": "Isabela Rocha",
+      "email": "isabela.rocha@example.com",
+      "role": "Viewer",
+      "status": "active",
+      "last_login": "2024-09-07T22:10:00Z"
+    },
+    {
+      "id": 10,
+      "name": "Jorge Santos",
+      "email": "jorge.santos@example.com",
+      "role": "Editor",
+      "status": "active",
+      "last_login": "2024-09-10T08:15:00Z"
+    }
+  ]
+}
