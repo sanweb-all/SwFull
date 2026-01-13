@@ -1,7 +1,7 @@
 {
   "name": "webfull",
   "version": "1.0.0",
-  "description": "WebFull - Framework JavaScript e CSS completo para desenvolvimento web",
+  "description": "WebFull - Framework Full Stack (PHP/JS/CSS) leve, modular e sem dependências.",
   "main": "dist/latest/webfull.min.js",
   "scripts": {
     "build": "node build.js",

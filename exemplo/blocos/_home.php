@@ -22,10 +22,10 @@
           </p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
             <a href="https://webfull.sanweb.com.br/dist/webfull.min.js" download class="btn btn-prim btn-lg">
-              <i class="wf wf-download-alt"></i> Download JS (v1.0.0)
+              <i class="wf wf-download-alt"></i> Download JS (v1.6.0)
             </a>
             <a href="https://webfull.sanweb.com.br/dist/webfull.min.css" download class="btn btn-sec btn-lg">
-              <i class="wf wf-download-alt"></i> Download CSS (v1.0.0)
+              <i class="wf wf-download-alt"></i> Download CSS (v1.6.0)
             </a>
           </div>
         </div>
