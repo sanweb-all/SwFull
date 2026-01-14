@@ -4,7 +4,7 @@
       <h1>Anime Line</h1>
       <nav class="listmenu-d">
         <ol class="listmenu">
-          <li class="listmenu-item"><a href="#" >Home</a></li>
+          <li class="listmenu-item"><a href="#">Home</a></li>
           <li class="listmenu-item active">Anime Line</li>
         </ol>
       </nav>
@@ -122,7 +122,7 @@
           <b>.aniline-z-{ tam }</b> - Anima rotação com impulso;<br />
           <b>.aniline-rot-{ tam }</b> - Anima rotacional;<br />
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="aniline">FADE</div>
 <div class="aniline-gg">FADE GG</div>
 <div class="aniline-t">TOPO</div>

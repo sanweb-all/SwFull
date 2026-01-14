@@ -1146,6 +1146,14 @@
           `${componentName.toLowerCase()}`,
         ];
 
+        // Adicionar seletores específicos para WfCode (suporte a Prism.js style)
+        if (componentName === "WfCode") {
+          selectors.push('pre[class*="language-"]');
+          selectors.push('code[class*="language-"]');
+          selectors.push('pre[class*="lang-"]');
+          selectors.push('code[class*="lang-"]');
+        }
+
         for (const selector of selectors) {
           try {
             if (container.querySelector(selector)) {

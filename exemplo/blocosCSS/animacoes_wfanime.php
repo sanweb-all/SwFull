@@ -12,7 +12,7 @@
     font-size: 18px;
     font-weight: 500;
     color: white;
-}
+  }
 </style>
 <section>
   <div class="g-xg">
@@ -29,7 +29,7 @@
       <div class="co6-g">
         <h3>Wf-Anime: Esquema de Nomes</h3>
         <p><b>Wf-Anime</b> aplica animações na entrada da viewport (scroll). Use sempre o padrão abaixo:</p>
-        <pre WfCode WfCode-language="text"><script type="text/plain">
+        <pre WfCode WfCode-language="html"><script type="text/plain">
 wfanime-[tipo]-[tamanho]
 
 tipo:   (sem sufixo) = fade | e = esquerda | d = direita | t = topo | f = final (botton)

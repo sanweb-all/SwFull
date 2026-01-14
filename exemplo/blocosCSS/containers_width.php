@@ -31,7 +31,7 @@
     </div>
     <div class="l">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="w300">Largura 300px</div>
 <div class="wp100">Largura 100%</div>
 <div class="w250">Largura 250px</div>

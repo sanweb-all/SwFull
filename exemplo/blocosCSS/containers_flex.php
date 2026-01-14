@@ -39,13 +39,13 @@
                 </p>
                 <br />
                 <div class="d-f e1 Blila6 Tbran">Eu amo flexbox container!</div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f e1">Eu amo flexbox container!</div>
 </script>
 </pre>
                 <div class="d-if e1 Blila6 Tbran">Eu amo flexbox container!</div>
                 <br />
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-if e1">Eu amo flexbox container!</div>
 </script>
 </pre>
@@ -63,7 +63,7 @@
                 </p>
               </div>
               <div class="co6-g">
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-r">
   <div class="e1">01</div>
   <div class="e1">02</div>
@@ -88,7 +88,7 @@
                   <div class="e1 Blima5 bord bord-bran">03</div>
                 </div>
                 <br />
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-c">
   <div class="e1">01</div>
   <div class="e1">02</div>
@@ -166,7 +166,7 @@
                 <hr />
               </div>
               <div class="co6-g">
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f just-c-s mf4">
     <div class="e1">Esquerda</div>
     <div class="e1">Centro</div>
@@ -248,7 +248,7 @@
                 <hr />
               </div>
               <div class="co6-g">
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f just-c-c align-i-s mf1" style="height: 100px">
     <div class="e4">Esquerda</div>
     <div class="e4">Centro</div>
@@ -324,7 +324,7 @@
                 </div>
               </div>
               <div class="co6-g">
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f just-c-c mf1" style="height: 100px">
     <div class="e1">Esquerda</div>
     <div class="align-s-s e1">Centro</div>
@@ -396,7 +396,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-s f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -436,7 +436,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-e f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -476,7 +476,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-c f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -519,7 +519,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-b f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -559,7 +559,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-a f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -599,7 +599,7 @@
                     <div class="e1 Bceu3 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f align-c-st f-wr mf1 Tpret" style="height: 250px">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -650,7 +650,7 @@
                 </p>
               </div>
               <div class="co6-g">
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f">
     <div class="e1 f-g1">01</div>
     <div class="e1">02</div>
@@ -663,7 +663,7 @@
                   <div class="e1 Blila6 Tbran bord Lbran">02</div>
                   <div class="e1 Blila6 Tbran bord Lbran">03</div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f">
     <div class="e1 wp100">01</div>
     <div class="e1 f-s1">02</div>
@@ -704,7 +704,7 @@
                     <div class="e1 Bceu6 bord Lbran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-nowr e1" style="width: 180px;">
     <div class="e1">Conteúdo</div>
     <div class="e1">Conteúdo</div>
@@ -732,7 +732,7 @@
                     <div class="e1 Bceu6 bord Lbran">Conteúdo 14</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-wr">
     <div class="e1">Conteúdo 1</div>
     <div class="e1">Conteúdo 2</div>
@@ -770,7 +770,7 @@
                     <div class="e1 Bceu6 bord Lbran">Conteúdo 13</div>
                     <div class="e1 Bceu6 bord Lbran">Conteúdo 14</div>
                   </div>
-                  <pre WfCode><script type="text/plain">
+                  <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-wr-r">
     <div class="e1">Conteúdo 1</div>
     <div class="e1">Conteúdo 2</div>
@@ -823,7 +823,7 @@
                     <div class="or-2 e1 bord Lbran Bazul4 Tbran">02</div>
                     <div class="or-1 e1 bord Lbran Bazul4 Tbran">03</div>
                   </div>
-                  <pre WfCode><script type="text/plain">
+                  <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f f-nowr">
     <div class="or-3 e1">01</div>
     <div class="or-2 e1">02</div>
@@ -866,7 +866,7 @@
                     <div class="e1 Bviol3 bord bord-bran">Conteúdo</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-f">
     <div class="e1 f-f">Maior Texto</div>
     <div class="e1">Conteúdo</div>

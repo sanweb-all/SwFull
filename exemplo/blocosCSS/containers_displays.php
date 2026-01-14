@@ -64,7 +64,7 @@
                         <div class="posi-a dd-10 Bverm6 w20 C Tbran">9</div>
                      </div>
                      <br />
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="posi-r" style="height: 140px;">
   <div class="posi-a de-0">1</div>
   <div class="posi-a de-5">2</div>
@@ -110,7 +110,7 @@
                         <div class="posi-a ld-10 Bverm6 w20 C Tbran">9</div>
                      </div>
                      <br />
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="posi-r" style="height: 140px;">
   <div class="posi-a le-0">1</div>
   <div class="posi-a le-5">2</div>
@@ -155,7 +155,7 @@
                         <div class="posi-a fd-10 Bverm6 w20 C Tbran">9</div>
                      </div>
                      <br />
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="posi-r" style="height: 140px;">
   <div class="posi-a fe-0">1</div>
   <div class="posi-a fe-5">2</div>
@@ -192,7 +192,7 @@
                         <b>.d-if</b> - display: inline-flex;<br />
                         <b>.d-fr</b> - display: flow-root; <br />
                      </p>
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="d-b e1">
 	d-b espaço 10px
 </div>
@@ -215,7 +215,7 @@
                      </p>
                      <br />
                      <div class="dcenter Bverd6 Tneut10" style="height: 358px">Center</div>
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="dcenter" style="height: 360px;">
 	Center
 </div>
@@ -238,7 +238,7 @@
                      <br /><br />
                   </div>
                   <div class="co6-g">
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="disp1">Display 1</div>
 <div class="disp2">Display 2</div>
 <div class="disp3">Display 3</div>
@@ -281,7 +281,7 @@
                         <div class="float-d Bamar4 Tneut10 e1">Float Direita</div>
                         <br /><br />
                      </div>
-                     <pre WfCode><script type="text/plain">
+                     <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="float-e">Float Esquerda</div>
 <div class="float-d">Float Direita</div>
 <div class="float-t">Float Topo</div>

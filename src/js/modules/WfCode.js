@@ -337,6 +337,11 @@ class WfCode {
                el.classList.add('language-' + lang);
             }
 
+            // GARANTIR que o atributo WfCode exista para que o CSS funcione
+            if (!el.hasAttribute('WfCode')) {
+               el.setAttribute('WfCode', '');
+            }
+
             try {
                new WfCode(el);
                el._wfCodeInitialized = true;

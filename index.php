@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <?php
 // Define a URL base do projeto automaticamente
-$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
-$url = $protocol . "://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
-$url = str_replace('\\', '/', $url);
-$url = rtrim($url, '/') . '/';
+$protocol = 'http';
+if ((isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] === 1)) ||
+  (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+) {
+  $protocol = 'https';
+}
+
+$script_dir = dirname($_SERVER['SCRIPT_NAME']);
+$script_dir = str_replace('\\', '/', $script_dir);
+$script_dir = rtrim($script_dir, '/');
+
+// Correção específica para evitar duplicação do domínio no caminho (comum em algumas hospedagens)
+if (isset($_SERVER['HTTP_HOST']) && strpos($script_dir, '/' . $_SERVER['HTTP_HOST']) === 0) {
+  $script_dir = str_replace('/' . $_SERVER['HTTP_HOST'], '', $script_dir);
+}
+
+$url = $protocol . "://" . $_SERVER['HTTP_HOST'] . $script_dir . '/';
 define('URL', $url);
 ?>
 <html lang="pt-br" WfDay>

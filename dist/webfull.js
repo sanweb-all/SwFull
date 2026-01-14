@@ -2555,6 +2555,14 @@ html.wfday-night .wfaccord-header.active .wfaccord-icon {
           `${componentName.toLowerCase()}`,
         ];
 
+        // Adicionar seletores específicos para WfCode (suporte a Prism.js style)
+        if (componentName === "WfCode") {
+          selectors.push('pre[class*="language-"]');
+          selectors.push('code[class*="language-"]');
+          selectors.push('pre[class*="lang-"]');
+          selectors.push('code[class*="lang-"]');
+        }
+
         for (const selector of selectors) {
           try {
             if (container.querySelector(selector)) {
@@ -6610,6 +6618,11 @@ class WfCode {
 
             if (lang && !el.classList.contains('language-' + lang)) {
                el.classList.add('language-' + lang);
+            }
+
+            // GARANTIR que o atributo WfCode exista para que o CSS funcione
+            if (!el.hasAttribute('WfCode')) {
+               el.setAttribute('WfCode', '');
             }
 
             try {

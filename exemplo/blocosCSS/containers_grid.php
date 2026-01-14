@@ -70,7 +70,7 @@
                     <div class="Bverm3 e1 bord bord-bran">Item 4</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co2 grid-gap-p">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -95,7 +95,7 @@
                     <div class="Bverm3 e1 bord bord-bran">Item 6</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co3 grid-gap-m grid-just-c">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -138,7 +138,7 @@
                     <div class="Bverm5 e1 bord bord-bran">Item 8</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co4 grid-t-ln2">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -172,7 +172,7 @@
                     <div class="Bverm5 e1 bord bord-bran">Item 10</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co2 grid-t-ln5">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -219,7 +219,7 @@
                     <div class="Bceu5 e1 bord bord-bran">Item 8</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co1">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -253,7 +253,7 @@
                     <div class="Bceu5 e1 bord bord-bran">Item 10</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co5 grid-t-l2">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -295,7 +295,7 @@
                     <div class="Bceu5 e1 bord bord-bran">Item 3</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co3 grid-gap-m">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -315,7 +315,7 @@
                     <div class="Bceu5 e1 bord bord-bran">Item 2</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co2 grid-gap-pp">
     <div>Item 1</div>
     <div>Item 2</div>
@@ -340,7 +340,7 @@
                     <div class="Bceu5 e1 bord bord-bran">Item 6</div>
                   </div>
                 </div>
-                <pre WfCode><script type="text/plain">
+                <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="grid grid-t-co2 grid-gap-gg">
     <div>Item 1</div>
     <div>Item 2</div>

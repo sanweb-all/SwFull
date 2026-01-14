@@ -67,7 +67,7 @@
   <div class="g0-xg">
     <div class="l0">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="g-xg">
    <div class="l mf1">
       <div class="co4">co4</div>
@@ -134,7 +134,7 @@
   <div class="g0-xg">
     <div class="l0">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="g-pp">g-pp</div>
 <div class="g-p">g-p</div>
 <div class="g-m">g-m</div>
@@ -229,7 +229,7 @@
   </div>
   <br />
   <div class="g0-xg">
-    <pre WfCode><script type="text/plain">
+    <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="g">
    <div class="l">
       <div class="co3-p co4-m co2-g">3-p 4-m 2-g</div>
@@ -324,7 +324,7 @@
   <div class="g0-xg">
     <div class="l0">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="g-xg">
    <div class="l mf1">
       <div class="co4 Bgold2 e1 Tpret">co5</div>
@@ -365,7 +365,7 @@
 </div>
 </script>
 </pre>
-               </div>
-            </div>
-         </div>
+      </div>
+    </div>
+  </div>
 </section>

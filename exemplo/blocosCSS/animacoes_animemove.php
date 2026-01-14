@@ -51,7 +51,7 @@
       </div>
       <div class="co6-g">
         <br />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <a class="btn btn-prin move-t">move-t</a>
 <a class="btn btn-secu move-e">move-e</a>
 <a class="btn btn-suce move-f">move-f</a>
@@ -59,13 +59,13 @@
 </script>
 </pre>
         <br />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <a class="btn btn-prin move-in">move-in</a>
 <a class="btn btn-secu move-out">move-out</a>
 </script>
 </pre>
         <br />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <a class="btn btn-prin move-in-t">move-in-t</a>
 <a class="btn btn-secu move-in-e">move-in-e</a>
 <a class="btn btn-suce move-in-f">move-in-f</a>

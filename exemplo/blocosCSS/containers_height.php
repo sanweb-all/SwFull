@@ -37,7 +37,7 @@
     </div>
     <div class="l">
       <div class="co12-g">
-        <pre SwCode><script type="text/plain">
+        <pre SwCode WfCode-lang="html"><script type="text/plain">
 <div class="h50">Altura 50px</div>
 <div class="h300">Altura 300px</div>
 <div class="h150">Altura 150px</div>
