@@ -372,6 +372,18 @@ article, footer, header, main, section {
     }
 }
 
+@font-face {
+    font-family: wficons;
+    font-weight: 400;
+    font-style: normal;
+    src: url('/assets/fonts/wficons.eot');
+    src: url('/assets/fonts/wficons.eot') format('embedded-opentype'),
+        url('/assets/fonts/wficons.woff2') format('woff2'),
+        url('/assets/fonts/wficons.woff') format('woff'),
+        url('/assets/fonts/wficons.ttf') format('truetype'),
+        url('/assets/fonts/wficons.svg#wficons') format('svg');
+}
+
 .wf-spin, .wf-spin-hover:hover {
     -webkit-animation: 2s linear infinite wf-spin;
     animation: 2s linear infinite wf-spin
