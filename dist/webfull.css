@@ -115,8 +115,8 @@ article, footer, header, main, section {
     font-family: wficons;
     font-weight: 400;
     font-style: normal;
-    src: url('/fonts/wficons.eot');
-    src: url('/fonts/wficons.eot') format('embedded-opentype'), url('/fonts/wficons.woff2') format('woff2'), url('/fonts/wficons.woff') format('woff'), url('/fonts/wficons.ttf') format('truetype'), url('/fonts/wficons.svg?#wficons') format('svg')
+    src: url('../fonts/wficons.eot');
+    src: url('../fonts/wficons.eot') format('embedded-opentype'), url('../fonts/wficons.woff2') format('woff2'), url('../fonts/wficons.woff') format('woff'), url('../fonts/wficons.ttf') format('truetype'), url('../fonts/wficons.svg?#wficons') format('svg')
 }
 
 .wf, .wfs, .wfl {

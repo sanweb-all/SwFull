@@ -33,6 +33,7 @@ define('URL', $url);
   <link
     rel="stylesheet"
     href="<?php echo URL; ?>exemplo/css/alls.css" />
+  <link rel="icon" href="<?php echo URL; ?>exemplo/images/sw.png" />
 </head>
 
 <body class="aniline">

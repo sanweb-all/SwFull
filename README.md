@@ -24,13 +24,13 @@ Utilize o JSDelivr para carregar os arquivos diretamente do repositório GitHub 
 <!-- CSS Core -->
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css"
+  href="https://cdn.jsdelivr.net/gh/sanweb-all/WebFull@main/dist/webfull.min.css"
 />
 
 <!-- JS Core (Module) -->
 <script
   type="module"
-  src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"
+  src="https://cdn.jsdelivr.net/gh/sanweb-all/WebFull@main/dist/webfull.min.js"
 ></script>
 ```
 
@@ -39,7 +39,7 @@ Utilize o JSDelivr para carregar os arquivos diretamente do repositório GitHub 
 Você pode baixar os arquivos compilados diretamente da pasta `dist/` deste repositório ou clonar o projeto:
 
 ```bash
-git clone https://github.com/sanweb-all/SwFull.git
+git clone https://github.com/sanweb-all/WebFull.git
 ```
 
 - `dist/webfull.min.js`
@@ -59,7 +59,7 @@ O WebFull utiliza atributos HTML personalizados (ex: `WfBtn`, `WfMasc`) para ini
     <title>Exemplo WebFull</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css"
+      href="https://cdn.jsdelivr.net/gh/sanweb-all/WebFull@main/dist/webfull.min.css"
     />
   </head>
   <body>
@@ -86,7 +86,7 @@ O WebFull utiliza atributos HTML personalizados (ex: `WfBtn`, `WfMasc`) para ini
 
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"
+      src="https://cdn.jsdelivr.net/gh/sanweb-all/WebFull@main/dist/webfull.min.js"
     ></script>
   </body>
 </html>

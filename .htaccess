@@ -1,21 +1,60 @@
 # ============================================================
-# SWFull CDN - Configuração Apache
+
+# WebFull CDN - Configuração Apache (atrás ou não do Nginx Proxy Manager)
+
 # ============================================================
-# Copie este arquivo para a pasta dist/ no seu servidor
-# Renomeie para: .htaccess
+
+# Uso recomendado:
+
+# - Copiar ESTE arquivo para a RAIZ do CDN
+
+# (mesmo nível de /dist e /fonts, ex: /var/www/webfull/.htaccess)
+
+# - Se usar APENAS Nginx (sem Apache atrás), copiar os blocos
+
+# de CORS/Cache/Compressão para a aba "Advanced" do host
+
+# no Nginx Proxy Manager.
+
 # ============================================================
 
 # ===== CORS (Cross-Origin Resource Sharing) =====
-# Permite que qualquer site use seus arquivos
+
+# Deixar 100% público APENAS:
+
+# - dist/webfull.css
+
+# - dist/webfull.min.css
+
+# - dist/webfull.js
+
+# - dist/webfull.min.js
+
+# - /fonts (todas as fontes usadas pela WebFull)
+
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type, Accept"
-    Header set Access-Control-Max-Age "86400"
+    # JS/CSS principais da WebFull
+    <FilesMatch "^webfull(\.min)?\.(css|js)$">
+        Header always set Access-Control-Allow-Origin "*"
+        Header always set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header always set Access-Control-Allow-Headers "Content-Type, Accept"
+        Header always set Access-Control-Max-Age "86400"
+    </FilesMatch>
+
+    # Fonts usadas pela WebFull (wficons, Poppins, Roboto, etc.)
+    <FilesMatch "\.(woff2?|ttf|otf|eot|svg)$">
+        Header always set Access-Control-Allow-Origin "*"
+        Header always set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header always set Access-Control-Allow-Headers "Content-Type, Accept"
+        Header always set Access-Control-Max-Age "86400"
+    </FilesMatch>
+
 </IfModule>
 
 # ===== CACHE =====
+
 # Cache agressivo para arquivos estáticos (1 ano)
+
 <IfModule mod_expires.c>
     ExpiresActive On
 
@@ -25,22 +64,25 @@
 
     # JSON (info CDN)
     ExpiresByType application/json "access plus 1 day"
+
 </IfModule>
 
 # Cache via Headers (fallback)
+
 <FilesMatch "\.(js|css)$">
-    <IfModule mod_headers.c>
-        Header set Cache-Control "public, max-age=31536000, immutable"
-    </IfModule>
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
 </FilesMatch>
 
 <FilesMatch "\.json$">
-    <IfModule mod_headers.c>
-        Header set Cache-Control "public, max-age=86400"
-    </IfModule>
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=86400"
+</IfModule>
 </FilesMatch>
 
 # ===== COMPRESSÃO GZIP =====
+
 <IfModule mod_deflate.c>
     # Comprimir JavaScript
     AddOutputFilterByType DEFLATE application/javascript
@@ -54,9 +96,11 @@
 
     # Comprimir HTML
     AddOutputFilterByType DEFLATE text/html
+
 </IfModule>
 
 # ===== SEGURANÇA =====
+
 <IfModule mod_headers.c>
     # Prevenir MIME-type sniffing
     Header always set X-Content-Type-Options "nosniff"
@@ -69,16 +113,23 @@
 
     # Referrer Policy
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
 </IfModule>
 
 # ===== FORÇA HTTPS (Opcional - descomente se usar SSL) =====
+
 # <IfModule mod_rewrite.c>
-#     RewriteEngine On
-#     RewriteCond %{HTTPS} off
-#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# RewriteEngine On
+
+# RewriteCond %{HTTPS} off
+
+# RewriteRule ^(.\*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # </IfModule>
 
 # ===== TIPOS MIME =====
+
 <IfModule mod_mime.c>
     AddType application/javascript js
     AddType text/css css
@@ -90,36 +141,43 @@
     AddType font/ttf ttf
     AddType font/otf otf
     AddType font/eot eot
+
 </IfModule>
 
 # ===== CHARSET =====
+
 AddDefaultCharset UTF-8
 
 # ===== DESABILITAR LISTAGEM DE DIRETÓRIOS =====
+
 Options -Indexes
 
 # ===== PREVENIR ACESSO A ARQUIVOS OCULTOS =====
+
 <FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
+Order allow,deny
+Deny from all
 </FilesMatch>
 
 # ===== CUSTOM ERROR PAGES (Opcional) =====
+
 # ErrorDocument 404 /404.html
+
 # ErrorDocument 500 /500.html
 
 # ===== LOGS (Desabilitar para CDN - economiza recursos) =====
+
 # SetEnv DONT_LOG 1
 
 # ===== FIM =====
 
+# ===== PROTE��O DE ARQUIVOS DE SISTEMA =====
 
-# ===== PROTE��O DE ARQUIVOS DE SISTEMA =====
-<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+<FilesMatch "(^#.\*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 <FilesMatch "(package\.json|package-lock\.json|README\.md|LICENSE|\.gitignore|\.clinerules)$">
-    Order allow,deny
-    Deny from all
+Order allow,deny
+Deny from all
 </FilesMatch>
