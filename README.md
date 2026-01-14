@@ -136,4 +136,4 @@ Para editar o framework e compilar suas próprias versões:
 ## 📄 Licença
 
 Proprietário. Todos os direitos reservados.
-Desenvolvido por **Sandro**.
+Desenvolvido por **SandroWeb - Sandro Araújo**.
