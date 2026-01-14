@@ -1,5 +1,5 @@
-(function(window, document) {
-  'use strict';
+(function (window, document) {
+  "use strict";
 
   /**
    * WfSidebar - Sistema de Sidebar Responsiva
@@ -14,10 +14,14 @@
       this.element = element;
       element._wfSidebar = this;
 
-      this.breakpoint = this.element.getAttribute("WfSidebar-breakpoint") || "790px";
-      this.closeOnOutside = this.element.getAttribute("WfSidebar-close-on-outside") !== "false";
-      this.closeOnClick = this.element.getAttribute("WfSidebar-close-on-click") !== "false";
-      this.autoClose = this.element.getAttribute("WfSidebar-auto-close") !== "false";
+      this.breakpoint =
+        this.element.getAttribute("WfSidebar-breakpoint") || "790px";
+      this.closeOnOutside =
+        this.element.getAttribute("WfSidebar-close-on-outside") !== "false";
+      this.closeOnClick =
+        this.element.getAttribute("WfSidebar-close-on-click") !== "false";
+      this.autoClose =
+        this.element.getAttribute("WfSidebar-auto-close") !== "false";
       this.side = this.element.getAttribute("WfSidebar-side") || "left"; // left ou right
 
       this.isOpen = false;
@@ -456,8 +460,12 @@ html.wfday-night {
               const submenuLi = link.closest(".submenu li");
               if (submenuLi) {
                 // limpar apenas estados active dos submenus
-                this.element.querySelectorAll(".submenu li.active").forEach((el) => el.classList.remove("active"));
-                this.element.querySelectorAll(".menu-header.active").forEach((el) => el.classList.remove("active"));
+                this.element
+                  .querySelectorAll(".submenu li.active")
+                  .forEach((el) => el.classList.remove("active"));
+                this.element
+                  .querySelectorAll(".menu-header.active")
+                  .forEach((el) => el.classList.remove("active"));
 
                 // marcar o item clicado e o header do menu pai
                 submenuLi.classList.add("active");
@@ -504,18 +512,16 @@ html.wfday-night {
       if (this.isOpen) return;
       this.isOpen = true;
 
-      // Garantir que a classe lateral exista antes da animação
+      // Adiciona classe de direção
       this.element.classList.add(`sidebar-${this.side}`);
 
-      // Definir transform inicial inline (fora da tela) para garantir ponto de partida
-      const startTransform =
-        this.side === "right" ? "translateX(100%)" : "translateX(-100%)";
-      this.element.style.transform = startTransform;
+      // Desabilita transição temporariamente para definir posição inicial sem animar
+      this.element.style.transition = "none";
+      void this.element.offsetWidth; // Força reflow
+      this.element.style.transition = ""; // Restaura transição do CSS
 
-      // Forçar reflow e, na próxima frame, adicionar a classe que aciona a transição
+      // Adiciona classe open para animar entrada
       requestAnimationFrame(() => {
-        // força repaint
-        void this.element.offsetWidth;
         this.element.classList.add("open");
       });
 
@@ -524,7 +530,10 @@ html.wfday-night {
       }
 
       if (this.toggleBtn) {
-        this.toggleBtn.setAttribute("aria-label", `Fechar sidebar ${this.side}`);
+        this.toggleBtn.setAttribute(
+          "aria-label",
+          `Fechar sidebar ${this.side}`
+        );
         this.toggleBtn.innerHTML = "✕";
       }
 
@@ -533,11 +542,9 @@ html.wfday-night {
         document.body.style.overflow = "hidden";
       }
 
-      // Disparar evento quando a transição de transform terminar e limpar estilo inline
+      // Disparar evento quando a transição de transform terminar
       const onOpened = (e) => {
         if (e.propertyName === "transform") {
-          // remover transform inline para devolver controle ao CSS
-          this.element.style.transform = "";
           this.element.dispatchEvent(
             new CustomEvent("wfsidebar:opened", {
               detail: { sidebar: this.element, side: this.side },
@@ -567,9 +574,12 @@ html.wfday-night {
       // Quando a transição terminar, remove a classe lateral e restaura scroll
       const onClosed = (e) => {
         if (e.propertyName === "transform") {
+          // Desabilita transição para limpar classes sem cruzar a tela
+          this.element.style.transition = "none";
           this.element.classList.remove(`sidebar-${this.side}`);
-          // garantir que não fique transform inline residuado
-          this.element.style.transform = "";
+          void this.element.offsetWidth; // Força reflow
+          this.element.style.transition = ""; // Restaura
+
           document.body.style.overflow = "";
           this.element.dispatchEvent(
             new CustomEvent("wfsidebar:closed", {
@@ -659,7 +669,7 @@ html.wfday-night {
 
   // Exportação global
   if (typeof window !== "undefined") {
-    if (typeof window.WebFull !== 'undefined') {
+    if (typeof window.WebFull !== "undefined") {
       window.WebFull.modules.WfSidebar = WfSidebar;
     }
     window.WfSidebar = WfSidebar;
@@ -675,6 +685,4 @@ html.wfday-night {
   } else {
     init();
   }
-
 })(window, document);
-

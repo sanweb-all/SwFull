@@ -15,7 +15,6 @@
 
     // Função de inicialização
     init: function () {
-      console.log("WebFull iniciado com sucesso!");
       this.setupGlobalEvents();
     },
 
@@ -28,8 +27,6 @@
 
     // Inicialização da UI (para o framework CSS)
     initUI: function (container = document) {
-      console.log("WebFull UI: Inicializando módulos...");
-
       // Itera sobre todos os módulos registrados
       for (const key in this.modules) {
         if (this.modules.hasOwnProperty(key)) {
@@ -39,7 +36,6 @@
           if (module && typeof module.initAll === "function") {
             try {
               module.initAll(container);
-              console.log(`- Módulo ${key} inicializado.`);
             } catch (e) {
               console.error(`Erro ao inicializar módulo ${key}:`, e);
             }
@@ -47,7 +43,6 @@
             // Suporte a nome alternativo
             try {
               module.autoInit(container);
-              console.log(`- Módulo ${key} auto-inicializado.`);
             } catch (e) {
               console.error(`Erro ao inicializar módulo ${key}:`, e);
             }
@@ -58,7 +53,6 @@
 
     // Reinicializa todos os módulos em um container específico
     reinit: function (container = document) {
-      console.log("WebFull: Reinicializando módulos...");
       this.initUI(container);
     },
 

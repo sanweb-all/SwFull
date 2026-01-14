@@ -27,14 +27,9 @@ class WfPagInfinite {
         scrollHeight <= clientHeight &&
         this.currentPage * this.itemsPerPage < this.items.length
       ) {
-        console.log(
-          "🚀 Carregando mais itens inicialmente (container muito alto)..."
-        );
         this.loadMore();
       }
     }, 100);
-
-    console.log("✅ WfPagInfinite inicializado:", this.element);
   }
 
   setupContainer() {
@@ -43,8 +38,6 @@ class WfPagInfinite {
     this.element.style.overflowY = "auto";
     this.element.style.border = "1px solid #ddd";
     this.element.style.padding = "10px";
-
-    console.log(`📏 Altura aplicada: ${this.customHeight}`);
   }
 
   setupItems() {
@@ -55,8 +48,6 @@ class WfPagInfinite {
     if (this.items.length === 0) {
       this.items = Array.from(this.element.children);
     }
-
-    console.log(`📋 Encontrados ${this.items.length} itens`);
 
     // Esconder todos os itens inicialmente
     this.items.forEach((item) => (item.style.display = "none"));
@@ -72,13 +63,6 @@ class WfPagInfinite {
     for (let i = startIndex; i < endIndex && i < this.items.length; i++) {
       this.items[i].style.display = "block";
     }
-
-    console.log(
-      `👁️ Mostrando itens ${startIndex + 1} a ${Math.min(
-        endIndex,
-        this.items.length
-      )}`
-    );
   }
 
   bindScroll() {
@@ -88,15 +72,8 @@ class WfPagInfinite {
       const { scrollTop, scrollHeight, clientHeight } = this.element;
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
 
-      console.log(
-        `📊 Scroll: ${Math.round(
-          scrollPercentage * 100
-        )}% - Top: ${scrollTop}, Height: ${scrollHeight}, Client: ${clientHeight}`
-      );
-
       // Se chegou a 80% do scroll
       if (scrollPercentage >= 0.8) {
-        console.log("🎯 Trigger de scroll atingido! Carregando mais...");
         this.loadMore();
       }
     });
@@ -106,7 +83,6 @@ class WfPagInfinite {
       if (!this.loading) {
         const { scrollTop, scrollHeight, clientHeight } = this.element;
         if (scrollHeight <= clientHeight) {
-          console.log("📏 Container muito pequeno, carregando mais itens...");
           this.loadMore();
         }
       }
@@ -118,23 +94,16 @@ class WfPagInfinite {
 
     const totalShown = this.currentPage * this.itemsPerPage;
     if (totalShown >= this.items.length) {
-      console.log("🏁 Todos os itens já foram carregados");
       return;
     }
 
     this.loading = true;
-    console.log(`⏳ Carregando mais itens... Página ${this.currentPage + 1}`);
 
     // Simular delay de carregamento
     setTimeout(() => {
       this.currentPage++;
       this.showItems();
       this.loading = false;
-      console.log(
-        `✅ Página ${this.currentPage} carregada - Total visível: ${
-          this.currentPage * this.itemsPerPage
-        }/${this.items.length}`
-      );
 
       // Verificar se ainda precisa carregar mais (se o container ainda não tem scroll)
       setTimeout(() => {
@@ -143,9 +112,6 @@ class WfPagInfinite {
           scrollHeight <= clientHeight &&
           this.currentPage * this.itemsPerPage < this.items.length
         ) {
-          console.log(
-            "🔄 Container ainda sem scroll, carregando mais automaticamente..."
-          );
           this.loadMore();
         }
       }, 100);
@@ -156,9 +122,6 @@ class WfPagInfinite {
     const elements = container.querySelectorAll("[WfPagInfinite]");
 
     elements.forEach((element, index) => {
-      console.log(
-        `🚀 Inicializando WfPagInfinite ${index + 1}/${elements.length}`
-      );
       if (!element._wfPagInfinite) {
           element._wfPagInfinite = new WfPagInfinite(element);
       }

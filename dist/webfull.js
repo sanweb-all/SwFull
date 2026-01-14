@@ -15,7 +15,6 @@
 
     // Função de inicialização
     init: function () {
-      console.log("WebFull iniciado com sucesso!");
       this.setupGlobalEvents();
     },
 
@@ -28,8 +27,6 @@
 
     // Inicialização da UI (para o framework CSS)
     initUI: function (container = document) {
-      console.log("WebFull UI: Inicializando módulos...");
-
       // Itera sobre todos os módulos registrados
       for (const key in this.modules) {
         if (this.modules.hasOwnProperty(key)) {
@@ -39,7 +36,6 @@
           if (module && typeof module.initAll === "function") {
             try {
               module.initAll(container);
-              console.log(`- Módulo ${key} inicializado.`);
             } catch (e) {
               console.error(`Erro ao inicializar módulo ${key}:`, e);
             }
@@ -47,7 +43,6 @@
             // Suporte a nome alternativo
             try {
               module.autoInit(container);
-              console.log(`- Módulo ${key} auto-inicializado.`);
             } catch (e) {
               console.error(`Erro ao inicializar módulo ${key}:`, e);
             }
@@ -58,7 +53,6 @@
 
     // Reinicializa todos os módulos em um container específico
     reinit: function (container = document) {
-      console.log("WebFull: Reinicializando módulos...");
       this.initUI(container);
     },
 
@@ -2362,13 +2356,6 @@ html.wfday-night .wfaccord-header.active .wfaccord-icon {
       }
 
       // INICIALIZAR COMPONENTES IMEDIATAMENTE (ANTES DA ANIMAÇÃO)
-      try {
-        console.debug &&
-          console.debug("WfAjax.applyAnimation", {
-            url: this.url,
-            dest: this.dest,
-          });
-      } catch (e) {}
       this.afterContentLoad(target);
 
       // Inicializar WfCode
@@ -2620,10 +2607,7 @@ html.wfday-night .wfaccord-header.active .wfaccord-icon {
               componentName === "WfCode" &&
               typeof window[componentName].reinit === "function"
             ) {
-              console.log(
-                `[WfAjax] Chamando WfCode.reinit() para container:`,
-                container
-              );
+              // console.log(`[WfAjax] Chamando WfCode.reinit() para container:`, container);
               window[componentName].reinit(container);
             } else {
               window[componentName].initAll(container, { baseUrl: sourceUrl });
@@ -10232,101 +10216,126 @@ if (!window.WebFull) {
 
 
 // ===== WfIconsInit.js =====
-(function(window, document) {
-    'use strict';
+(function (window, document) {
+  "use strict";
 
-    /**
-     * WfIconsInit
-     * Carrega e popula automaticamente listas <ul id="wficons-list"> quando a página
-     * é carregada ou quando o WfAjax injeta conteúdo.
-     */
-    const WfIconsInit = {
-        initAll: function(container = document) {
-            const lists = container.querySelectorAll('#wficons-list');
-            lists.forEach(el => this.populate(el));
-        },
+  /**
+   * WfIconsInit
+   * Carrega e popula automaticamente listas <ul id="wficons-list"> quando a página
+   * é carregada ou quando o WfAjax injeta conteúdo.
+   */
+  const WfIconsInit = {
+    initAll: function (container = document) {
+      const lists = container.querySelectorAll("#wficons-list");
+      lists.forEach((el) => this.populate(el));
+    },
 
-        populate: function(el) {
-            if (!el) return;
-            if (el.dataset.wfIconsInit === 'skip') return;
-            if (el.dataset.wfIconsInit) return;
-            el.dataset.wfIconsInit = '1';
+    populate: function (el) {
+      if (!el) return;
+      if (el.dataset.wfIconsInit === "skip") return;
+      if (el.dataset.wfIconsInit) return;
+      el.dataset.wfIconsInit = "1";
 
-            // Bust cache during development: add timestamp when requested via global flag or on localhost
-            let url = '/assets/components/wf-icons.json';
-            try {
-                const nocache = (window && (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || window.__WF_NO_CACHE));
-                if (nocache) url += (url.indexOf('?') === -1 ? '?t=' : '&t=') + Date.now();
-            } catch (e) { /* ignore */ }
+      // Bust cache during development: add timestamp when requested via global flag or on localhost
+      let url = "/assets/components/wf-icons.json";
+      try {
+        const nocache =
+          window &&
+          (location.hostname === "localhost" ||
+            location.hostname === "127.0.0.1" ||
+            window.__WF_NO_CACHE);
+        if (nocache)
+          url += (url.indexOf("?") === -1 ? "?t=" : "&t=") + Date.now();
+      } catch (e) {
+        /* ignore */
+      }
 
-            fetch(url, { cache: 'no-store' })
-                .then(r => { if (!r.ok) throw new Error('wf-icons.json not found'); return r.json(); })
-                .then(map => {
-                    el.innerHTML = '';
-                    const items = Object.values(map).sort((a,b)=> (a.name||'').localeCompare(b.name||''));
-                    for (const it of items) {
-                        const li = document.createElement('li');
-                        const a = document.createElement('a'); a.href = '';
-                        const wrap = document.createElement('div');
-                        // sempre usar a fonte via classe 'wf wf-<name>' — evita inserir SVGs cru
-                        let cls = (it.class || '').trim();
-                        if (!cls && it.name) cls = 'wf-' + it.name;
-                        cls = cls.replace(/^wfl-/, 'wf-').replace(/^wfs-/, 'wf-');
-                        if (!cls) cls = 'wf-icon';
-                        wrap.innerHTML = `<i class="wf ${cls}"></i>`;
-                        const p = document.createElement('p');
-                        p.textContent = cls;
-                        a.appendChild(wrap); a.appendChild(p); li.appendChild(a); el.appendChild(li);
-                    }
-                    // console.log('WfIconsInit: populado', el, items.length);
-                })
-                .catch(err => {
-                    console.error('WfIconsInit: erro ao carregar wf-icons.json', err);
-                });
-        }
-    };
+      fetch(url, { cache: "no-store" })
+        .then((r) => {
+          if (!r.ok) throw new Error("wf-icons.json not found");
+          return r.json();
+        })
+        .then((map) => {
+          el.innerHTML = "";
+          const items = Object.values(map).sort((a, b) =>
+            (a.name || "").localeCompare(b.name || "")
+          );
+          for (const it of items) {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = "";
+            const wrap = document.createElement("div");
+            // sempre usar a fonte via classe 'wf wf-<name>' — evita inserir SVGs cru
+            let cls = (it.class || "").trim();
+            if (!cls && it.name) cls = "wf-" + it.name;
+            cls = cls.replace(/^wfl-/, "wf-").replace(/^wfs-/, "wf-");
+            if (!cls) cls = "wf-icon";
+            wrap.innerHTML = `<i class="wf ${cls}"></i>`;
+            const p = document.createElement("p");
+            p.textContent = cls;
+            a.appendChild(wrap);
+            a.appendChild(p);
+            li.appendChild(a);
+            el.appendChild(li);
+          }
+        })
+        .catch((err) => {
+          console.error("WfIconsInit: erro ao carregar wf-icons.json", err);
+        });
+    },
+  };
 
-    // Exportação Global
-    if (typeof window !== 'undefined') {
-        window.WfIconsInit = WfIconsInit;
-        if (window.WebFull) {
-            window.WebFull.modules.WfIconsInit = WfIconsInit;
-        }
+  // Exportação Global
+  if (typeof window !== "undefined") {
+    window.WfIconsInit = WfIconsInit;
+    if (window.WebFull) {
+      window.WebFull.modules.WfIconsInit = WfIconsInit;
+    }
+  }
+
+  // Auto-inicialização
+  if (typeof document !== "undefined") {
+    const init = () => WfIconsInit.initAll();
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
     }
 
-    // Auto-inicialização
-    if (typeof document !== 'undefined') {
-        const init = () => WfIconsInit.initAll();
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
+    // Roda quando WfAjax injeta conteúdo: usa eventos públicos do framework
+    [
+      "swajax:loaded",
+      "swajax:processed",
+      "swajax:complete",
+      "swdiv:loaded",
+      "webfull-ready",
+    ].forEach((evt) => {
+      document.addEventListener(evt, () => {
+        try {
+          init();
+        } catch (e) {
+          console.warn("WfIconsInit event handler", e);
         }
+      });
+    });
 
-        // Roda quando WfAjax injeta conteúdo: usa eventos públicos do framework
-        ['swajax:loaded','swajax:processed','swajax:complete','swdiv:loaded','webfull-ready'].forEach(evt => {
-            document.addEventListener(evt, () => {
-                try { init(); } catch(e){ console.warn('WfIconsInit event handler', e); }
-            });
-        });
+    // MutationObserver para elementos dinâmicos
+    const observer = new MutationObserver((mutations) => {
+      let shouldInit = false;
+      for (const mutation of mutations) {
+        if (mutation.addedNodes.length) {
+          shouldInit = true;
+          break;
+        }
+      }
+      if (shouldInit) init();
+    });
 
-        // MutationObserver para elementos dinâmicos
-        const observer = new MutationObserver((mutations) => {
-            let shouldInit = false;
-            for (const mutation of mutations) {
-                if (mutation.addedNodes.length) {
-                    shouldInit = true;
-                    break;
-                }
-            }
-            if (shouldInit) init();
-        });
-        
-        observer.observe(document.body, { childList: true, subtree: true });
-    }
-
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 })(window, document);
+
 
 // ===== WfImg.js =====
 (function (window, document) {
@@ -16217,14 +16226,9 @@ class WfPagInfinite {
         scrollHeight <= clientHeight &&
         this.currentPage * this.itemsPerPage < this.items.length
       ) {
-        console.log(
-          "🚀 Carregando mais itens inicialmente (container muito alto)..."
-        );
         this.loadMore();
       }
     }, 100);
-
-    console.log("✅ WfPagInfinite inicializado:", this.element);
   }
 
   setupContainer() {
@@ -16233,8 +16237,6 @@ class WfPagInfinite {
     this.element.style.overflowY = "auto";
     this.element.style.border = "1px solid #ddd";
     this.element.style.padding = "10px";
-
-    console.log(`📏 Altura aplicada: ${this.customHeight}`);
   }
 
   setupItems() {
@@ -16245,8 +16247,6 @@ class WfPagInfinite {
     if (this.items.length === 0) {
       this.items = Array.from(this.element.children);
     }
-
-    console.log(`📋 Encontrados ${this.items.length} itens`);
 
     // Esconder todos os itens inicialmente
     this.items.forEach((item) => (item.style.display = "none"));
@@ -16262,13 +16262,6 @@ class WfPagInfinite {
     for (let i = startIndex; i < endIndex && i < this.items.length; i++) {
       this.items[i].style.display = "block";
     }
-
-    console.log(
-      `👁️ Mostrando itens ${startIndex + 1} a ${Math.min(
-        endIndex,
-        this.items.length
-      )}`
-    );
   }
 
   bindScroll() {
@@ -16278,15 +16271,8 @@ class WfPagInfinite {
       const { scrollTop, scrollHeight, clientHeight } = this.element;
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
 
-      console.log(
-        `📊 Scroll: ${Math.round(
-          scrollPercentage * 100
-        )}% - Top: ${scrollTop}, Height: ${scrollHeight}, Client: ${clientHeight}`
-      );
-
       // Se chegou a 80% do scroll
       if (scrollPercentage >= 0.8) {
-        console.log("🎯 Trigger de scroll atingido! Carregando mais...");
         this.loadMore();
       }
     });
@@ -16296,7 +16282,6 @@ class WfPagInfinite {
       if (!this.loading) {
         const { scrollTop, scrollHeight, clientHeight } = this.element;
         if (scrollHeight <= clientHeight) {
-          console.log("📏 Container muito pequeno, carregando mais itens...");
           this.loadMore();
         }
       }
@@ -16308,23 +16293,16 @@ class WfPagInfinite {
 
     const totalShown = this.currentPage * this.itemsPerPage;
     if (totalShown >= this.items.length) {
-      console.log("🏁 Todos os itens já foram carregados");
       return;
     }
 
     this.loading = true;
-    console.log(`⏳ Carregando mais itens... Página ${this.currentPage + 1}`);
 
     // Simular delay de carregamento
     setTimeout(() => {
       this.currentPage++;
       this.showItems();
       this.loading = false;
-      console.log(
-        `✅ Página ${this.currentPage} carregada - Total visível: ${
-          this.currentPage * this.itemsPerPage
-        }/${this.items.length}`
-      );
 
       // Verificar se ainda precisa carregar mais (se o container ainda não tem scroll)
       setTimeout(() => {
@@ -16333,9 +16311,6 @@ class WfPagInfinite {
           scrollHeight <= clientHeight &&
           this.currentPage * this.itemsPerPage < this.items.length
         ) {
-          console.log(
-            "🔄 Container ainda sem scroll, carregando mais automaticamente..."
-          );
           this.loadMore();
         }
       }, 100);
@@ -16346,9 +16321,6 @@ class WfPagInfinite {
     const elements = container.querySelectorAll("[WfPagInfinite]");
 
     elements.forEach((element, index) => {
-      console.log(
-        `🚀 Inicializando WfPagInfinite ${index + 1}/${elements.length}`
-      );
       if (!element._wfPagInfinite) {
           element._wfPagInfinite = new WfPagInfinite(element);
       }
@@ -18477,6 +18449,7 @@ class WfParallax {
       this.isActive = true;
 
       // Debug para verificar configurações
+      /*
       console.log(`[WfParallax] Inicializando elemento:`, {
          tagName: this.element.tagName,
          type: this.type,
@@ -18485,6 +18458,7 @@ class WfParallax {
          range: this.range,
          invert: this.invert,
       });
+      */
 
       this.init();
    }
@@ -20240,8 +20214,8 @@ a.wf i {
 
 
 // ===== WfSidebar.js =====
-(function(window, document) {
-  'use strict';
+(function (window, document) {
+  "use strict";
 
   /**
    * WfSidebar - Sistema de Sidebar Responsiva
@@ -20256,10 +20230,14 @@ a.wf i {
       this.element = element;
       element._wfSidebar = this;
 
-      this.breakpoint = this.element.getAttribute("WfSidebar-breakpoint") || "790px";
-      this.closeOnOutside = this.element.getAttribute("WfSidebar-close-on-outside") !== "false";
-      this.closeOnClick = this.element.getAttribute("WfSidebar-close-on-click") !== "false";
-      this.autoClose = this.element.getAttribute("WfSidebar-auto-close") !== "false";
+      this.breakpoint =
+        this.element.getAttribute("WfSidebar-breakpoint") || "790px";
+      this.closeOnOutside =
+        this.element.getAttribute("WfSidebar-close-on-outside") !== "false";
+      this.closeOnClick =
+        this.element.getAttribute("WfSidebar-close-on-click") !== "false";
+      this.autoClose =
+        this.element.getAttribute("WfSidebar-auto-close") !== "false";
       this.side = this.element.getAttribute("WfSidebar-side") || "left"; // left ou right
 
       this.isOpen = false;
@@ -20698,8 +20676,12 @@ html.wfday-night {
               const submenuLi = link.closest(".submenu li");
               if (submenuLi) {
                 // limpar apenas estados active dos submenus
-                this.element.querySelectorAll(".submenu li.active").forEach((el) => el.classList.remove("active"));
-                this.element.querySelectorAll(".menu-header.active").forEach((el) => el.classList.remove("active"));
+                this.element
+                  .querySelectorAll(".submenu li.active")
+                  .forEach((el) => el.classList.remove("active"));
+                this.element
+                  .querySelectorAll(".menu-header.active")
+                  .forEach((el) => el.classList.remove("active"));
 
                 // marcar o item clicado e o header do menu pai
                 submenuLi.classList.add("active");
@@ -20746,18 +20728,16 @@ html.wfday-night {
       if (this.isOpen) return;
       this.isOpen = true;
 
-      // Garantir que a classe lateral exista antes da animação
+      // Adiciona classe de direção
       this.element.classList.add(`sidebar-${this.side}`);
 
-      // Definir transform inicial inline (fora da tela) para garantir ponto de partida
-      const startTransform =
-        this.side === "right" ? "translateX(100%)" : "translateX(-100%)";
-      this.element.style.transform = startTransform;
+      // Desabilita transição temporariamente para definir posição inicial sem animar
+      this.element.style.transition = "none";
+      void this.element.offsetWidth; // Força reflow
+      this.element.style.transition = ""; // Restaura transição do CSS
 
-      // Forçar reflow e, na próxima frame, adicionar a classe que aciona a transição
+      // Adiciona classe open para animar entrada
       requestAnimationFrame(() => {
-        // força repaint
-        void this.element.offsetWidth;
         this.element.classList.add("open");
       });
 
@@ -20766,7 +20746,10 @@ html.wfday-night {
       }
 
       if (this.toggleBtn) {
-        this.toggleBtn.setAttribute("aria-label", `Fechar sidebar ${this.side}`);
+        this.toggleBtn.setAttribute(
+          "aria-label",
+          `Fechar sidebar ${this.side}`
+        );
         this.toggleBtn.innerHTML = "✕";
       }
 
@@ -20775,11 +20758,9 @@ html.wfday-night {
         document.body.style.overflow = "hidden";
       }
 
-      // Disparar evento quando a transição de transform terminar e limpar estilo inline
+      // Disparar evento quando a transição de transform terminar
       const onOpened = (e) => {
         if (e.propertyName === "transform") {
-          // remover transform inline para devolver controle ao CSS
-          this.element.style.transform = "";
           this.element.dispatchEvent(
             new CustomEvent("wfsidebar:opened", {
               detail: { sidebar: this.element, side: this.side },
@@ -20809,9 +20790,12 @@ html.wfday-night {
       // Quando a transição terminar, remove a classe lateral e restaura scroll
       const onClosed = (e) => {
         if (e.propertyName === "transform") {
+          // Desabilita transição para limpar classes sem cruzar a tela
+          this.element.style.transition = "none";
           this.element.classList.remove(`sidebar-${this.side}`);
-          // garantir que não fique transform inline residuado
-          this.element.style.transform = "";
+          void this.element.offsetWidth; // Força reflow
+          this.element.style.transition = ""; // Restaura
+
           document.body.style.overflow = "";
           this.element.dispatchEvent(
             new CustomEvent("wfsidebar:closed", {
@@ -20901,7 +20885,7 @@ html.wfday-night {
 
   // Exportação global
   if (typeof window !== "undefined") {
-    if (typeof window.WebFull !== 'undefined') {
+    if (typeof window.WebFull !== "undefined") {
       window.WebFull.modules.WfSidebar = WfSidebar;
     }
     window.WfSidebar = WfSidebar;
@@ -20917,9 +20901,7 @@ html.wfday-night {
   } else {
     init();
   }
-
 })(window, document);
-
 
 
 // ===== WfSlid1.js =====

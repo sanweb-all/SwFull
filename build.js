@@ -46,7 +46,7 @@ try {
   console.log("   ⚙️  Minificando...");
 
   minify(jsContent, {
-    compress: { dead_code: true, drop_debugger: true },
+    compress: { dead_code: true, drop_debugger: true, drop_console: true },
     mangle: { keep_classnames: true },
     format: { comments: false }
   }).then(result => {

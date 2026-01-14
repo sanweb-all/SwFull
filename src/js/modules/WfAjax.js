@@ -947,13 +947,6 @@
       }
 
       // INICIALIZAR COMPONENTES IMEDIATAMENTE (ANTES DA ANIMAÇÃO)
-      try {
-        console.debug &&
-          console.debug("WfAjax.applyAnimation", {
-            url: this.url,
-            dest: this.dest,
-          });
-      } catch (e) {}
       this.afterContentLoad(target);
 
       // Inicializar WfCode
@@ -1205,10 +1198,7 @@
               componentName === "WfCode" &&
               typeof window[componentName].reinit === "function"
             ) {
-              console.log(
-                `[WfAjax] Chamando WfCode.reinit() para container:`,
-                container
-              );
+              // console.log(`[WfAjax] Chamando WfCode.reinit() para container:`, container);
               window[componentName].reinit(container);
             } else {
               window[componentName].initAll(container, { baseUrl: sourceUrl });

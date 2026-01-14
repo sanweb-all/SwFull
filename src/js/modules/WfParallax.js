@@ -20,6 +20,7 @@ class WfParallax {
       this.isActive = true;
 
       // Debug para verificar configurações
+      /*
       console.log(`[WfParallax] Inicializando elemento:`, {
          tagName: this.element.tagName,
          type: this.type,
@@ -28,6 +29,7 @@ class WfParallax {
          range: this.range,
          invert: this.invert,
       });
+      */
 
       this.init();
    }

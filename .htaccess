@@ -112,3 +112,14 @@ Options -Indexes
 # SetEnv DONT_LOG 1
 
 # ===== FIM =====
+
+
+# ===== PROTEÇÃO DE ARQUIVOS DE SISTEMA =====
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "(package\.json|package-lock\.json|README\.md|LICENSE|\.gitignore|\.clinerules)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

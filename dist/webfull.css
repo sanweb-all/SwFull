@@ -22989,8 +22989,8 @@ select.wftableajax-length-select {
 /* WfValid Styles */
 .wfvalid-error {
     color: var(--wf-danger, #dc3545);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+    font-size: 1rem;
+    margin-top: -5px;
     display: block;
 }
 

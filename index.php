@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <?php
-// Define a URL base do projeto
-define('URL', '');
+// Define a URL base do projeto automaticamente
+$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
+$url = $protocol . "://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
+$url = str_replace('\\', '/', $url);
+$url = rtrim($url, '/') . '/';
+define('URL', $url);
 ?>
 <html lang="pt-br" WfDay>
 
 <head>
-  <base href="/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WebFull - Framework JavaScript e CSS</title>
-  
+
   <link
     rel="stylesheet"
     href="<?php echo URL; ?>dist/webfull.min.css" />
   <link
     rel="stylesheet"
     href="<?php echo URL; ?>exemplo/css/alls.css" />
-    lin
 </head>
 
 <body class="aniline">

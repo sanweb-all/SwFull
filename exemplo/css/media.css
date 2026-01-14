@@ -1,0 +1,19 @@
+@media(max-width: 790px) {
+    .toggle-btn-left {
+        top: -5px !important;
+        left: 0 !important;
+        border-radius: 0px 0px 6px 0px !important;
+    }
+
+    article {
+        padding-left: 0;
+    }
+
+    section {
+        padding: 30px 20px 20px 20px;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+}
