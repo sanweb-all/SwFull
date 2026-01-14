@@ -33,7 +33,7 @@
               <b><i class="wf wf-play-circle Taler f20"></i> ANIMAÇÕES
                 ON-SCROLL:</b>
               Ativa animações quando o elemento entra na viewport.<br />
-              <b><i class="wf wf-exchange-alt Taler f20"></i> COMPATIBILIDADE
+              <b><i class="wf wf-dice-6 Taler f20"></i> COMPATIBILIDADE
                 LEGADO:</b>
               Mapeia classes <code>anime-*</code> para
               <code>wfmove-*</code> automaticamente.<br />

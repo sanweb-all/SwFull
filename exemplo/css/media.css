@@ -1,3 +1,13 @@
+@media(max-width: 1200px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2.6rem !important;
+    }
+}
+
 @media(max-width: 790px) {
     .toggle-btn-left {
         top: -5px !important;
@@ -13,7 +23,31 @@
         padding: 30px 20px 20px 20px;
     }
 
-    h3 {
+    h1 {
         font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2.6rem !important;
+    }
+
+    article .topo {
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    article .topo h1 {
+        font-size: 4rem;
+    }
+
+    article .topo ol.listmenu {
+        padding-right: 0 !important;
+    }
+
+    .bl-text {
+        width: 24%;
+        padding: 4px 0;
+        font-size: 20px;
     }
 }

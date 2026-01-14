@@ -590,7 +590,8 @@ SwAjax.load({
   dest: 'container',
   effect: 'fade'
 });
-        </script></pre>
+</script>
+</pre>
 
         <h3>Tema Dinâmico</h3>
         <p>As abas se adaptam automaticamente ao tema SwDay:</p>

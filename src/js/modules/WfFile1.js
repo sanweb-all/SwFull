@@ -21,6 +21,7 @@
       if (!this.container) return;
       if (this.container._wfFile1) return; // Evita reinicialização
       this.container._wfFile1 = this;
+      this.filesList = [];
 
       // WfFile1.injectCSS(); // CSS moved to webfull.css
 
@@ -78,7 +79,8 @@
 
     handleFiles(files) {
       if (!files || !files.length) return;
-      let validFiles = [];
+      if (!this.filesList) this.filesList = [];
+      let newFiles = [];
       let error = null;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
@@ -99,16 +101,19 @@
           error = "Formato não suportado.";
           continue;
         }
-        validFiles.push(file);
+        newFiles.push(file);
       }
-      if (error && validFiles.length === 0) {
+      if (error && newFiles.length === 0) {
         this.showError(error);
         return;
       }
-      this.showPreviews(validFiles);
+      if (!newFiles.length) return;
+      this.filesList = this.filesList.concat(newFiles);
+      this.updateInputFiles();
+      this.showPreviews(newFiles);
       this.error.style.display = "none";
       if (typeof this.options.onSelect === "function") {
-        validFiles.forEach((file) => this.options.onSelect(file));
+        newFiles.forEach((file) => this.options.onSelect(file));
       }
     }
 
@@ -121,6 +126,7 @@
         wrapper.setAttribute("WfImg", "");
         wrapper.setAttribute("data-name", file.name);
         wrapper.setAttribute("WfImg-title", file.name);
+        wrapper._wfFile1File = file;
 
         const img = document.createElement("img");
         img.className = "wffile1-img";
@@ -139,6 +145,14 @@
           try {
             wrapper.remove();
           } catch (_) {}
+          const fileRef = wrapper._wfFile1File;
+          if (fileRef && this.filesList && this.filesList.length) {
+            this.filesList = this.filesList.filter((f) => f !== fileRef);
+            this.updateInputFiles();
+          }
+          if (!this.preview.querySelector(".wffile1-link")) {
+            this.preview.style.display = "none";
+          }
         });
 
         this.preview.appendChild(wrapper);
@@ -168,6 +182,19 @@
           initSwImg();
         }
       } catch (_) {}
+    }
+
+    updateInputFiles() {
+      if (!this.input || !this.filesList) return;
+      try {
+        const dt = new DataTransfer();
+        this.filesList.forEach((file) => dt.items.add(file));
+        this.input.files = dt.files;
+      } catch (_) {
+        try {
+          this.input.value = "";
+        } catch (_) {}
+      }
     }
 
     showError(msg) {

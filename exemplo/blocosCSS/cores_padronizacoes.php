@@ -73,99 +73,101 @@
         <p>Segue base de cores e esquema para o WfDay.</p>
         <br />
         <div class="colors1 bloco">
-            <ul>
-              <div class="titulo">BG <small>[.wf-bg]</small></div>
-              <li class="wf-bg Tneut6 bord Lneut3">.wf-bg<small>--wf-bg</small></li>
-              <li class="wf-bg- Tneut6 bord Lneut3">.wf-bg-<small>--wf-bg-</small></li>
-              <li class="wf-bg-- Tbran">.wf-bg--<small>--wf-bg--</small></li>
-              <li class="wf-bg_ Tbran">.wf-bg_<small>--wf-bg_</small></li>
-            </ul>
+          <ul>
+            <div class="titulo">BG <small>[.wf-bg]</small></div>
+            <li class="wf-bg Tneut6 bord Lneut3">.wf-bg<small>--wf-bg</small></li>
+            <li class="wf-bg- Tneut6 bord Lneut3">.wf-bg-<small>--wf-bg-</small></li>
+            <li class="wf-bg-- Tbran">.wf-bg--<small>--wf-bg--</small></li>
+            <li class="wf-bg_ Tbran">.wf-bg_<small>--wf-bg_</small></li>
+          </ul>
 
-            <ul>
-              <div class="titulo">BL <small>[.wf-bl]</small></div>
-              <li class="wbl Tneut6 bord Lneut3">.wf-bl<small>--wf-bl</small></li>
-              <li class=" wf-bl- Tneut6 bord Lneut3">.wf-bl-<small>--wf-bl-</small></li>
-              <li class="wf-bl-- Tbran">.wf-bl--<small>--wf-bl--</small></li>
-              <li class="wf-bl_ Tbran">.wf-bl_<small>--wf-bl_</small></li>
-            </ul>
+          <ul>
+            <div class="titulo">BL <small>[.wf-bl]</small></div>
+            <li class="wbl Tneut6 bord Lneut3">.wf-bl<small>--wf-bl</small></li>
+            <li class=" wf-bl- Tneut6 bord Lneut3">.wf-bl-<small>--wf-bl-</small></li>
+            <li class="wf-bl-- Tbran">.wf-bl--<small>--wf-bl--</small></li>
+            <li class="wf-bl_ Tbran">.wf-bl_<small>--wf-bl_</small></li>
+          </ul>
 
-            <ul>
-              <div class="titulo">COLOR <small>[.wf-color]</small></div>
-              <li class="wcolor"><b>.wf-color<small>--wf-color</small></b></li>
-              <li class="wf-color-"><b>.wf-color-<small>--wf-color-</small></b></li>
-              <li class="wf-color--"><b>.wf-color--<small>--wf-color--</small></b></li>
-              <li class="wf-color_"><b>.wf-color_<small>--wf-color_</small></b></li>
-            </ul>
-            <style>
-              .colors1 ul li a {
-                  color: var(--aa);
-              }
+          <ul>
+            <div class="titulo">COLOR <small>[.wf-color]</small></div>
+            <li class="wcolor"><b>.wf-color<small>--wf-color</small></b></li>
+            <li class="wf-color-"><b>.wf-color-<small>--wf-color-</small></b></li>
+            <li class="wf-color--"><b>.wf-color--<small>--wf-color--</small></b></li>
+            <li class="wf-color_"><b>.wf-color_<small>--wf-color_</small></b></li>
+          </ul>
+          <style>
+            .colors1 ul li a {
+              color: var(--aa);
+            }
 
-              .colors1 ul li a:hover {
-                  color: var(--bb);
-              }
-            </style>
-            <ul>
-              <div class="titulo">LINK e HOVER <small>[.wf-link e .wf-hover]</small></div>
-              <li><a style="--aa: var(--wf-link); --bb: var(--wf-hover);"><b>.wf-link<small>--wf-link</small></b></a></li>
-              <li><a style="--aa: var(--wf-link-); --bb: var(--wf-hover-);"><b>.wf-link-<small>--wf-link-</small></b></a></li>
-              <li><a style="--aa: var(--wf-link--); --bb: var(--wf-hover--);"><b>.wf-link--<small>--wf-link--</small></b></a></li>
-              <li class="Bneut3"><a style="--aa: var(--wf-link_); --bb: var(--wf-hover_);"><b>.wf-link_<small>--wf-link_</small></b></a></li>
-            </ul>
-            <style>
-              .wbloc {
-                  background: var(--wf-bg);
-                  color: var(--wf-color);
-                  width: 100px;
-                  height: 70px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  box-shadow: 5px 5px 10px var(--cc);
-              }
-            </style>
-            <ul>
-              <div class="titulo">SHADOW <small>[.wf-shadow]</small></div>
-              <li>
-                  <div class="wbloc" style="--cc: var(--wf-shadow);"><small>.wf-shadow</small></div>
-              </li>
-              <li>
-                  <div class="wbloc" style="--cc: var(--wf-shadow-);"><small>.wf-shadow-</small></div>
-              </li>
-              <li>
-                  <div class="wbloc" style="--cc: var(--wf-shadow--);"><small>.wf-shadow--</small></div>
-              </li>
-              <li>
-                  <div class="wbloc" style="--cc: var(--wf-shadow_);"><small>.wf-shadow_</small></div>
-              </li>
-            </ul>
-            <style>
-              .wblo {
-                  background: var(--wf-bg);
-                  color: var(--wf-color);
-                  width: 100px;
-                  height: 70px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 5px solid var(--dd);
-              }
-            </style>
-            <ul>
-              <div class="titulo">BORDER <small>[.wf-border]</small></div>
-              <li>
-                  <div class="wblo" style="--dd: var(--wf-border);"><small>.wf-border</small></div>
-              </li>
-              <li>
-                  <div class="wblo" style="--dd: var(--wf-border-);"><small>.wf-border-</small></div>
-              </li>
-              <li>
-                  <div class="wblo" style="--dd: var(--wf-border--);"><small>.wf-border--</small></div>
-              </li>
-              <li>
-                  <div class="wblo" style="--dd: var(--wf-border_);"><small><div class="">                                                                                          </div>wf-border_</small></div>
-              </li>
-            </ul>
+            .colors1 ul li a:hover {
+              color: var(--bb);
+            }
+          </style>
+          <ul>
+            <div class="titulo">LINK e HOVER <small>[.wf-link e .wf-hover]</small></div>
+            <li><a style="--aa: var(--wf-link); --bb: var(--wf-hover);"><b>.wf-link<small>--wf-link</small></b></a></li>
+            <li><a style="--aa: var(--wf-link-); --bb: var(--wf-hover-);"><b>.wf-link-<small>--wf-link-</small></b></a></li>
+            <li><a style="--aa: var(--wf-link--); --bb: var(--wf-hover--);"><b>.wf-link--<small>--wf-link--</small></b></a></li>
+            <li class="Bneut3"><a style="--aa: var(--wf-link_); --bb: var(--wf-hover_);"><b>.wf-link_<small>--wf-link_</small></b></a></li>
+          </ul>
+          <style>
+            .wbloc {
+              background: var(--wf-bg);
+              color: var(--wf-color);
+              width: 100px;
+              height: 70px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 5px 5px 10px var(--cc);
+            }
+          </style>
+          <ul>
+            <div class="titulo">SHADOW <small>[.wf-shadow]</small></div>
+            <li>
+              <div class="wbloc" style="--cc: var(--wf-shadow);"><small>.wf-shadow</small></div>
+            </li>
+            <li>
+              <div class="wbloc" style="--cc: var(--wf-shadow-);"><small>.wf-shadow-</small></div>
+            </li>
+            <li>
+              <div class="wbloc" style="--cc: var(--wf-shadow--);"><small>.wf-shadow--</small></div>
+            </li>
+            <li>
+              <div class="wbloc" style="--cc: var(--wf-shadow_);"><small>.wf-shadow_</small></div>
+            </li>
+          </ul>
+          <style>
+            .wblo {
+              background: var(--wf-bg);
+              color: var(--wf-color);
+              width: 100px;
+              height: 70px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 5px solid var(--dd);
+            }
+          </style>
+          <ul>
+            <div class="titulo">BORDER <small>[.wf-border]</small></div>
+            <li>
+              <div class="wblo" style="--dd: var(--wf-border);"><small>.wf-border</small></div>
+            </li>
+            <li>
+              <div class="wblo" style="--dd: var(--wf-border-);"><small>.wf-border-</small></div>
+            </li>
+            <li>
+              <div class="wblo" style="--dd: var(--wf-border--);"><small>.wf-border--</small></div>
+            </li>
+            <li>
+              <div class="wblo" style="--dd: var(--wf-border_);"><small>
+                  <div class=""> </div>wf-border_
+                </small></div>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="co6-g">
@@ -248,8 +250,8 @@ html.swday-night {
 }
 </script>
 </pre>
-        </div>
       </div>
     </div>
+  </div>
   </div>
 </section>

@@ -83,14 +83,15 @@
 <div id="myFile1"></div>
 <script>
   new WfFile1(document.getElementById('myFile1'), { accept:["image/jpeg","image/png"] })
-<\/script>
+&lt;/script>
 
 <!-- Observações:
 1) As prévias são clicáveis e abrem no WfImg automaticamente.
 2) As prévias acumulam; use o "×" para remover individualmente.
 3) Para aceitar todas as imagens, use image/*.
 -->
-          </script></pre>
+</script>
+</pre>
           </div>
         </div>
       </div>

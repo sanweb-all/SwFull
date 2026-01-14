@@ -158,7 +158,7 @@
     </div>
     <div class="l">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <form action="#" method="get" class="">
    <div class="l">
       <div class="co8-g">

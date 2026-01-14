@@ -26,7 +26,7 @@
           <b>.font5</b> = Dancing Script;<br />
           <b>.font6</b> = Playwrite BR;<br />
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="font1l">Poppins light</div>
 <div class="font1">Poppins normal</div>
 <div class="font1b">Poppins bold</div>
@@ -86,7 +86,7 @@
           <b>.fw8</b> = font-weight: 800;<br />
           <b>.fw9</b> = font-weight: 900;<br />
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="fwb">font-weight:bold;</div>
 <div class="fw5">font-weight:500;</div>
 </script>
@@ -100,7 +100,7 @@
 
         <div class="fsi f20">Italico</div>
         <div class="fsu f20">Sublinhado</div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="fsi">Italico</div>
 <div class="fsu">Sublinhado</div>
 </script>
@@ -126,7 +126,7 @@
         <div class="W f23 SWcolor">Minúscula</div>
         <div class="U f23 SWcolor">Maiúscula</div>
         <div class="P f23 SWcolor">1º letra maiúscula</div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="L">Minúscula</div>
 <div class="U">Maiúscula</div>
 <div class="P">1º letra maiúscula</div>

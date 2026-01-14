@@ -13,6 +13,10 @@
     font-weight: 500;
     color: white;
   }
+
+  .wfanime- {
+    display: block;
+  }
 </style>
 <section>
   <div class="g-xg">

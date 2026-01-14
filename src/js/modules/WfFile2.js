@@ -15,12 +15,8 @@
       const list = [];
       const root = container instanceof HTMLElement ? container : document;
 
-      if (
-        root.hasAttribute &&
-        root.hasAttribute("WfFile2")
-      )
-        list.push(root);
-      
+      if (root.hasAttribute && root.hasAttribute("WfFile2")) list.push(root);
+
       root
         .querySelectorAll("span[WfFile2], [WfFile2]")
         .forEach((el) => list.push(el));
@@ -29,6 +25,7 @@
         // Evita dupla inicialização
         if (el._wfFile2) return;
         el._wfFile2 = true;
+        el._wffile2_files = [];
 
         // Lê atributos
         const accept = el.getAttribute("accept") || "image/*";
@@ -63,12 +60,12 @@
           const box = document.createElement("div");
           box.className = "wffile2-preview-box";
           // display: none é controlado via classe ou inline inicial
-          box.style.display = "none"; 
+          box.style.display = "none";
 
           const img = document.createElement("img");
           img.className = "wffile2-preview-img";
           img.alt = "Preview";
-          
+
           const remove = document.createElement("span");
           remove.className = "wffile2-remove";
           remove.title = "Remover imagem";
@@ -107,104 +104,260 @@
           window._inputFileGlobal.onchange = function () {
             if (!this.files || this.files.length === 0) return;
 
+            const files = Array.from(this.files);
+            el._wffile2_files = files;
+
+            const syncGlobalFiles = function () {
+              if (!window._inputFileGlobal) return;
+              try {
+                const dt = new DataTransfer();
+                (el._wffile2_files || []).forEach((file) => dt.items.add(file));
+                window._inputFileGlobal.files = dt.files;
+              } catch (_) {
+                try {
+                  window._inputFileGlobal.value = "";
+                } catch (_) {}
+              }
+            };
+
             const previewTarget = previewSelector
               ? document.querySelector(previewSelector)
               : null;
-            
+
+            const initWfImg = (scope) => {
+              try {
+                if (
+                  window.WfImg &&
+                  typeof window.WfImg.initAll === "function"
+                ) {
+                  window.WfImg.initAll(scope);
+                } else if (
+                  window.SwPlugin &&
+                  typeof window.SwPlugin.initComponent === "function"
+                ) {
+                  window.SwPlugin.initComponent("WfImg", scope);
+                }
+              } catch (_) {}
+            };
+
             if (previewTarget) {
-              // Limpa o conteúdo anterior do preview
               previewTarget.innerHTML = "";
 
-              // Se o modo é múltiplo, itera e cria todas as imagens.
               if (multiple) {
-                Array.from(this.files).forEach((file) => {
+                files.forEach((file) => {
+                  const item = document.createElement("span");
+                  item.className = "wffile2-link";
+                  item.setAttribute("WfImg", "");
+                  item.setAttribute("WfImg-title", file.name);
+
+                  const img = document.createElement("img");
+                  img.src = "";
+                  img.className = "wffile2-preview-img wffile2-gallery-img";
+
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  item.appendChild(img);
+                  item.appendChild(remove);
+                  previewTarget.appendChild(item);
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    el._wffile2_files = (el._wffile2_files || []).filter(
+                      (f) => f !== file
+                    );
+                    syncGlobalFiles();
+                    try {
+                      item.remove();
+                    } catch (_) {}
+                  });
+
                   const reader = new FileReader();
                   reader.onload = function (e) {
-                    const img = document.createElement("img");
                     img.src = e.target.result;
-                    // Classes externas podem estilizar isso, ou adicionamos classe padrão
-                    img.className = "wffile2-preview-img wffile2-gallery-img"; 
-                    previewTarget.appendChild(img);
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(previewTarget);
                   };
                   reader.readAsDataURL(file);
                 });
-              }
-              // Senão, mantém o comportamento original de imagem única.
-              else {
+              } else {
+                const file = files[0];
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                  // Se o alvo do preview é uma <img>, apenas muda o src.
                   if (previewTarget.tagName === "IMG") {
+                    try {
+                      previewTarget.classList.add("wffile2-preview-img");
+                    } catch (_) {}
+
+                    let wrapper = previewTarget._wffile2_wrapper;
+                    if (!wrapper) {
+                      wrapper = document.createElement("span");
+                      wrapper.className = "wffile2-link";
+                      wrapper.setAttribute("WfImg", "");
+                      wrapper.setAttribute("WfImg-title", file.name);
+                      const parent = previewTarget.parentNode;
+                      if (parent) {
+                        parent.insertBefore(wrapper, previewTarget);
+                        wrapper.appendChild(previewTarget);
+                      }
+                      previewTarget._wffile2_wrapper = wrapper;
+                    }
+
                     previewTarget.src = e.target.result;
                     previewTarget.style.display = "block";
-                  }
-                  // Se não, cria uma nova imagem dentro do alvo.
-                  else {
+                    wrapper.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(wrapper.parentNode);
+
+                    let remove = previewTarget._wffile2_remove;
+                    if (!remove) {
+                      remove = document.createElement("span");
+                      remove.className = "wffile2-remove";
+                      remove.title = "Remover imagem";
+                      remove.textContent = "×";
+                      if (wrapper) {
+                        wrapper.appendChild(remove);
+                      } else if (previewTarget.parentNode) {
+                        previewTarget.parentNode.appendChild(remove);
+                      }
+                      previewTarget._wffile2_remove = remove;
+                    }
+
+                    remove.onclick = function (ev) {
+                      ev.preventDefault();
+                      ev.stopPropagation();
+                      try {
+                        previewTarget.src = "";
+                        previewTarget.style.display = "none";
+                      } catch (_) {}
+                      el._wffile2_files = [];
+                      syncGlobalFiles();
+                    };
+                  } else {
+                    const item = document.createElement("span");
+                    item.className = "wffile2-link";
+                    item.setAttribute("WfImg", "");
+                    item.setAttribute("WfImg-title", file.name);
+
                     const img = document.createElement("img");
                     img.src = e.target.result;
                     img.className = "wffile2-preview-img";
-                    previewTarget.appendChild(img);
-                  }
-                };
-                reader.readAsDataURL(this.files[0]);
-              }
-            } else if (el._wffile2_box) {
-              const box = el._wffile2_box;
-              box.style.display = "block";
-              
-              if (!multiple) {
-                // Modo Single (Interno)
-                // Restaura estrutura se foi limpa pelo modo multiplo
-                if (!box.querySelector('.wffile2-preview-img')) {
-                    box.innerHTML = '';
-                    const img = document.createElement("img");
-                    img.className = "wffile2-preview-img";
-                    img.alt = "Preview";
+
                     const remove = document.createElement("span");
                     remove.className = "wffile2-remove";
                     remove.title = "Remover imagem";
                     remove.textContent = "×";
-                    
-                    remove.addEventListener("click", function () {
-                        box.style.display = "none";
-                        window._inputFileGlobal.value = "";
+
+                    item.appendChild(img);
+                    item.appendChild(remove);
+                    previewTarget.appendChild(item);
+
+                    remove.addEventListener("click", function (ev) {
+                      ev.preventDefault();
+                      ev.stopPropagation();
+                      el._wffile2_files = [];
+                      syncGlobalFiles();
+                      try {
+                        item.remove();
+                      } catch (_) {}
                     });
-                    
-                    box.appendChild(img);
-                    box.appendChild(remove);
-                    el._wffile2_img = img;
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(previewTarget);
+                  }
+                };
+                reader.readAsDataURL(file);
+              }
+            } else if (el._wffile2_box) {
+              const box = el._wffile2_box;
+              box.style.display = "block";
+              // Box interno único: adicionar atributos ao box ou criar wrapper
+              // O box já é o container visual. Vamos adicionar WfImg ao box.
+
+              if (!multiple) {
+                if (!box.querySelector(".wffile2-preview-img")) {
+                  box.innerHTML = "";
+                  box.setAttribute("WfImg", ""); // Habilitar WfImg
+
+                  const img = document.createElement("img");
+                  img.className = "wffile2-preview-img";
+                  img.alt = "Preview";
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation(); // Importante para não abrir WfImg
+                    box.style.display = "none";
+                    el._wffile2_files = [];
+                    syncGlobalFiles();
+                  });
+
+                  box.appendChild(img);
+                  box.appendChild(remove);
+                  el._wffile2_img = img;
                 }
-                
+                // Atualizar title
+                const file = files[0];
+                box.setAttribute("WfImg-title", file.name);
+
                 const reader = new FileReader();
                 reader.onload = function (e) {
                   try {
                     el._wffile2_img.src = e.target.result;
+                    box.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(el);
                   } catch (_) {}
                 };
-                reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(file);
               } else {
-                // Modo Multiplo (Interno)
+                box.removeAttribute("WfImg"); // Remover do box pai se for multiplo
                 box.innerHTML = "";
-                Array.from(this.files).forEach((file) => {
+                files.forEach((file) => {
+                  const item = document.createElement("span");
+                  item.className = "wffile2-link";
+                  item.setAttribute("WfImg", "");
+                  item.setAttribute("WfImg-title", file.name);
+
+                  const img = document.createElement("img");
+                  img.className = "wffile2-preview-img wffile2-gallery-img";
+                  img.src = "";
+
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  item.appendChild(img);
+                  item.appendChild(remove);
+                  box.appendChild(item);
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    el._wffile2_files = (el._wffile2_files || []).filter(
+                      (f) => f !== file
+                    );
+                    syncGlobalFiles();
+                    try {
+                      item.remove();
+                    } catch (_) {}
+                    if (!box.querySelector(".wffile2-link")) {
+                      box.style.display = "none";
+                    }
+                  });
+
                   const reader = new FileReader();
                   reader.onload = function (e) {
-                    const img = document.createElement("img");
-                    img.className = "wffile2-preview-img wffile2-gallery-img";
                     img.src = e.target.result;
-                    box.appendChild(img);
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(box);
                   };
                   reader.readAsDataURL(file);
                 });
-                const remove = document.createElement("span");
-                remove.className = "wffile2-remove";
-                remove.title = "Remover imagens";
-                remove.textContent = "×";
-                remove.addEventListener("click", function () {
-                  box.style.display = "none";
-                  box.innerHTML = "";
-                  window._inputFileGlobal.value = "";
-                });
-                box.appendChild(remove);
               }
             }
           };
@@ -232,20 +385,20 @@
       const observer = new MutationObserver((mutations) => {
         let shouldInit = false;
         for (const mutation of mutations) {
-            if (mutation.type === "childList" && mutation.addedNodes.length) {
-              for (const node of mutation.addedNodes) {
-                if (node.nodeType === 1) {
-                   if (
-                      (node.hasAttribute && node.hasAttribute("WfFile2")) ||
-                      (node.querySelector && node.querySelector("[WfFile2]"))
-                   ) {
-                      shouldInit = true;
-                      break;
-                   }
+          if (mutation.type === "childList" && mutation.addedNodes.length) {
+            for (const node of mutation.addedNodes) {
+              if (node.nodeType === 1) {
+                if (
+                  (node.hasAttribute && node.hasAttribute("WfFile2")) ||
+                  (node.querySelector && node.querySelector("[WfFile2]"))
+                ) {
+                  shouldInit = true;
+                  break;
                 }
               }
             }
-            if (shouldInit) break;
+          }
+          if (shouldInit) break;
         }
         if (shouldInit) {
           try {

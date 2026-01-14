@@ -1,288 +1,193 @@
 (function (window, document) {
   "use strict";
 
-  /**
-   * WfNavbar - Sistema de Navegação
-   * Navbar responsivo, acessível e customizável
-   *
-   * @author SandroWeb
-   * @version 1.0
-   * @since WEBFULL Framework v1.0
-   */
-
   class WfNavbar {
     constructor(element) {
-      // Evita dupla inicialização
       if (element._wfNavbar) return element._wfNavbar;
-
       this.element = element;
       this.element._wfNavbar = this;
-
       this.init();
     }
 
     init() {
       WfNavbar.injectCSS();
-      this.bindEvents();
-      this._log("WfNavbar inicializado:", this.element);
-    }
 
-    bindEvents() {
-      // Implementação futura de eventos (toggle menu mobile, etc)
-      // Exemplo:
-      // const toggleBtn = this.element.querySelector('.wf-navbar-toggle');
-      // if (toggleBtn) ...
-    }
-
-    open() {
-      this._log("open() chamado");
-      this.element.classList.add("open");
-    }
-
-    close() {
-      this._log("close() chamado");
-      this.element.classList.remove("open");
-    }
-
-    toggle() {
-      this._log("toggle() chamado");
-      this.element.classList.toggle("open");
-    }
-
-    destroy() {
-      this._log("destroy() chamado");
-      delete this.element._wfNavbar;
-    }
-
-    _log(...args) {
-      if (
-        window.WF_DEBUG ||
-        (typeof window !== "undefined" &&
-          (location.hostname === "localhost" ||
-            location.hostname === "127.0.0.1"))
-      ) {
-        console.log("[WfNavbar]", ...args);
+      let expandAttr = (
+        this.element.getAttribute("data-expand") || "lg"
+      ).toLowerCase();
+      const allowed = ["sm", "md", "lg", "xl", "none"];
+      if (allowed.indexOf(expandAttr) === -1) expandAttr = "lg";
+      this.expand = expandAttr;
+      if (expandAttr !== "none") {
+        this.element.classList.add("wfnavbar-expand-" + expandAttr);
       }
+
+      const themeAttr = (
+        this.element.getAttribute("data-theme") || "light"
+      ).toLowerCase();
+      if (themeAttr === "dark") {
+        this.element.classList.add("wfnavbar-theme-dark");
+      } else {
+        this.element.classList.add("wfnavbar-theme-light");
+      }
+
+      const alignAttr = (
+        this.element.getAttribute("data-menu-align") || ""
+      ).toLowerCase();
+      if (alignAttr === "center") {
+        this.element.classList.add("wfnavbar-menu-center");
+      } else if (alignAttr === "right") {
+        this.element.classList.add("wfnavbar-menu-right");
+      }
+
+      this.toggleBtn = this.element.querySelector(".wfnavbar-toggle");
+      this.collapse = this.element.querySelector(".wfnavbar-collapse");
+      this.nav = this.element.querySelector(".wfnavbar-nav");
+
+      this.bindToggle();
+      this.bindDropdowns();
     }
 
-    // ===== MÉTODOS ESTÁTICOS =====
+    bindToggle() {
+      if (!this.toggleBtn || !this.collapse) return;
+      this.toggleBtn.setAttribute("aria-expanded", "false");
+      this.toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isOpen = this.element.classList.toggle("wfnavbar-open");
+        this.toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
 
-    /**
-     * Injeta o CSS padrão do WfNavbar uma única vez
-     */
+    bindDropdowns() {
+      if (!this.nav) return;
+
+      const items = this.nav.querySelectorAll("li");
+      const self = this;
+
+      items.forEach(function (li) {
+        const submenu = li.querySelector("ul");
+        const link = li.querySelector("a");
+        if (!submenu || !link) return;
+
+        li.classList.add("wfnavbar-has-submenu");
+
+        link.addEventListener("click", function (e) {
+          if (!self.isMobile()) return;
+          if (!li.classList.contains("wfnavbar-sub-open")) {
+            e.preventDefault();
+            self.closeSubmenus(self.nav);
+            li.classList.add("wfnavbar-sub-open");
+          }
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!this.element.contains(e.target)) {
+          this.element.classList.remove("wfnavbar-open");
+          this.closeSubmenus(this.nav);
+        }
+      });
+    }
+
+    closeSubmenus(container) {
+      if (!container) return;
+      const opened = container.querySelectorAll(".wfnavbar-sub-open");
+      opened.forEach(function (li) {
+        li.classList.remove("wfnavbar-sub-open");
+      });
+    }
+
+    getBreakpoint() {
+      if (this.expand === "sm") return 576;
+      if (this.expand === "md") return 768;
+      if (this.expand === "lg") return 992;
+      if (this.expand === "xl") return 1200;
+      return Infinity;
+    }
+
+    isMobile() {
+      return window.innerWidth < this.getBreakpoint();
+    }
+
     static injectCSS() {
-      const cssId = "webfull-wfnavbar-css";
-      if (document.getElementById(cssId)) return;
-
+      if (document.getElementById("wfnavbar-css")) return;
       const style = document.createElement("style");
-      style.id = cssId;
-      style.textContent = `
-        /* WfNavbar CSS padrão */
-        [WfNavbar] {
-          --wfnavbar-bg: #23283a;
-          --wfnavbar-color: #fff;
-          --wfnavbar-hover: #1a1d29;
-          --wfnavbar-border: #23283a;
-          --wfnavbar-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          --wfnavbar-height: 56px;
-          --wfnavbar-z: 1000;
-          background: var(--wfnavbar-bg);
-          color: var(--wfnavbar-color);
-          font-family: inherit;
-          position: relative;
-          z-index: var(--wfnavbar-z);
-          box-shadow: var(--wfnavbar-shadow);
-          min-width: 0;
-          display: flex;
-          align-items: center;
-          height: var(--wfnavbar-height);
-          padding: 0 1.5rem;
-          gap: 1.5rem;
-          justify-content: space-between;
-        }
-        [WfNavbar][data-theme="light"] {
-          --wfnavbar-bg: #fff;
-          --wfnavbar-color: #23283a;
-          --wfnavbar-hover: #f5f5f5;
-          --wfnavbar-border: #e0e0e0;
-        }
-        [WfNavbar][data-theme="dark"] {
-          --wfnavbar-bg: #23283a;
-          --wfnavbar-color: #fff;
-          --wfnavbar-hover: #1a1d29;
-          --wfnavbar-border: #23283a;
-        }
-        [WfNavbar][data-theme="custom"] {
-          /* Customização via inline style ou CSS externo */
-        }
-        [WfNavbar] > [slot="brand"] {
-          display: flex;
-          align-items: center;
-          font-size: 1.25em;
-          font-weight: bold;
-          min-width: 0;
-          white-space: nowrap;
-        }
-        [WfNavbar][data-brand-align="right"] {
-          flex-direction: row-reverse;
-        }
-        [WfNavbar][data-brand-align="right"] > [slot="brand"] {
-          margin-left: 2rem;
-          margin-right: 0;
-        }
-        [WfNavbar]:not([data-brand-align="right"]) > [slot="brand"] {
-          margin-right: 2rem;
-          margin-left: 0;
-        }
-        [WfNavbar] ul {
-          display: flex;
-          align-items: center;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          gap: 1rem;
-        }
-        /* Alinhamento do menu: esquerda, centro, direita */
-        [WfNavbar][data-menu-align="left"] ul { justify-content: flex-start; }
-        [WfNavbar][data-menu-align="center"] ul { justify-content: center; }
-        [WfNavbar][data-menu-align="right"] ul { justify-content: flex-end; }
-        [WfNavbar] ul li {
-            position: relative;
-            width: 100%;
-        }
-        [WfNavbar] ul li a {
-            display: block;
-            padding: 20px 2rem;
-            color: inherit;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        [WfNavbar] ul li a:hover,
-        [WfNavbar] ul li a:focus {
-          background: var(--wfnavbar-hover);
-        }
-        /* Dropdown (submenu) */
-        [WfNavbar] ul li ul {
-          display: none;
-          position: absolute;
-          left: 0;
-          top: 100%;
-          min-width: 180px;
-          background: var(--wfnavbar-bg);
-          color: var(--wfnavbar-color);
-          box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-          padding: 0.5em 0;
-          z-index: 10;
-          flex-direction: column;
-          gap: 0;
-        }
-        [WfNavbar] ul li:hover > ul,
-        [WfNavbar] ul li:focus-within > ul {
-          display: flex;
-        }
-        [WfNavbar] ul li ul li a {
-          padding: 0.8em 1.5em;
-            width: 100%;
-        }
-        /* Subsubmenu (nível 2+) */
-        [WfNavbar] ul li ul li ul {
-          left: 98%;
-          top: 0;
-          margin-left: 2px;
-        }
-        /* Slots extras */
-        [WfNavbar] [slot="search"] {
-          margin-left: auto;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        [WfNavbar] [slot="extra"] {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-left: 1rem;
-        }
-        [WfNavbar] [slot="avatar"] {
-          margin-left: 1rem;
-          border-radius: 50%;
-          height: 32px;
-          width: 32px;
-          object-fit: cover;
-        }
-        /* Responsivo: mobile */
-        @media (max-width: 900px) {
-          [WfNavbar] {
-            flex-wrap: wrap;
-            height: auto;
-            padding: 0 1rem;
-          }
-          [WfNavbar] ul {
-            flex-direction: column;
-            width: 100%;
-            gap: 0;
-          }
-          [WfNavbar] ul li ul {
-            position: static;
-            box-shadow: none;
-          }
-          [WfNavbar] [slot="search"],
-          [WfNavbar] [slot="extra"],
-          [WfNavbar] [slot="avatar"] {
-            margin-left: 0;
-          }
-        }
-        /* Overlay para mobile (simples, pode ser expandido) */
-        [WfNavbar][data-overlay="true"]::after {
-          content: '';
-          display: none;
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(0,0,0,0.4);
-          z-index: 999;
-        }
-        /* Fixo */
-        [WfNavbar][data-fixed="true"] {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-        }
-      `;
+      style.id = "wfnavbar-css";
+      style.textContent =
+        "[WfNavbar]{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:relative;z-index:1000;}" +
+        "[WfNavbar] .wfnavbar-container{display:flex;align-items:center;width:100%;gap:16px;}" +
+        "[WfNavbar] .wfnavbar-brand{font-size:1.1rem;font-weight:600;text-decoration:none;white-space:nowrap;color:inherit;}" +
+        "[WfNavbar] .wfnavbar-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:32px;height:28px;border:none;background:transparent;cursor:pointer;color:inherit;padding:0;}" +
+        "[WfNavbar] .wfnavbar-toggle span{display:block;height:2px;width:100%;border-radius:999px;background:currentColor;transition:transform .2s ease,opacity .2s ease;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(2){opacity:0;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}" +
+        "[WfNavbar] .wfnavbar-collapse{display:none;width:100%;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-collapse{display:flex;}" +
+        "[WfNavbar] .wfnavbar-nav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;width:100%;}" +
+        "[WfNavbar] .wfnavbar-nav li{position:relative;}" +
+        "[WfNavbar] .wfnavbar-nav a{display:block;padding:8px 10px;text-decoration:none;color:inherit;transition:opacity .18s ease;}" +
+        "[WfNavbar] .wfnavbar-nav a:hover{opacity:.85;}" +
+        "[WfNavbar] .wfnavbar-nav li ul{position:static;display:none;margin:0;padding:6px 0;list-style:none;}" +
+        "[WfNavbar] .wfnavbar-sub-open>ul{display:block;opacity:1;visibility:visible;transform:none;}" +
+        "[WfNavbar] .wfnavbar-nav li ul li a{padding:8px 14px;}" +
+        "[WfNavbar] .wfnavbar-has-submenu>a{position:relative;padding-right:18px;}" +
+        "[WfNavbar] .wfnavbar-has-submenu>a::after{content:'▾';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:.6em;opacity:.7;}" +
+        "[WfNavbar] .wfnavbar-sub-open>a::after{transform:translateY(-50%) rotate(180deg);}" +
+        "[WfNavbar].wfnavbar-theme-light{background:#ffffff;color:#333333;box-shadow:0 2px 6px rgba(0,0,0,.04);}" +
+        "[WfNavbar].wfnavbar-theme-light .wfnavbar-nav li ul{background:#ffffff;box-shadow:0 8px 18px rgba(0,0,0,.08);}" +
+        "[WfNavbar].wfnavbar-theme-dark{background:#111111;color:#f5f5f5;}" +
+        "[WfNavbar].wfnavbar-theme-dark .wfnavbar-nav a{color:#f5f5f5;}" +
+        "[WfNavbar].wfnavbar-theme-dark .wfnavbar-nav li ul{background:#1a1a1a;box-shadow:0 8px 18px rgba(0,0,0,.5);}" +
+        "[WfNavbar].wfnavbar-menu-center .wfnavbar-nav{justify-content:center;}" +
+        "[WfNavbar].wfnavbar-menu-right .wfnavbar-nav{justify-content:flex-end;}" +
+        "[WfNavbar] .wfnavbar-ms-auto{margin-left:auto;}" +
+        "@media (min-width:576px){" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:768px){" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:992px){" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:1200px){" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}";
       document.head.appendChild(style);
     }
 
     static initAll(container = document) {
-      WfNavbar.injectCSS();
-      const elements = container.querySelectorAll("[WfNavbar]");
-      const instances = [];
-
-      elements.forEach((el) => {
-        if (!el._wfNavbar) {
-          instances.push(new WfNavbar(el));
-        } else {
-          instances.push(el._wfNavbar);
-        }
+      const els = container.querySelectorAll("[WfNavbar]");
+      els.forEach(function (el) {
+        new WfNavbar(el);
       });
-
-      return instances;
     }
   }
 
-  // ===== EXPORTAR E REGISTRAR =====
-  if (window.WebFull) {
-    window.WebFull.modules.WfNavbar = WfNavbar;
-  }
-
-  // Fallback global e suporte a CommonJS
-  if (typeof module !== "undefined" && module.exports) {
-    module.exports = WfNavbar;
-  } else {
-    window.WfNavbar = WfNavbar;
-  }
-
-  // ===== INICIALIZAÇÃO IMEDIATA =====
   if (typeof window !== "undefined") {
+    window.WfNavbar = WfNavbar;
+    if (window.WebFull && window.WebFull.modules)
+      window.WebFull.modules.WfNavbar = WfNavbar;
+
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
         WfNavbar.initAll();
       });
     } else {

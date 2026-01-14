@@ -35,7 +35,7 @@
           <b>.check-i</b> - bloco inline;<br />
           <b>.check-b</b> - bloco block;
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="check-b">
    <div class="bl-radio">
       <input type="radio" class="f-check" id="html" name="exe9" value="HTML">
@@ -79,7 +79,7 @@
           <b>.check-i</b> - bloco inline;<br />
           <b>.check-b</b> - bloco block;
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="check-i">
    <div class="bl-checkbox">
       <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">

@@ -19,7 +19,7 @@
         <div class="f35">Tamanho 35</div>
         <div class="f16">Tamanho 16</div>
         <div class="f8">Tamanho 8</div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="f14">Tamanho 14</div>
 <div class="f22">Tamanho 22</div>
 <div class="f5">Tamanho 5</div>
@@ -41,7 +41,7 @@
           <span class="d-ib f20 al6 Tbran fwb Bprin">Espaço 6</span>
         </div>
         <br /><br />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="al2">Espaço 2</div>
 <div class="al10">Espaço 10</div>
 <div class="al6">Espaço 6</div>
@@ -58,7 +58,7 @@
         <h4 class="h4a al4">h4. Cabeçalho</h4>
         <h5 class="h5a al4">h5. Cabeçalho</h5>
         <h6 class="h6a al4">h6. Cabeçalho</h6>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <h5>h5. Cabeçalho</h5>
 <h6>h6. Cabeçalho</h6>
 </script>
@@ -71,7 +71,7 @@
         <div class="h4 al4">.h4 Cabeçalho</div>
         <div class="h5 al4">.h5 Cabeçalho</div>
         <div class="h6 al4">.h6 Cabeçalho</div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="h1">.h1 Cabeçalho</div>
 <div class="h2">.h2 Cabeçalho</div>
 </script>

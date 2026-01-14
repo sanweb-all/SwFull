@@ -40,7 +40,7 @@
           <span class="bord-f bord-3 bbl"></span>
           <span class="bord-e bord-3 bbl"></span>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="bord"></span>
 <span class="bord-t"></span>
 <span class="bord-d"></span>
@@ -78,7 +78,7 @@
           <span class="bord bord-3 bord-f0 bbl"></span>
           <span class="bord bord-3 bord-e0 bbl"></span>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="bord bord-0"></span>
 <span class="bord bord-t0"></span>
 <span class="bord bord-d0"></span>
@@ -130,7 +130,7 @@
           <img src="exemplo/images/demo/02.jpg" class="bbl bord bord-4 Lverm6 round-4 m1" alt="..." />
           <img src="exemplo/images/demo/02.jpg" class="bbl bord bord-4 Lverm6 round-5 m1" alt="..." />
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <img src="..." class="round-0" alt="..." />
 <img src="..." class="round-1" alt="..." />
 <img src="..." class="round-2" alt="..." />
@@ -172,7 +172,7 @@
             <img src="exemplo/images/demo/03.jpg" class="bbl bord bord-4 Lamar6 round-f5 m1" alt="..." />
           </div>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <img src="..." class="round-t1" alt="..." />
 <img src="..." class="round-t2" alt="..." />
 <img src="..." class="round-t3" alt="..." />
@@ -251,7 +251,7 @@
           <span class="bord bord-4 Lroxo5 bbl"></span>
           <span class="bord bord-4 Lpret bbl"></span>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="bord bord-4 Lprin"></span>
 <span class="bord bord-4 Lsecu"></span>
 <span class="bord bord-4 Lsuce"></span>
@@ -324,7 +324,7 @@
           <span class="bord bord-10 bbl">10</span>
         </div>
         <p></p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="bord bord-1">1</span>
 <span class="bord bord-3">2</span>
 <span class="bord bord-3">3</span>
@@ -406,7 +406,7 @@
           <span class="bord bord-3 raip4 bbl">40%</span>
           <span class="bord bord-3 raip5 bbl">50%</span>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="bord rai2">2px</span>
 <span class="bord rai4">4px</span>
 <span class="bord rai6">6px</span>

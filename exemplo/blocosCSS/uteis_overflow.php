@@ -27,7 +27,7 @@
           - scroll;
           <br />
         </p>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="over-a">auto</div>
 <div class="over-h">hidden</div>
 <div class="over-v">visible</div>

@@ -5,7 +5,7 @@
       <nav class="listmenu-d">
         <ol class="listmenu">
           <li class="listmenu-item active">Home</li>
-          <li class="listmenu-item"><a href="https://github.com/SandroWeb/WebFull" target="_blank">GitHub</a></li>
+          <li class="listmenu-item"><a href="https://github.com/sanweb-all/SwFull" target="_blank">GitHub</a></li>
         </ol>
       </nav>
     </div>
@@ -14,16 +14,16 @@
     <div class="l">
       <div class="co12-g">
         <div style="text-align: center; padding: 4rem 1rem; background: var(--wf-bg-); border-radius: 8px; margin-bottom: 2rem;">
-          <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: var(--prin);">WebFull Framework</h1>
+          <h1 style="margin-bottom: 1rem; color: var(--prin);">WebFull Framework</h1>
           <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 2rem;">
             O framework definitivo para desenvolvimento web moderno, leve e sem dependências.
             Construído com PHP, JavaScript e CSS puro para máxima performance.
           </p>
           <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.js" download class="btn btn-prin btn-lg">
+            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.js" download class="btn btn-prin btn-lg" target="_blank">
               <i class="wf wf-download-alt"></i> Download JS (Latest)
             </a>
-            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.css" download class="btn btn-secu btn-lg">
+            <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.min.css" download class="btn btn-secu btn-lg" target="_blank">
               <i class="wf wf-download-alt"></i> Download CSS (Latest)
             </a>
           </div>
@@ -39,7 +39,7 @@
             <i class="wf wf-stack-overflow"></i>
           </div>
           <h3 style="margin-bottom: 0.5rem;" class="c">Ultra Leve</h3>
-          <p style="color: var(--text-muted);">
+          <p style="color: var(--text-muted);text-align: center;">
             Menos de 600KB minificado. Sem jQuery, sem React, sem overhead. Apenas JavaScript puro otimizado para velocidade.
           </p>
         </div>
@@ -50,7 +50,7 @@
             <i class="wf wf-beer"></i>
           </div>
           <h3 style="margin-bottom: 0.5rem;" class="c">Sem Dependências</h3>
-          <p style="color: var(--text-muted);">
+          <p style="color: var(--text-muted);text-align: center;">
             Esqueça o <code>node_modules</code> gigante. WebFull é autossuficiente e pronto para produção direto da caixa.
           </p>
         </div>
@@ -61,7 +61,7 @@
             <i class="wf wf-layer"></i>
           </div>
           <h3 style="margin-bottom: 0.5rem;" class="c">Modular</h3>
-          <p style="color: var(--text-muted);">
+          <p style="color: var(--text-muted);text-align: center;">
             Use apenas o que precisa. Carregamento automático de módulos e componentes on-demand.
           </p>
         </div>
@@ -83,19 +83,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Projeto WebFull</title>
-    
     <!-- CSS Core -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.css">
 </head>
 <body>
-    
     <div class="container">
         <h1>Olá, WebFull!</h1>
-        <button class="btn btn-prim" WfBtn>Clique aqui</button>
+        <button class="btn btn-prin" WfBtn>Clique aqui</button>
     </div>
-
     <!-- JS Core (Module) -->
-    <script type="module" src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/sanweb-all/SwFull@main/dist/webfull.min.js">&lt;/script>
 </body>
 </html>
 </script></pre>
@@ -105,7 +102,7 @@
 
       <div class="co6-g">
         <h3><i class="wf wf-cloud-download"></i> Downloads</h3>
-        <div class="wftable-responsive">
+        <div class="wftable-responsive et4">
           <table class="tabela">
             <thead>
               <tr>
@@ -137,11 +134,21 @@
                 </td>
               </tr>
               <tr>
+                <td><code>webfull.css</code></td>
+                <td>~841 KB</td>
+                <td>Core CSS Fonte (Dev)</td>
+                <td>
+                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.css" download class="btn btn-sm btn-info">
+                    <i class="wf wf-code"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
                 <td><code>webfull.js</code></td>
                 <td>~841 KB</td>
                 <td>JavaScript Fonte (Dev)</td>
                 <td>
-                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.js" download class="btn btn-sm btn-info">
+                  <a href="https://github.com/sanweb-all/SwFull/raw/main/dist/webfull.js" download class="btn btn-sm btn-aler">
                     <i class="wf wf-code"></i>
                   </a>
                 </td>

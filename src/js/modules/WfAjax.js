@@ -1032,16 +1032,8 @@
     }
 
     afterContentLoad(target) {
-      // Fechar sidebar no mobile após carregamento
-      if (window.innerWidth <= 790) {
-        const sidebar = document.querySelector(".wf-sidebar");
-        const overlay = document.querySelector(".wf-overlay");
-        if (sidebar) {
-          sidebar.classList.remove("open");
-          sidebar.style.transform = "translateX(-100%)";
-        }
-        if (overlay) overlay.classList.remove("active");
-      }
+      // LIMPEZA GERAL DE UI (Modais, Sidebars, Overlays, Scroll)
+      this.cleanUpUI();
 
       // Disparar eventos que o WfContainer está aguardando
       const events = ["wfajax:processed", "wfajax:success"];
@@ -1063,6 +1055,68 @@
 
       // Mostrar badge de debug leve na UI para ajudar usuário que não pode usar console
       // debug badge removed to avoid UI artifacts in production
+    }
+
+    cleanUpUI() {
+      try {
+        // 1. Fechar Modais Abertos
+        const openModals = document.querySelectorAll("[WfModal].wfmodal-open");
+        openModals.forEach((modal) => {
+          if (modal._wfModal) {
+            // Tentar fechar via instância (gerencia eventos e foco)
+            modal._wfModal.close();
+          } else {
+            // Fallback manual
+            modal.classList.remove("wfmodal-open");
+            modal.style.display = "none";
+            modal.style.opacity = "0";
+          }
+        });
+
+        // 2. Fechar Sidebar Mobile (se aberto)
+        if (window.innerWidth <= 790) {
+          const openSidebars = document.querySelectorAll("[WfSidebar].open");
+          openSidebars.forEach((sidebar) => {
+            if (sidebar._wfSidebar) {
+              sidebar._wfSidebar.close();
+            } else {
+              sidebar.classList.remove("open");
+            }
+          });
+
+          // Fallback legado sidebar
+          const sidebarLegacy = document.querySelector(".wf-sidebar");
+          if (sidebarLegacy) {
+            sidebarLegacy.classList.remove("open");
+            sidebarLegacy.style.transform = "translateX(-100%)";
+          }
+        }
+
+        // 3. Remover Overlays Órfãos (Modais, Sidebars, Loaders)
+        const overlays = document.querySelectorAll(
+          ".wfmodal-overlay.wfmodal-open, .wf-overlay.active, .overlay.active, .wfload-overlay"
+        );
+        overlays.forEach((ov) => {
+          ov.classList.remove("wfmodal-open", "active");
+          // Para overlays de load, talvez remover do DOM seja melhor, mas esconder já ajuda
+          if (ov.classList.contains("wfload-overlay")) {
+            ov.style.display = "none";
+          } else {
+            ov.style.display = "none";
+            ov.style.opacity = "0";
+          }
+        });
+
+        // 4. FORÇAR LIMPEZA DE OVERFLOW (CRÍTICO)
+        // Remove estilos inline que travam o scroll
+        document.body.style.overflow = "";
+        document.body.style.overflowY = "";
+        document.documentElement.style.overflow = "";
+      } catch (e) {
+        console.warn("WfAjax: Erro ao limpar UI:", e);
+        // Garantia mínima
+        document.body.style.overflow = "";
+      }
     }
 
     reinitializeComponents(container, sourceUrl = null) {

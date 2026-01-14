@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <button type="button" class="btn btn-prin">Principal</button>
 <button type="button" class="btn btn-secu">Secundaria</button>
 <button type="button" class="btn btn-info">Infor</button>
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <button type="button" class="btn btn-prin btn-g">Grande principal</button>
 <button type="button" class="btn btn-notu btn-g">Grande noturno</button>
 <button type="button" class="btn btn-prin btn-p">Pequeno principal</button>
@@ -133,7 +133,7 @@
         </div>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="btn-group" role="group">
    <button type="button" class="btn btn-prin active">1</button>
    <button type="button" class="btn btn-prin">2</button>
@@ -183,7 +183,7 @@
         </p>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <button type="button" class="btn btn-lite Bcinz5 Tbran dg1 m_">cinz5 dg1</button>
 <button type="button" class="btn btn-lite Blara6 Tbran dg2 m_">lara6 dg2</button>
 <button type="button" class="btn btn-lite Bazul5 Tbran dg3 m_">azul5 dg3</button>
@@ -207,7 +207,7 @@
           </div>
         </div>
         <div class="co6-g">
-          <pre WfCode><script type="text/plain">
+          <pre WfCode WfCode-lang="html"><script type="text/plain">
 <button type="button" class="btn-g btn-prin dg9 Tbran">Botão Grande</button>
 <button type="button" class="btn-g btn-secu dg10 Tbran">Botão Grande</button>
 </script>
@@ -239,7 +239,7 @@
           </div>
         </div>
         <div class="co6-g">
-          <pre WfCode><script type="text/plain">
+          <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="btn-group m1" role="group">
    <button type="button" class="btn-g btn-prin dg3"><< </button>
    <button type="button" class="btn-g btn-prin active dg10">Centro</button>

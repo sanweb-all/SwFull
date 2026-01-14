@@ -43,7 +43,7 @@
           <br />
         </p>
         <br />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <img src="..." class="objf-c" alt="..." />
 <img src="..." class="objf-co" alt="..." />
 <img src="..." class="objf-f" alt="..." />

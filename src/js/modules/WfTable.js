@@ -784,7 +784,7 @@
   --swtable-hover: var(--neut2);
 }
 
-.wftable-container { width: 100%; margin: 0.75rem 0; font-family: inherit; color: var(--swtable-text); }
+.wftable-container { width: 100%; margin: 0.75rem 0; font-family: inherit; color: var(--swtable-text); overflow-x: auto; }
 .wftable-topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px; }
 .wftable-topbar-left { display:flex; align-items:center; gap:8px; color: var(--swtable-muted); }
 .wftable-length-select { padding:6px 8px; border:1px solid var(--swtable-border); background:var(--swtable-bg); border-radius:4px; }

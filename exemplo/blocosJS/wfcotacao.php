@@ -236,7 +236,7 @@
                      <div class="co6-g">
                         <h3><i class="wf wf-clipboard Taler f20"></i> Exemplos Práticos:</h3>
                         <h5>1. Compra com Texto</h5>
-                        <pre WfCode><script type="text/plain">
+                        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <!-- Mostra: "USD/BRL: Compra 5,1234" -->
 <div class="wf-cotacao"
      WfCotacao-pares="USD-BRL"
@@ -248,7 +248,7 @@
 
                      <div class="co6-g">
                         <h5>2. Venda com Texto</h5>
-                        <pre WfCode><script type="text/plain">
+                        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <!-- Mostra: "USD/BRL: Venda 5,1234" -->
 <div class="wf-cotacao"
      WfCotacao-pares="USD-BRL"

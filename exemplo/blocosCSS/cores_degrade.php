@@ -40,7 +40,7 @@
         <br />
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="Bverm dg1">
     Bverm dg1
 </span>
@@ -56,8 +56,8 @@
 <span class="Broxo1 dg9">
     Broxo1 dg9
 </span>
-<span class="Bceu14 dg12">
-    Bceu14 dg12
+<span class="Bceu12 dg12">
+    Bceu12 dg12
 </span>
 <span class="Bpetr dg10">
     Bpetr dg10
@@ -126,10 +126,10 @@
     <div class="g-xg">
       <div class="l">
         <div class="co6-g">
-          <pre WfCode><script type="text/plain">
+          <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="Bazul10 dg1">dg1</div>
 <div class="Brose6 dg2">dg2</div>
-<div class="Blila14 dg3">dg3</div>
+<div class="Blila12 dg3">dg3</div>
 <div class="Bamar dg4">dg4</div>
 <div class="Bverd8 dg5">dg5</div>
 <div class="Bceu9 dg6">dg6</div>
@@ -147,13 +147,13 @@
    background: var(--dg5); background-color: var(--verm5);
 }
 .deg-opc2{
-   background: var(--dg3); background-color: var(--lila15);
+   background: var(--dg3); background-color: var(--lila10);
 }
 .deg-opc3{
-   background: var(--dg1); background-color: var(--cinz10);
+   background: var(--dg1); background-color: var(--cinz6);
 }
 .deg-opc4{
-   background: var(--dg10); background-color: var(--petr10);
+   background: var(--dg10); background-color: var(--petr11);
 }
 </script>
 </pre>

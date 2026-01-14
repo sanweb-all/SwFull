@@ -120,7 +120,7 @@
         </select>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <label for="" class="label">Text</label>
 <select class="select" SwSelect SwSelect-search="true" name="" id="">
    <option selected value=''>Padrão</option>

@@ -2441,16 +2441,8 @@ html.wfday-night .wfaccord-header.active .wfaccord-icon {
     }
 
     afterContentLoad(target) {
-      // Fechar sidebar no mobile após carregamento
-      if (window.innerWidth <= 790) {
-        const sidebar = document.querySelector(".wf-sidebar");
-        const overlay = document.querySelector(".wf-overlay");
-        if (sidebar) {
-          sidebar.classList.remove("open");
-          sidebar.style.transform = "translateX(-100%)";
-        }
-        if (overlay) overlay.classList.remove("active");
-      }
+      // LIMPEZA GERAL DE UI (Modais, Sidebars, Overlays, Scroll)
+      this.cleanUpUI();
 
       // Disparar eventos que o WfContainer está aguardando
       const events = ["wfajax:processed", "wfajax:success"];
@@ -2472,6 +2464,68 @@ html.wfday-night .wfaccord-header.active .wfaccord-icon {
 
       // Mostrar badge de debug leve na UI para ajudar usuário que não pode usar console
       // debug badge removed to avoid UI artifacts in production
+    }
+
+    cleanUpUI() {
+      try {
+        // 1. Fechar Modais Abertos
+        const openModals = document.querySelectorAll("[WfModal].wfmodal-open");
+        openModals.forEach((modal) => {
+          if (modal._wfModal) {
+            // Tentar fechar via instância (gerencia eventos e foco)
+            modal._wfModal.close();
+          } else {
+            // Fallback manual
+            modal.classList.remove("wfmodal-open");
+            modal.style.display = "none";
+            modal.style.opacity = "0";
+          }
+        });
+
+        // 2. Fechar Sidebar Mobile (se aberto)
+        if (window.innerWidth <= 790) {
+          const openSidebars = document.querySelectorAll("[WfSidebar].open");
+          openSidebars.forEach((sidebar) => {
+            if (sidebar._wfSidebar) {
+              sidebar._wfSidebar.close();
+            } else {
+              sidebar.classList.remove("open");
+            }
+          });
+
+          // Fallback legado sidebar
+          const sidebarLegacy = document.querySelector(".wf-sidebar");
+          if (sidebarLegacy) {
+            sidebarLegacy.classList.remove("open");
+            sidebarLegacy.style.transform = "translateX(-100%)";
+          }
+        }
+
+        // 3. Remover Overlays Órfãos (Modais, Sidebars, Loaders)
+        const overlays = document.querySelectorAll(
+          ".wfmodal-overlay.wfmodal-open, .wf-overlay.active, .overlay.active, .wfload-overlay"
+        );
+        overlays.forEach((ov) => {
+          ov.classList.remove("wfmodal-open", "active");
+          // Para overlays de load, talvez remover do DOM seja melhor, mas esconder já ajuda
+          if (ov.classList.contains("wfload-overlay")) {
+            ov.style.display = "none";
+          } else {
+            ov.style.display = "none";
+            ov.style.opacity = "0";
+          }
+        });
+
+        // 4. FORÇAR LIMPEZA DE OVERFLOW (CRÍTICO)
+        // Remove estilos inline que travam o scroll
+        document.body.style.overflow = "";
+        document.body.style.overflowY = "";
+        document.documentElement.style.overflow = "";
+      } catch (e) {
+        console.warn("WfAjax: Erro ao limpar UI:", e);
+        // Garantia mínima
+        document.body.style.overflow = "";
+      }
     }
 
     reinitializeComponents(container, sourceUrl = null) {
@@ -9684,6 +9738,7 @@ if (!window.WebFull) {
       if (!this.container) return;
       if (this.container._wfFile1) return; // Evita reinicialização
       this.container._wfFile1 = this;
+      this.filesList = [];
 
       // WfFile1.injectCSS(); // CSS moved to webfull.css
 
@@ -9741,7 +9796,8 @@ if (!window.WebFull) {
 
     handleFiles(files) {
       if (!files || !files.length) return;
-      let validFiles = [];
+      if (!this.filesList) this.filesList = [];
+      let newFiles = [];
       let error = null;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
@@ -9762,16 +9818,19 @@ if (!window.WebFull) {
           error = "Formato não suportado.";
           continue;
         }
-        validFiles.push(file);
+        newFiles.push(file);
       }
-      if (error && validFiles.length === 0) {
+      if (error && newFiles.length === 0) {
         this.showError(error);
         return;
       }
-      this.showPreviews(validFiles);
+      if (!newFiles.length) return;
+      this.filesList = this.filesList.concat(newFiles);
+      this.updateInputFiles();
+      this.showPreviews(newFiles);
       this.error.style.display = "none";
       if (typeof this.options.onSelect === "function") {
-        validFiles.forEach((file) => this.options.onSelect(file));
+        newFiles.forEach((file) => this.options.onSelect(file));
       }
     }
 
@@ -9784,6 +9843,7 @@ if (!window.WebFull) {
         wrapper.setAttribute("WfImg", "");
         wrapper.setAttribute("data-name", file.name);
         wrapper.setAttribute("WfImg-title", file.name);
+        wrapper._wfFile1File = file;
 
         const img = document.createElement("img");
         img.className = "wffile1-img";
@@ -9802,6 +9862,14 @@ if (!window.WebFull) {
           try {
             wrapper.remove();
           } catch (_) {}
+          const fileRef = wrapper._wfFile1File;
+          if (fileRef && this.filesList && this.filesList.length) {
+            this.filesList = this.filesList.filter((f) => f !== fileRef);
+            this.updateInputFiles();
+          }
+          if (!this.preview.querySelector(".wffile1-link")) {
+            this.preview.style.display = "none";
+          }
         });
 
         this.preview.appendChild(wrapper);
@@ -9831,6 +9899,19 @@ if (!window.WebFull) {
           initSwImg();
         }
       } catch (_) {}
+    }
+
+    updateInputFiles() {
+      if (!this.input || !this.filesList) return;
+      try {
+        const dt = new DataTransfer();
+        this.filesList.forEach((file) => dt.items.add(file));
+        this.input.files = dt.files;
+      } catch (_) {
+        try {
+          this.input.value = "";
+        } catch (_) {}
+      }
     }
 
     showError(msg) {
@@ -9974,12 +10055,8 @@ if (!window.WebFull) {
       const list = [];
       const root = container instanceof HTMLElement ? container : document;
 
-      if (
-        root.hasAttribute &&
-        root.hasAttribute("WfFile2")
-      )
-        list.push(root);
-      
+      if (root.hasAttribute && root.hasAttribute("WfFile2")) list.push(root);
+
       root
         .querySelectorAll("span[WfFile2], [WfFile2]")
         .forEach((el) => list.push(el));
@@ -9988,6 +10065,7 @@ if (!window.WebFull) {
         // Evita dupla inicialização
         if (el._wfFile2) return;
         el._wfFile2 = true;
+        el._wffile2_files = [];
 
         // Lê atributos
         const accept = el.getAttribute("accept") || "image/*";
@@ -10022,12 +10100,12 @@ if (!window.WebFull) {
           const box = document.createElement("div");
           box.className = "wffile2-preview-box";
           // display: none é controlado via classe ou inline inicial
-          box.style.display = "none"; 
+          box.style.display = "none";
 
           const img = document.createElement("img");
           img.className = "wffile2-preview-img";
           img.alt = "Preview";
-          
+
           const remove = document.createElement("span");
           remove.className = "wffile2-remove";
           remove.title = "Remover imagem";
@@ -10066,104 +10144,260 @@ if (!window.WebFull) {
           window._inputFileGlobal.onchange = function () {
             if (!this.files || this.files.length === 0) return;
 
+            const files = Array.from(this.files);
+            el._wffile2_files = files;
+
+            const syncGlobalFiles = function () {
+              if (!window._inputFileGlobal) return;
+              try {
+                const dt = new DataTransfer();
+                (el._wffile2_files || []).forEach((file) => dt.items.add(file));
+                window._inputFileGlobal.files = dt.files;
+              } catch (_) {
+                try {
+                  window._inputFileGlobal.value = "";
+                } catch (_) {}
+              }
+            };
+
             const previewTarget = previewSelector
               ? document.querySelector(previewSelector)
               : null;
-            
+
+            const initWfImg = (scope) => {
+              try {
+                if (
+                  window.WfImg &&
+                  typeof window.WfImg.initAll === "function"
+                ) {
+                  window.WfImg.initAll(scope);
+                } else if (
+                  window.SwPlugin &&
+                  typeof window.SwPlugin.initComponent === "function"
+                ) {
+                  window.SwPlugin.initComponent("WfImg", scope);
+                }
+              } catch (_) {}
+            };
+
             if (previewTarget) {
-              // Limpa o conteúdo anterior do preview
               previewTarget.innerHTML = "";
 
-              // Se o modo é múltiplo, itera e cria todas as imagens.
               if (multiple) {
-                Array.from(this.files).forEach((file) => {
+                files.forEach((file) => {
+                  const item = document.createElement("span");
+                  item.className = "wffile2-link";
+                  item.setAttribute("WfImg", "");
+                  item.setAttribute("WfImg-title", file.name);
+
+                  const img = document.createElement("img");
+                  img.src = "";
+                  img.className = "wffile2-preview-img wffile2-gallery-img";
+
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  item.appendChild(img);
+                  item.appendChild(remove);
+                  previewTarget.appendChild(item);
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    el._wffile2_files = (el._wffile2_files || []).filter(
+                      (f) => f !== file
+                    );
+                    syncGlobalFiles();
+                    try {
+                      item.remove();
+                    } catch (_) {}
+                  });
+
                   const reader = new FileReader();
                   reader.onload = function (e) {
-                    const img = document.createElement("img");
                     img.src = e.target.result;
-                    // Classes externas podem estilizar isso, ou adicionamos classe padrão
-                    img.className = "wffile2-preview-img wffile2-gallery-img"; 
-                    previewTarget.appendChild(img);
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(previewTarget);
                   };
                   reader.readAsDataURL(file);
                 });
-              }
-              // Senão, mantém o comportamento original de imagem única.
-              else {
+              } else {
+                const file = files[0];
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                  // Se o alvo do preview é uma <img>, apenas muda o src.
                   if (previewTarget.tagName === "IMG") {
+                    try {
+                      previewTarget.classList.add("wffile2-preview-img");
+                    } catch (_) {}
+
+                    let wrapper = previewTarget._wffile2_wrapper;
+                    if (!wrapper) {
+                      wrapper = document.createElement("span");
+                      wrapper.className = "wffile2-link";
+                      wrapper.setAttribute("WfImg", "");
+                      wrapper.setAttribute("WfImg-title", file.name);
+                      const parent = previewTarget.parentNode;
+                      if (parent) {
+                        parent.insertBefore(wrapper, previewTarget);
+                        wrapper.appendChild(previewTarget);
+                      }
+                      previewTarget._wffile2_wrapper = wrapper;
+                    }
+
                     previewTarget.src = e.target.result;
                     previewTarget.style.display = "block";
-                  }
-                  // Se não, cria uma nova imagem dentro do alvo.
-                  else {
+                    wrapper.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(wrapper.parentNode);
+
+                    let remove = previewTarget._wffile2_remove;
+                    if (!remove) {
+                      remove = document.createElement("span");
+                      remove.className = "wffile2-remove";
+                      remove.title = "Remover imagem";
+                      remove.textContent = "×";
+                      if (wrapper) {
+                        wrapper.appendChild(remove);
+                      } else if (previewTarget.parentNode) {
+                        previewTarget.parentNode.appendChild(remove);
+                      }
+                      previewTarget._wffile2_remove = remove;
+                    }
+
+                    remove.onclick = function (ev) {
+                      ev.preventDefault();
+                      ev.stopPropagation();
+                      try {
+                        previewTarget.src = "";
+                        previewTarget.style.display = "none";
+                      } catch (_) {}
+                      el._wffile2_files = [];
+                      syncGlobalFiles();
+                    };
+                  } else {
+                    const item = document.createElement("span");
+                    item.className = "wffile2-link";
+                    item.setAttribute("WfImg", "");
+                    item.setAttribute("WfImg-title", file.name);
+
                     const img = document.createElement("img");
                     img.src = e.target.result;
                     img.className = "wffile2-preview-img";
-                    previewTarget.appendChild(img);
-                  }
-                };
-                reader.readAsDataURL(this.files[0]);
-              }
-            } else if (el._wffile2_box) {
-              const box = el._wffile2_box;
-              box.style.display = "block";
-              
-              if (!multiple) {
-                // Modo Single (Interno)
-                // Restaura estrutura se foi limpa pelo modo multiplo
-                if (!box.querySelector('.wffile2-preview-img')) {
-                    box.innerHTML = '';
-                    const img = document.createElement("img");
-                    img.className = "wffile2-preview-img";
-                    img.alt = "Preview";
+
                     const remove = document.createElement("span");
                     remove.className = "wffile2-remove";
                     remove.title = "Remover imagem";
                     remove.textContent = "×";
-                    
-                    remove.addEventListener("click", function () {
-                        box.style.display = "none";
-                        window._inputFileGlobal.value = "";
+
+                    item.appendChild(img);
+                    item.appendChild(remove);
+                    previewTarget.appendChild(item);
+
+                    remove.addEventListener("click", function (ev) {
+                      ev.preventDefault();
+                      ev.stopPropagation();
+                      el._wffile2_files = [];
+                      syncGlobalFiles();
+                      try {
+                        item.remove();
+                      } catch (_) {}
                     });
-                    
-                    box.appendChild(img);
-                    box.appendChild(remove);
-                    el._wffile2_img = img;
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(previewTarget);
+                  }
+                };
+                reader.readAsDataURL(file);
+              }
+            } else if (el._wffile2_box) {
+              const box = el._wffile2_box;
+              box.style.display = "block";
+              // Box interno único: adicionar atributos ao box ou criar wrapper
+              // O box já é o container visual. Vamos adicionar WfImg ao box.
+
+              if (!multiple) {
+                if (!box.querySelector(".wffile2-preview-img")) {
+                  box.innerHTML = "";
+                  box.setAttribute("WfImg", ""); // Habilitar WfImg
+
+                  const img = document.createElement("img");
+                  img.className = "wffile2-preview-img";
+                  img.alt = "Preview";
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation(); // Importante para não abrir WfImg
+                    box.style.display = "none";
+                    el._wffile2_files = [];
+                    syncGlobalFiles();
+                  });
+
+                  box.appendChild(img);
+                  box.appendChild(remove);
+                  el._wffile2_img = img;
                 }
-                
+                // Atualizar title
+                const file = files[0];
+                box.setAttribute("WfImg-title", file.name);
+
                 const reader = new FileReader();
                 reader.onload = function (e) {
                   try {
                     el._wffile2_img.src = e.target.result;
+                    box.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(el);
                   } catch (_) {}
                 };
-                reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(file);
               } else {
-                // Modo Multiplo (Interno)
+                box.removeAttribute("WfImg"); // Remover do box pai se for multiplo
                 box.innerHTML = "";
-                Array.from(this.files).forEach((file) => {
+                files.forEach((file) => {
+                  const item = document.createElement("span");
+                  item.className = "wffile2-link";
+                  item.setAttribute("WfImg", "");
+                  item.setAttribute("WfImg-title", file.name);
+
+                  const img = document.createElement("img");
+                  img.className = "wffile2-preview-img wffile2-gallery-img";
+                  img.src = "";
+
+                  const remove = document.createElement("span");
+                  remove.className = "wffile2-remove";
+                  remove.title = "Remover imagem";
+                  remove.textContent = "×";
+
+                  item.appendChild(img);
+                  item.appendChild(remove);
+                  box.appendChild(item);
+
+                  remove.addEventListener("click", function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    el._wffile2_files = (el._wffile2_files || []).filter(
+                      (f) => f !== file
+                    );
+                    syncGlobalFiles();
+                    try {
+                      item.remove();
+                    } catch (_) {}
+                    if (!box.querySelector(".wffile2-link")) {
+                      box.style.display = "none";
+                    }
+                  });
+
                   const reader = new FileReader();
                   reader.onload = function (e) {
-                    const img = document.createElement("img");
-                    img.className = "wffile2-preview-img wffile2-gallery-img";
                     img.src = e.target.result;
-                    box.appendChild(img);
+                    item.setAttribute("WfImg-src", e.target.result);
+                    initWfImg(box);
                   };
                   reader.readAsDataURL(file);
                 });
-                const remove = document.createElement("span");
-                remove.className = "wffile2-remove";
-                remove.title = "Remover imagens";
-                remove.textContent = "×";
-                remove.addEventListener("click", function () {
-                  box.style.display = "none";
-                  box.innerHTML = "";
-                  window._inputFileGlobal.value = "";
-                });
-                box.appendChild(remove);
               }
             }
           };
@@ -10191,20 +10425,20 @@ if (!window.WebFull) {
       const observer = new MutationObserver((mutations) => {
         let shouldInit = false;
         for (const mutation of mutations) {
-            if (mutation.type === "childList" && mutation.addedNodes.length) {
-              for (const node of mutation.addedNodes) {
-                if (node.nodeType === 1) {
-                   if (
-                      (node.hasAttribute && node.hasAttribute("WfFile2")) ||
-                      (node.querySelector && node.querySelector("[WfFile2]"))
-                   ) {
-                      shouldInit = true;
-                      break;
-                   }
+          if (mutation.type === "childList" && mutation.addedNodes.length) {
+            for (const node of mutation.addedNodes) {
+              if (node.nodeType === 1) {
+                if (
+                  (node.hasAttribute && node.hasAttribute("WfFile2")) ||
+                  (node.querySelector && node.querySelector("[WfFile2]"))
+                ) {
+                  shouldInit = true;
+                  break;
                 }
               }
             }
-            if (shouldInit) break;
+          }
+          if (shouldInit) break;
         }
         if (shouldInit) {
           try {
@@ -10467,8 +10701,8 @@ if (!window.WebFull) {
       const btnClose = overlay.querySelector(".wfimg-close");
       btnClose.innerHTML = "&times;";
       // Botões
-      const btnPrev = overlay.querySelector(".wfimg-prev");
-      const btnNext = overlay.querySelector(".wfimg-next");
+      const btnPrev = overlay.querySelector(".swimg-prev");
+      const btnNext = overlay.querySelector(".swimg-next");
 
       let loading = false,
         transitioning = false;
@@ -10514,6 +10748,25 @@ if (!window.WebFull) {
             finishShow();
           }
         };
+
+        preload.onerror = function () {
+          box.classList.remove("wfimg-loading");
+          loader.style.display = "none";
+          img.style.display = "none";
+
+          caption.innerHTML = `<span style="color:#ff5252"><i class="wf wf-warning"></i> Erro ao carregar imagem</span><br><small>${href}</small>`;
+          caption.style.opacity = 1;
+          btnClose.style.opacity = 1;
+
+          // Ajustar tamanho para msg de erro
+          box.style.width = "300px";
+          box.style.height = "auto";
+          box.style.padding = "20px";
+
+          loading = false;
+          transitioning = false;
+        };
+
         preload.src = href;
 
         function showNewImg() {
@@ -15400,288 +15653,193 @@ if (typeof window !== 'undefined') {
 (function (window, document) {
   "use strict";
 
-  /**
-   * WfNavbar - Sistema de Navegação
-   * Navbar responsivo, acessível e customizável
-   *
-   * @author SandroWeb
-   * @version 1.0
-   * @since WEBFULL Framework v1.0
-   */
-
   class WfNavbar {
     constructor(element) {
-      // Evita dupla inicialização
       if (element._wfNavbar) return element._wfNavbar;
-
       this.element = element;
       this.element._wfNavbar = this;
-
       this.init();
     }
 
     init() {
       WfNavbar.injectCSS();
-      this.bindEvents();
-      this._log("WfNavbar inicializado:", this.element);
-    }
 
-    bindEvents() {
-      // Implementação futura de eventos (toggle menu mobile, etc)
-      // Exemplo:
-      // const toggleBtn = this.element.querySelector('.wf-navbar-toggle');
-      // if (toggleBtn) ...
-    }
-
-    open() {
-      this._log("open() chamado");
-      this.element.classList.add("open");
-    }
-
-    close() {
-      this._log("close() chamado");
-      this.element.classList.remove("open");
-    }
-
-    toggle() {
-      this._log("toggle() chamado");
-      this.element.classList.toggle("open");
-    }
-
-    destroy() {
-      this._log("destroy() chamado");
-      delete this.element._wfNavbar;
-    }
-
-    _log(...args) {
-      if (
-        window.WF_DEBUG ||
-        (typeof window !== "undefined" &&
-          (location.hostname === "localhost" ||
-            location.hostname === "127.0.0.1"))
-      ) {
-        console.log("[WfNavbar]", ...args);
+      let expandAttr = (
+        this.element.getAttribute("data-expand") || "lg"
+      ).toLowerCase();
+      const allowed = ["sm", "md", "lg", "xl", "none"];
+      if (allowed.indexOf(expandAttr) === -1) expandAttr = "lg";
+      this.expand = expandAttr;
+      if (expandAttr !== "none") {
+        this.element.classList.add("wfnavbar-expand-" + expandAttr);
       }
+
+      const themeAttr = (
+        this.element.getAttribute("data-theme") || "light"
+      ).toLowerCase();
+      if (themeAttr === "dark") {
+        this.element.classList.add("wfnavbar-theme-dark");
+      } else {
+        this.element.classList.add("wfnavbar-theme-light");
+      }
+
+      const alignAttr = (
+        this.element.getAttribute("data-menu-align") || ""
+      ).toLowerCase();
+      if (alignAttr === "center") {
+        this.element.classList.add("wfnavbar-menu-center");
+      } else if (alignAttr === "right") {
+        this.element.classList.add("wfnavbar-menu-right");
+      }
+
+      this.toggleBtn = this.element.querySelector(".wfnavbar-toggle");
+      this.collapse = this.element.querySelector(".wfnavbar-collapse");
+      this.nav = this.element.querySelector(".wfnavbar-nav");
+
+      this.bindToggle();
+      this.bindDropdowns();
     }
 
-    // ===== MÉTODOS ESTÁTICOS =====
+    bindToggle() {
+      if (!this.toggleBtn || !this.collapse) return;
+      this.toggleBtn.setAttribute("aria-expanded", "false");
+      this.toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isOpen = this.element.classList.toggle("wfnavbar-open");
+        this.toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
 
-    /**
-     * Injeta o CSS padrão do WfNavbar uma única vez
-     */
+    bindDropdowns() {
+      if (!this.nav) return;
+
+      const items = this.nav.querySelectorAll("li");
+      const self = this;
+
+      items.forEach(function (li) {
+        const submenu = li.querySelector("ul");
+        const link = li.querySelector("a");
+        if (!submenu || !link) return;
+
+        li.classList.add("wfnavbar-has-submenu");
+
+        link.addEventListener("click", function (e) {
+          if (!self.isMobile()) return;
+          if (!li.classList.contains("wfnavbar-sub-open")) {
+            e.preventDefault();
+            self.closeSubmenus(self.nav);
+            li.classList.add("wfnavbar-sub-open");
+          }
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!this.element.contains(e.target)) {
+          this.element.classList.remove("wfnavbar-open");
+          this.closeSubmenus(this.nav);
+        }
+      });
+    }
+
+    closeSubmenus(container) {
+      if (!container) return;
+      const opened = container.querySelectorAll(".wfnavbar-sub-open");
+      opened.forEach(function (li) {
+        li.classList.remove("wfnavbar-sub-open");
+      });
+    }
+
+    getBreakpoint() {
+      if (this.expand === "sm") return 576;
+      if (this.expand === "md") return 768;
+      if (this.expand === "lg") return 992;
+      if (this.expand === "xl") return 1200;
+      return Infinity;
+    }
+
+    isMobile() {
+      return window.innerWidth < this.getBreakpoint();
+    }
+
     static injectCSS() {
-      const cssId = "webfull-wfnavbar-css";
-      if (document.getElementById(cssId)) return;
-
+      if (document.getElementById("wfnavbar-css")) return;
       const style = document.createElement("style");
-      style.id = cssId;
-      style.textContent = `
-        /* WfNavbar CSS padrão */
-        [WfNavbar] {
-          --wfnavbar-bg: #23283a;
-          --wfnavbar-color: #fff;
-          --wfnavbar-hover: #1a1d29;
-          --wfnavbar-border: #23283a;
-          --wfnavbar-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          --wfnavbar-height: 56px;
-          --wfnavbar-z: 1000;
-          background: var(--wfnavbar-bg);
-          color: var(--wfnavbar-color);
-          font-family: inherit;
-          position: relative;
-          z-index: var(--wfnavbar-z);
-          box-shadow: var(--wfnavbar-shadow);
-          min-width: 0;
-          display: flex;
-          align-items: center;
-          height: var(--wfnavbar-height);
-          padding: 0 1.5rem;
-          gap: 1.5rem;
-          justify-content: space-between;
-        }
-        [WfNavbar][data-theme="light"] {
-          --wfnavbar-bg: #fff;
-          --wfnavbar-color: #23283a;
-          --wfnavbar-hover: #f5f5f5;
-          --wfnavbar-border: #e0e0e0;
-        }
-        [WfNavbar][data-theme="dark"] {
-          --wfnavbar-bg: #23283a;
-          --wfnavbar-color: #fff;
-          --wfnavbar-hover: #1a1d29;
-          --wfnavbar-border: #23283a;
-        }
-        [WfNavbar][data-theme="custom"] {
-          /* Customização via inline style ou CSS externo */
-        }
-        [WfNavbar] > [slot="brand"] {
-          display: flex;
-          align-items: center;
-          font-size: 1.25em;
-          font-weight: bold;
-          min-width: 0;
-          white-space: nowrap;
-        }
-        [WfNavbar][data-brand-align="right"] {
-          flex-direction: row-reverse;
-        }
-        [WfNavbar][data-brand-align="right"] > [slot="brand"] {
-          margin-left: 2rem;
-          margin-right: 0;
-        }
-        [WfNavbar]:not([data-brand-align="right"]) > [slot="brand"] {
-          margin-right: 2rem;
-          margin-left: 0;
-        }
-        [WfNavbar] ul {
-          display: flex;
-          align-items: center;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          gap: 1rem;
-        }
-        /* Alinhamento do menu: esquerda, centro, direita */
-        [WfNavbar][data-menu-align="left"] ul { justify-content: flex-start; }
-        [WfNavbar][data-menu-align="center"] ul { justify-content: center; }
-        [WfNavbar][data-menu-align="right"] ul { justify-content: flex-end; }
-        [WfNavbar] ul li {
-            position: relative;
-            width: 100%;
-        }
-        [WfNavbar] ul li a {
-            display: block;
-            padding: 20px 2rem;
-            color: inherit;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        [WfNavbar] ul li a:hover,
-        [WfNavbar] ul li a:focus {
-          background: var(--wfnavbar-hover);
-        }
-        /* Dropdown (submenu) */
-        [WfNavbar] ul li ul {
-          display: none;
-          position: absolute;
-          left: 0;
-          top: 100%;
-          min-width: 180px;
-          background: var(--wfnavbar-bg);
-          color: var(--wfnavbar-color);
-          box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-          padding: 0.5em 0;
-          z-index: 10;
-          flex-direction: column;
-          gap: 0;
-        }
-        [WfNavbar] ul li:hover > ul,
-        [WfNavbar] ul li:focus-within > ul {
-          display: flex;
-        }
-        [WfNavbar] ul li ul li a {
-          padding: 0.8em 1.5em;
-            width: 100%;
-        }
-        /* Subsubmenu (nível 2+) */
-        [WfNavbar] ul li ul li ul {
-          left: 98%;
-          top: 0;
-          margin-left: 2px;
-        }
-        /* Slots extras */
-        [WfNavbar] [slot="search"] {
-          margin-left: auto;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        [WfNavbar] [slot="extra"] {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-left: 1rem;
-        }
-        [WfNavbar] [slot="avatar"] {
-          margin-left: 1rem;
-          border-radius: 50%;
-          height: 32px;
-          width: 32px;
-          object-fit: cover;
-        }
-        /* Responsivo: mobile */
-        @media (max-width: 900px) {
-          [WfNavbar] {
-            flex-wrap: wrap;
-            height: auto;
-            padding: 0 1rem;
-          }
-          [WfNavbar] ul {
-            flex-direction: column;
-            width: 100%;
-            gap: 0;
-          }
-          [WfNavbar] ul li ul {
-            position: static;
-            box-shadow: none;
-          }
-          [WfNavbar] [slot="search"],
-          [WfNavbar] [slot="extra"],
-          [WfNavbar] [slot="avatar"] {
-            margin-left: 0;
-          }
-        }
-        /* Overlay para mobile (simples, pode ser expandido) */
-        [WfNavbar][data-overlay="true"]::after {
-          content: '';
-          display: none;
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(0,0,0,0.4);
-          z-index: 999;
-        }
-        /* Fixo */
-        [WfNavbar][data-fixed="true"] {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-        }
-      `;
+      style.id = "wfnavbar-css";
+      style.textContent =
+        "[WfNavbar]{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:relative;z-index:1000;}" +
+        "[WfNavbar] .wfnavbar-container{display:flex;align-items:center;width:100%;gap:16px;}" +
+        "[WfNavbar] .wfnavbar-brand{font-size:1.1rem;font-weight:600;text-decoration:none;white-space:nowrap;color:inherit;}" +
+        "[WfNavbar] .wfnavbar-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:32px;height:28px;border:none;background:transparent;cursor:pointer;color:inherit;padding:0;}" +
+        "[WfNavbar] .wfnavbar-toggle span{display:block;height:2px;width:100%;border-radius:999px;background:currentColor;transition:transform .2s ease,opacity .2s ease;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(2){opacity:0;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}" +
+        "[WfNavbar] .wfnavbar-collapse{display:none;width:100%;}" +
+        "[WfNavbar].wfnavbar-open .wfnavbar-collapse{display:flex;}" +
+        "[WfNavbar] .wfnavbar-nav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;width:100%;}" +
+        "[WfNavbar] .wfnavbar-nav li{position:relative;}" +
+        "[WfNavbar] .wfnavbar-nav a{display:block;padding:8px 10px;text-decoration:none;color:inherit;transition:opacity .18s ease;}" +
+        "[WfNavbar] .wfnavbar-nav a:hover{opacity:.85;}" +
+        "[WfNavbar] .wfnavbar-nav li ul{position:static;display:none;margin:0;padding:6px 0;list-style:none;}" +
+        "[WfNavbar] .wfnavbar-sub-open>ul{display:block;opacity:1;visibility:visible;transform:none;}" +
+        "[WfNavbar] .wfnavbar-nav li ul li a{padding:8px 14px;}" +
+        "[WfNavbar] .wfnavbar-has-submenu>a{position:relative;padding-right:18px;}" +
+        "[WfNavbar] .wfnavbar-has-submenu>a::after{content:'▾';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:.6em;opacity:.7;}" +
+        "[WfNavbar] .wfnavbar-sub-open>a::after{transform:translateY(-50%) rotate(180deg);}" +
+        "[WfNavbar].wfnavbar-theme-light{background:#ffffff;color:#333333;box-shadow:0 2px 6px rgba(0,0,0,.04);}" +
+        "[WfNavbar].wfnavbar-theme-light .wfnavbar-nav li ul{background:#ffffff;box-shadow:0 8px 18px rgba(0,0,0,.08);}" +
+        "[WfNavbar].wfnavbar-theme-dark{background:#111111;color:#f5f5f5;}" +
+        "[WfNavbar].wfnavbar-theme-dark .wfnavbar-nav a{color:#f5f5f5;}" +
+        "[WfNavbar].wfnavbar-theme-dark .wfnavbar-nav li ul{background:#1a1a1a;box-shadow:0 8px 18px rgba(0,0,0,.5);}" +
+        "[WfNavbar].wfnavbar-menu-center .wfnavbar-nav{justify-content:center;}" +
+        "[WfNavbar].wfnavbar-menu-right .wfnavbar-nav{justify-content:flex-end;}" +
+        "[WfNavbar] .wfnavbar-ms-auto{margin-left:auto;}" +
+        "@media (min-width:576px){" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-sm .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:768px){" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-md .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:992px){" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-lg .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}" +
+        "@media (min-width:1200px){" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-toggle{display:none;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-collapse{display:flex!important;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav{flex-direction:row;align-items:center;gap:12px;width:auto;}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav li ul{position:absolute;top:100%;left:0;min-width:220px;display:block;opacity:0;visibility:hidden;transform:translateY(8px);}" +
+        "[WfNavbar].wfnavbar-expand-xl .wfnavbar-nav li:hover>ul{opacity:1;visibility:visible;transform:translateY(0);}" +
+        "}";
       document.head.appendChild(style);
     }
 
     static initAll(container = document) {
-      WfNavbar.injectCSS();
-      const elements = container.querySelectorAll("[WfNavbar]");
-      const instances = [];
-
-      elements.forEach((el) => {
-        if (!el._wfNavbar) {
-          instances.push(new WfNavbar(el));
-        } else {
-          instances.push(el._wfNavbar);
-        }
+      const els = container.querySelectorAll("[WfNavbar]");
+      els.forEach(function (el) {
+        new WfNavbar(el);
       });
-
-      return instances;
     }
   }
 
-  // ===== EXPORTAR E REGISTRAR =====
-  if (window.WebFull) {
-    window.WebFull.modules.WfNavbar = WfNavbar;
-  }
-
-  // Fallback global e suporte a CommonJS
-  if (typeof module !== "undefined" && module.exports) {
-    module.exports = WfNavbar;
-  } else {
-    window.WfNavbar = WfNavbar;
-  }
-
-  // ===== INICIALIZAÇÃO IMEDIATA =====
   if (typeof window !== "undefined") {
+    window.WfNavbar = WfNavbar;
+    if (window.WebFull && window.WebFull.modules)
+      window.WebFull.modules.WfNavbar = WfNavbar;
+
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
         WfNavbar.initAll();
       });
     } else {
@@ -20471,29 +20629,6 @@ html.wfday-night {
 }
 
 @media (max-width: 790px) {
-    [WfSidebar] {
-       /* start hidden off-canvas */
-       transform: translateX(-100%);
-       z-index: 1000;
-       position: fixed;
-       left: 0;
-       top: 0;
-    }
-
-    [WfSidebar].open {
-       transform: translateX(0) !important;
-    }
-
-    [WfSidebar].sidebar-right {
-       transform: translateX(100%);
-       left: auto;
-       right: 0;
-    }
-
-    [WfSidebar].sidebar-right.open {
-       transform: translateX(0) !important;
-    }
-
     .toggle-btn-left {
        position: fixed;
        top: 8px;
@@ -20530,28 +20665,49 @@ html.wfday-night {
     }
 
     .toggle-btn:hover {
-       /*background: var(--sidebar-hover);*/
        transform: scale(1.1);
     }
+}
 
-    .overlay {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background: var(--sidebar-overlay-bg);
-       z-index: 999;
-       opacity: 0;
-       visibility: hidden;
-       transition: all 0.3s ease;
-       cursor: pointer;
-    }
+.overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: var(--sidebar-overlay-bg);
+   z-index: 999;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
 
-    .overlay.active {
-       opacity: 1;
-       visibility: visible;
-    }
+.overlay.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"] {
+   transform: translateX(-100%);
+   z-index: 1000;
+   position: fixed;
+   left: 0;
+   top: 0;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].open {
+   transform: translateX(0) !important;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].sidebar-right {
+   transform: translateX(100%);
+   left: auto;
+   right: 0;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].sidebar-right.open {
+   transform: translateX(0) !important;
 }
 
 @media (min-width: 791px) {
@@ -20823,9 +20979,13 @@ html.wfday-night {
     checkResponsive() {
       const isMobile = window.innerWidth <= this.getBreakpointValue();
 
-      if (!isMobile && this.isOpen) {
-        // Se mudou para desktop e está aberto, fechar
-        this.close();
+      if (isMobile) {
+        this.element.setAttribute("data-wfsidebar-mode", "mobile");
+      } else {
+        this.element.removeAttribute("data-wfsidebar-mode");
+        if (this.isOpen) {
+          this.close();
+        }
       }
     }
 
@@ -23040,7 +23200,7 @@ html.wfday-night {
   --swtable-hover: var(--neut2);
 }
 
-.wftable-container { width: 100%; margin: 0.75rem 0; font-family: inherit; color: var(--swtable-text); }
+.wftable-container { width: 100%; margin: 0.75rem 0; font-family: inherit; color: var(--swtable-text); overflow-x: auto; }
 .wftable-topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px; }
 .wftable-topbar-left { display:flex; align-items:center; gap:8px; color: var(--swtable-muted); }
 .wftable-length-select { padding:6px 8px; border:1px solid var(--swtable-border); background:var(--swtable-bg); border-radius:4px; }

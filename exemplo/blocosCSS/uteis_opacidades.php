@@ -42,7 +42,7 @@
           <div class="blopa opa-25">25%</div>
           <div class="blopa opa-0">0%</div>
         </div>
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="opa-100">100%</div>
 <div class="opa-75">75%</div>
 <div class="opa-50">50%</div>

@@ -31,7 +31,7 @@
         </p>
       </div>
       <div class="co6-g e2">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="twr-b">
     Texto balanceado
 </div>

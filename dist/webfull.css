@@ -21029,36 +21029,15 @@ html.wfday-day, html.wfday-night {
     padding: 1.4rem
 }
 
-.tabela-responsive {
+.tabela-responsive,
+.wftable-responsive,
+.tabela-responsive-g,
+.tabela-responsive-m,
+.tabela-responsive-p {
+    width: 100%;
     overflow-x: auto;
-    border-radius: 8px
-}
-
-@media (max-width:768px) {
-    .tabela-responsive table {
-        display: block
-    }
-
-    .tabela-responsive tr {
-        display: block;
-        margin-bottom: 1rem;
-        padding: .8rem;
-        border: 1px solid var(--tborder);
-        border-radius: 6px
-    }
-
-    .tabela-responsive td {
-        display: block;
-        text-align: left;
-        padding: .6rem 0;
-        border: none
-    }
-
-    .tabela-responsive td:before {
-        content: attr(data-label) ":";
-        font-weight: 600;
-        color: var(--wdest)
-    }
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch
 }
 
 th {
@@ -22663,42 +22642,43 @@ select.wftableajax-length-select {
 .wffile1-box {
     display: block;
     font-family: inherit;
-    margin-bottom: 1rem;
     background: var(--wf-bg);
     color: var(--wf-color);
     border-radius: 6px;
-    box-shadow: 0 3px 18px var(--wf-shadow-);
-    padding: 12px 12px 8px 12px;
+    box-shadow: 0 2px 9px var(--wf-shadow-);
+    padding: 10px 12px 8px;
     max-width: 280px;
     margin: 0 auto;
-    border: 1.5px solid var(--wf-border);
+    border: 1px solid var(--wf-bg);
     position: relative;
     box-sizing: border-box;
+    font-family: inherit;
+    width: 100%;
 }
 
 .wffile1-label {
     display: block;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--wf-color, #333);
+    color: var(--wf-color--);
 }
 
 .wffile1-info {
-    font-size: 0.85em;
+    font-size: 11px;
     color: var(--wf-color--, #888);
     margin-bottom: 0.5rem;
 }
 
 .wffile1-dropzone {
-    position: relative;
-    border: 2px dashed var(--wf-border, #ddd);
-    border-radius: 6px;
-    padding: 2rem 1rem;
+    border: 2px dashed var(--wf-color--);
+    border-radius: 8px;
+    padding: 2px 20px;
     text-align: center;
-    background: var(--wf-bg-, #fafafa);
     cursor: pointer;
-    transition: all 0.2s ease;
-    outline: none;
+    transition: .3s;
+    background: var(--wf-bg, #fff);
+    color: var(--wf-color, #333);
+    outline: 0;
 }
 
 .wffile1-dropzone:hover, .wffile1-dropzone:focus {
@@ -22713,15 +22693,15 @@ select.wftableajax-length-select {
 }
 
 .wffile1-icon {
-    font-size: 2rem;
-    color: var(--wf-color--, #aaa);
-    margin-bottom: 0.5rem;
+    font-size: 48px;
+    color: var(--neut8, #999);
 }
 
 .wffile1-text {
     color: var(--wf-color-, #666);
     font-size: 1.1rem;
-    line-height: 1.4;
+    line-height: 0.5;
+    padding: 6px 0;
 }
 
 .wffile1-text span {
@@ -22738,13 +22718,13 @@ select.wftableajax-length-select {
 
 .wffile1-link {
     position: relative;
-    display: block;
-    width: 80px;
-    height: 80px;
+    display: inline-block;
+    width: 56px;
+    height: 56px;
     border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid var(--wf-border, #ddd);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    background: #fff;
 }
 
 .wffile1-img {
@@ -22785,12 +22765,9 @@ select.wftableajax-length-select {
 /* Gallery mode specifics */
 .wffile2-gallery-img {
     display: inline-block;
-    margin: 4px;
     max-width: 100px;
     max-height: 100px;
-    border: 1px solid var(--wf-border);
     border-radius: 4px;
-    padding: 2px;
 }
 
 .wffile2-btn {
@@ -23009,4 +22986,182 @@ select.wftableajax-length-select {
     border: 1px solid var(--wf-border, #ddd);
     border-radius: 8px;
     margin-top: 1rem;
+}
+
+/* WfFile1 Component Styles */
+.wffile1-box {
+    font-family: inherit;
+    width: 100%;
+}
+
+.wffile1-dropzone {
+    border: 2px dashed var(--neut8, #ccc);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--wf-bg, #fff);
+    color: var(--wf-color, #333);
+    outline: none;
+}
+
+.wffile1-dropzone:focus {
+    border-color: var(--primary, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.wffile1-dropzone:hover, .wffile1-dropzone.wffile1-drag {
+    border-color: var(--primary, #007bff);
+    background: var(--neut3, #f8f9fa);
+}
+
+.wffile1-icon {
+    font-size: 32px;
+    color: var(--wf-color_);
+}
+
+.wffile1-text b {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.wffile1-text span {
+    font-size: 0.9em;
+    color: var(--neut8, #666);
+}
+
+.wffile1-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.wffile1-link {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    overflow: visible;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.wffile1-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.wffile1-remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.wffile1-remove:hover {
+    background: #cc0000;
+}
+
+.wffile1-error {
+    color: #ff4444;
+    margin-top: 10px;
+    font-size: 0.9em;
+    display: none;
+}
+
+.wffile1-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.wffile1-info {
+    font-size: 0.875em;
+    color: var(--neut8, #666);
+    margin-bottom: 0.5rem;
+}
+
+/* Dark Mode Support */
+.wffile1-dark .wffile1-dropzone {
+    background: var(--neut10, #2d2d2d);
+    border-color: var(--neut9, #444);
+    color: var(--neut1, #eee);
+}
+
+.wffile1-dark .wffile1-dropzone:hover {
+    background: var(--neut9, #333);
+}
+
+/* WfFile2 Styles */
+.wffile2-link,
+.wffile2-preview-box {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    overflow: visible;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    background: #fff;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.wffile2-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.wffile2-remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.wffile2-remove:hover {
+    background: #cc0000;
+}
+
+.wffile2-gallery-img {
+    display: inline-block;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
 }

@@ -27,7 +27,7 @@
         <div class="bbl Tbran z15 Bprin">zoom 150%</div>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="bbl z10">
       zoom 100%
 </div>

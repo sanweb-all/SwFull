@@ -45,7 +45,7 @@
         <input type="text" class="form-gg" id="" name="" placeholder="Formulário GG com label" />
         <label for="exe1" class="label">Text</label>
         <input type="text" class="form-xg" id="" name="" placeholder="Formulário XG com label" />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <input type="text" class="" placeholder="SandroWeb">
 
 <input type="text" class="form-p" placeholder="Formulário P">
@@ -74,7 +74,7 @@
         <h3>Inputs <small>datetime-local</small></h3>
         <label for="" class="label">Data</label>
         <input type="datetime-local" class="" id="" name="" />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <label for="" class="label">Data</label>
 <input type="datetime-local" class="" id="" name="">
 </script>
@@ -92,7 +92,7 @@
         <h3>Inputs <small>password</small></h3>
         <label for="senha" class="label">Senha</label>
         <input type="password" class="" name="senha" id="" />
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <label for="senha" class="label">Senha</label>
 <input type="password" class="" name="">
 </script>

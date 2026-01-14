@@ -114,8 +114,8 @@
       const btnClose = overlay.querySelector(".wfimg-close");
       btnClose.innerHTML = "&times;";
       // Botões
-      const btnPrev = overlay.querySelector(".wfimg-prev");
-      const btnNext = overlay.querySelector(".wfimg-next");
+      const btnPrev = overlay.querySelector(".swimg-prev");
+      const btnNext = overlay.querySelector(".swimg-next");
 
       let loading = false,
         transitioning = false;
@@ -161,6 +161,25 @@
             finishShow();
           }
         };
+
+        preload.onerror = function () {
+          box.classList.remove("wfimg-loading");
+          loader.style.display = "none";
+          img.style.display = "none";
+
+          caption.innerHTML = `<span style="color:#ff5252"><i class="wf wf-warning"></i> Erro ao carregar imagem</span><br><small>${href}</small>`;
+          caption.style.opacity = 1;
+          btnClose.style.opacity = 1;
+
+          // Ajustar tamanho para msg de erro
+          box.style.width = "300px";
+          box.style.height = "auto";
+          box.style.padding = "20px";
+
+          loading = false;
+          transitioning = false;
+        };
+
         preload.src = href;
 
         function showNewImg() {

@@ -10,318 +10,268 @@
       </nav>
     </div>
     <section class="wfnavbarx">
-      <nav
-        WfNavbar
-        data-theme="dark"
-        data-fixed="false"
-        data-menu-align="center"
-        style="margin-bottom: 12px">
-        <div slot="brand"><i class="wf wf-rocket ed1"></i> Webfull</div>
-        <button
-          class="btn btn-prin navbar-toggle"
-          onclick="WfNavbarSideOpen('#navbar-side')">
-          <i class="wf wf-menu"></i> Menu
-        </button>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li>
-            <a href="#">Docs</a>
-            <ul>
-              <li><a href="#">Guia</a></li>
-              <li><a href="#">Componentes</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Mais</a>
-            <ul>
-              <li>
-                <a href="#">Submenu</a>
-                <ul>
-                  <li><a href="#">Item A</a></li>
-                  <li><a href="#">Item B</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Item 2</a></li>
-            </ul>
-          </li>
-        </ul>
-        <div slot="search">
-          <input
-            type="text"
-            class="input"
-            placeholder="Buscar"
-            style="height: 32px" />
-        </div>
-        <img slot="avatar" src="exemplo/images/sw.png" alt="avatar" />
-      </nav>
-
-
-
       <div class="g-xg">
-        <style>
-          [WfNavbar] .navbar-toggle {
-            display: none;
-          }
-
-          @media (max-width: 900px) {
-            [WfNavbar] .navbar-toggle {
-              display: inline-flex;
-              align-items: center;
-              gap: 0.4rem;
-            }
-
-            [WfNavbar] ul {
-              display: none;
-            }
-          }
-
-          .wfnavbar-side {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.35);
-            display: none;
-            z-index: 1100;
-          }
-
-          .wfnavbar-side.open {
-            display: block;
-          }
-
-          .wfnavbar-side .panel {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 280px;
-            background: var(--wfnavbar-bg);
-            color: var(--wfnavbar-color);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.24);
-            padding: 12px;
-            overflow-y: auto;
-          }
-
-          .wfnavbar-side .panel-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 6px 4px;
-            font-weight: 600;
-          }
-
-          .wfnavbar-side .nb-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-          }
-
-          .wfnavbar-side .nb-item {
-            border-bottom: 1px solid var(--wfnavbar-border);
-          }
-
-          .wfnavbar-side .nb-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem;
-            color: var(--wfnavbar-color);
-            text-decoration: none;
-          }
-
-          .wfnavbar-side .nb-link:hover {
-            background: var(--wfnavbar-hover);
-          }
-
-          .wfnavbar-side .nb-submenu {
-            display: none;
-            list-style: none;
-            margin: 0;
-            padding: 0 0 0.8rem 1.6rem;
-          }
-
-          .wfnavbar-side .nb-item.open>.nb-submenu {
-            display: block;
-          }
-
-          .wfnavbar-side .nb-arrow {
-            margin-left: auto;
-          }
-        </style>
-
         <div class="l">
           <div class="co12-g">
-            <h3>[Navbar Responsiva]</h3>
-            <p>
-              Navbar acessível, com suporte a temas e dropdowns por
-              <code>hover</code>/<code>focus</code>. Use o atributo
-              <code>WfNavbar</code> no elemento raiz.
-            </p>
-          </div>
-        </div>
-        <div class="l">
-          <div class="co12-g">
-            <div id="navbar-side" class="wfnavbar-side" style="margin-top: 70px">
-              <div class="panel">
-                <div class="panel-header">
-                  <span>Menu</span>
-                  <button
-                    class="btn btn-clar"
-                    onclick="WfNavbarSideClose('#navbar-side')">
-                    <i class="wf wf-x"></i>
-                  </button>
-                </div>
-                <nav>
-                  <ul class="nb-list">
-                    <li class="nb-item">
-                      <a href="#" class="nb-link"><i class="wf wf-home"></i><span>Home</span></a>
-                    </li>
-                    <li class="nb-item">
-                      <a
-                        href="#"
-                        class="nb-link"
-                        onclick="WfNavbarToggleSub(this); return false;"><i class="wf wf-folder"></i><span>Docs</span><i class="wf wf-chevron-down nb-arrow"></i></a>
-                      <ul class="nb-submenu">
-                        <li><a href="#" class="nb-link">Guia</a></li>
-                        <li><a href="#" class="nb-link">Componentes</a></li>
+            <h3>1. Navbar básico (light, expand-lg)</h3>
+            <nav WfNavbar data-theme="light" data-expand="lg" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand"><i class="wf wf-rocket ed1"></i> WebFull</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="wfnavbar-sub-open">
+                      <a href="#">Docs</a>
+                      <ul>
+                        <li><a href="#">Guia</a></li>
+                        <li><a href="#">Componentes</a></li>
+                        <li><a href="#">API</a></li>
                       </ul>
                     </li>
-                    <li class="nb-item">
-                      <a
-                        href="#"
-                        class="nb-link"
-                        onclick="WfNavbarToggleSub(this); return false;"><i class="wf wf-grid"></i><span>Mais</span><i class="wf wf-chevron-down nb-arrow"></i></a>
-                      <ul class="nb-submenu">
-                        <li><a href="#" class="nb-link">Item A</a></li>
-                        <li><a href="#" class="nb-link">Item B</a></li>
+                    <li>
+                      <a href="#">Mais</a>
+                      <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contato</a></li>
                       </ul>
                     </li>
                   </ul>
-                </nav>
+                </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
 
         <div class="l">
           <div class="co12-g">
-            <h3>[WfSide - Menu Lateral]</h3>
-            <p>
-              Observe a barra lateral direita nesta página. Ela foi gerada automaticamente pelo componente <code>WfSide</code>.
-              Basta adicionar o atributo <code>WfSide</code> e <code>WfSide-position="right"</code> em um container.
-            </p>
+            <h3>2. Navbar dark (expand-lg)</h3>
+            <nav WfNavbar data-theme="dark" data-expand="lg" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand"><i class="wf wf-moon-stars"></i> WebFull Night</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="wfnavbar-sub-open">
+                      <a href="#">Relatórios</a>
+                      <ul>
+                        <li><a href="#">Diário</a></li>
+                        <li><a href="#">Mensal</a></li>
+                        <li><a href="#">Anual</a></li>
+                      </ul>
+                    </li>
+                    <li class="wfnavbar-ms-auto"><a href="#">Sair</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
         </div>
 
         <div class="l">
-          <div class="co6-g">
-            <h3>Como Usar</h3>
-            <pre WfCode WfCode-language="html"><script type="text/plain">
-<nav WfNavbar data-theme="light" data-fixed="true" data-menu-align="left">
-  <div slot="brand">Minha Marca</div>
-  <button class="btn btn-prin navbar-toggle" onclick="WfNavbarSideOpen('#navbar-side')">Menu</button>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li>
-      <a href="#">Docs</a>
-      <ul>
-        <li><a href="#">Guia</a></li>
-        <li><a href="#">API</a></li>
-      </ul>
-    </li>
-  </ul>
-  <div slot="extra">
-    <button class="btn btn-sm">Login</button>
-  </div>
-  <img slot="avatar" src="/assets/images/demo/wf.png" alt="avatar"/>
-</nav>
-          </script></pre>
+          <div class="co12-g">
+            <h3>3. Navbar com menu centralizado (expand-md)</h3>
+            <nav WfNavbar data-theme="light" data-expand="md" data-menu-align="center" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Marca</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Portfólio</a></li>
+                    <li><a href="#">Contato</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
-          <div class="co6-g">
-            <h3>Atributos</h3>
-            <table class="tabela">
-              <thead>
-                <tr>
-                  <th>Atributo</th>
-                  <th>Opções/Valores</th>
-                  <th>Descrição</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>data-theme</code></td>
-                  <td>
-                    <code>light</code> | <code>dark</code> | <code>custom</code>
-                  </td>
-                  <td>Tema visual do navbar</td>
-                </tr>
-                <tr>
-                  <td><code>data-brand-align</code></td>
-                  <td><code>right</code></td>
-                  <td>Move a marca para a direita</td>
-                </tr>
-                <tr>
-                  <td><code>data-fixed</code></td>
-                  <td><code>true</code> | <code>false</code></td>
-                  <td>Fixa o navbar no topo</td>
-                </tr>
-                <tr>
-                  <td><code>data-overlay</code></td>
-                  <td><code>true</code> | <code>false</code></td>
-                  <td>Overlay para mobile</td>
-                </tr>
-                <tr>
-                  <td><code>data-menu-align</code></td>
-                  <td>
-                    <code>left</code> | <code>center</code> | <code>right</code>
-                  </td>
-                  <td>Alinhamento dos itens do menu</td>
-                </tr>
-                <tr>
-                  <td><code>navbar-toggle</code></td>
-                  <td>-</td>
-                  <td>
-                    Botão mobile que chama
-                    <code>WfNavbarSideOpen('#navbar-side')</code>
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>slot</code></td>
-                  <td>
-                    <code>brand</code>, <code>search</code>, <code>extra</code>,
-                    <code>avatar</code>
-                  </td>
-                  <td>Áreas nomeadas para conteúdo adicional</td>
-                </tr>
-              </tbody>
-            </table>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>4. Navbar com menu alinhado à direita (expand-md)</h3>
+            <nav WfNavbar data-theme="light" data-expand="md" data-menu-align="right" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Empresa</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>5. Navbar sempre colapsado (mobile-first, expand-none)</h3>
+            <nav WfNavbar data-theme="light" data-expand="none" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Mobile App</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Feed</a></li>
+                    <li><a href="#">Mensagens</a></li>
+                    <li><a href="#">Notificações</a></li>
+                    <li><a href="#">Perfil</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>6. Navbar com botão de ação à direita</h3>
+            <nav WfNavbar data-theme="light" data-expand="lg" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Produto</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Recursos</a></li>
+                    <li><a href="#">Preços</a></li>
+                    <li><a href="#">Ajuda</a></li>
+                    <li class="wfnavbar-ms-auto">
+                      <a href="#">Começar agora</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>7. Navbar com dropdown aninhado</h3>
+            <nav WfNavbar data-theme="light" data-expand="lg" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Docs</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Introdução</a></li>
+                    <li>
+                      <a href="#">Guias</a>
+                      <ul>
+                        <li><a href="#">Instalação</a></li>
+                        <li><a href="#">Layout</a></li>
+                        <li>
+                          <a href="#">Componentes</a>
+                          <ul>
+                            <li><a href="#">Botões</a></li>
+                            <li><a href="#">Cards</a></li>
+                            <li><a href="#">Tabelas</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Changelog</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>8. Navbar sticky com fundo personalizado</h3>
+            <nav
+              WfNavbar
+              data-theme="dark"
+              data-expand="lg"
+              style="margin-bottom: 12px; position: sticky; top: 0; background: #1e88e5; color: #fff;">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Painel</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Resumo</a></li>
+                    <li><a href="#">Usuários</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li class="wfnavbar-ms-auto"><a href="#">Sair</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>9. Navbar minimal (brand + poucos links)</h3>
+            <nav WfNavbar data-theme="light" data-expand="sm" style="margin-bottom: 12px">
+              <div class="wfnavbar-container">
+                <a href="#" class="wfnavbar-brand">Blog</a>
+                <button class="wfnavbar-toggle" aria-label="Menu principal">
+                  <span></span><span></span><span></span>
+                </button>
+                <div class="wfnavbar-collapse">
+                  <ul class="wfnavbar-nav">
+                    <li><a href="#">Artigos</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Sobre</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="l">
+          <div class="co12-g">
+            <h3>10. Exemplo de código</h3>
+            <pre WfCode WfCode-lang="html"><script type="text/plain">
+<nav WfNavbar data-theme="light" data-expand="lg">
+  <div class="wfnavbar-container">
+    <a href="#" class="wfnavbar-brand">Minha Marca</a>
+    <button class="wfnavbar-toggle" aria-label="Menu principal">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="wfnavbar-collapse">
+      <ul class="wfnavbar-nav">
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Serviços</a>
+          <ul>
+            <li><a href="#">Site</a></li>
+            <li><a href="#">Loja virtual</a></li>
+          </ul>
+        </li>
+        <li class="wfnavbar-ms-auto"><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+            </script></pre>
           </div>
         </div>
       </div>
     </section>
   </div>
-
-  <script>
-    function WfNavbarSideOpen(id) {
-      var el = typeof id === 'string' ? document.querySelector(id) : id;
-      if (!el) return;
-      el.classList.add('open')
-    }
-
-    function WfNavbarSideClose(id) {
-      var el = typeof id === 'string' ? document.querySelector(id) : id;
-      if (!el) return;
-      el.classList.remove('open')
-    }
-
-    function WfNavbarToggleSub(link) {
-      var li = link.closest('.nb-item');
-      if (!li) return;
-      li.classList.toggle('open')
-    }
-    (function() {
-      var side = document.getElementById('navbar-side');
-      if (!side) return;
-      side.addEventListener('click', function(e) {
-        if (e.target === side) WfNavbarSideClose(side)
-      })
-    })();
-  </script>

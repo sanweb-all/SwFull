@@ -13,7 +13,7 @@
       <div class="g-xg">
         <div class="l">
           <div class="co12-g">
-            <h2>[Input de Arquivo]</h2>
+            <h3>[Input de Arquivo]</h3>
             <p>
               Componente simples para seleção de arquivos com preview. Use
               <code>&lt;span WfFile2&gt;</code> com atributos.

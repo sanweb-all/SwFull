@@ -28,15 +28,15 @@
         </p>
       </div>
       <div class="co6-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <span class="Bverm1">
       Bverm1
 </span>
 <span class="Bamar7">
       Bamar7
 </span>
-<span class="Bverd15">
-      Bverd15
+<span class="Bverd11">
+      Bverd11
 </span>
 <span class="Bazul8">
       Bazul8

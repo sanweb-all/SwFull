@@ -88,7 +88,7 @@
   <div class="g-xg">
     <div class="ln">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
 <div class="card">
    <div class="card-header Bprin dg10">
       <div class="card-title">
@@ -136,15 +136,15 @@
     </div>
     <div class="ln">
       <div class="co12-g">
-        <pre WfCode><script type="text/plain">
-         <div class="card w280">
-           <div class="card-img">
-               <img src="..." />
-           </div>
-           <div class="card-title-">Titulo do Card</div>
-         </div>
-         </script>
-         </pre>
+        <pre WfCode WfCode-lang="html"><script type="text/plain">
+<div class="card w280">
+  <div class="card-img">
+      <img src="..." />
+  </div>
+  <div class="card-title-">Titulo do Card</div>
+</div>
+</script>
+</pre>
       </div>
     </div>
   </div>
@@ -170,22 +170,22 @@
     <div class="l">
       <div class="co12-g">
         <pre WfCode><script type="text/plain">
-         <div class="wfglass">
-           <div data-text="Github" style="--r:-15;" class="glass Bcinz4">
-               <i class='wf wfl-github'></i>
-           </div>
-           <div data-text="Whatsapp" style="--r:5;" class="glass Bverd5">
-               <i class='wf wfl-whatsapp'></i>
-           </div>
-           <div data-text="Email" style="--r:25;" class="glass Bceu7">
-               <i class='wf wf-envelope'></i>
-           </div>
-           <div data-text="Comments" style="--r:-10;" class="glass Blila7">
-               <i class='wf wf-comment-dots'></i>
-           </div>
-         </div>
-         </script>
-         </pre>
+<div class="wfglass">
+  <div data-text="Github" style="--r:-15;" class="glass Bcinz4">
+      <i class='wf wfl-github'></i>
+  </div>
+  <div data-text="Whatsapp" style="--r:5;" class="glass Bverd5">
+      <i class='wf wfl-whatsapp'></i>
+  </div>
+  <div data-text="Email" style="--r:25;" class="glass Bceu7">
+      <i class='wf wf-envelope'></i>
+  </div>
+  <div data-text="Comments" style="--r:-10;" class="glass Blila7">
+      <i class='wf wf-comment-dots'></i>
+  </div>
+</div>
+</script>
+</pre>
       </div>
     </div>
   </div>

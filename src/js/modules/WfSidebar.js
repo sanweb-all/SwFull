@@ -242,29 +242,6 @@ html.wfday-night {
 }
 
 @media (max-width: 790px) {
-    [WfSidebar] {
-       /* start hidden off-canvas */
-       transform: translateX(-100%);
-       z-index: 1000;
-       position: fixed;
-       left: 0;
-       top: 0;
-    }
-
-    [WfSidebar].open {
-       transform: translateX(0) !important;
-    }
-
-    [WfSidebar].sidebar-right {
-       transform: translateX(100%);
-       left: auto;
-       right: 0;
-    }
-
-    [WfSidebar].sidebar-right.open {
-       transform: translateX(0) !important;
-    }
-
     .toggle-btn-left {
        position: fixed;
        top: 8px;
@@ -301,28 +278,49 @@ html.wfday-night {
     }
 
     .toggle-btn:hover {
-       /*background: var(--sidebar-hover);*/
        transform: scale(1.1);
     }
+}
 
-    .overlay {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background: var(--sidebar-overlay-bg);
-       z-index: 999;
-       opacity: 0;
-       visibility: hidden;
-       transition: all 0.3s ease;
-       cursor: pointer;
-    }
+.overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: var(--sidebar-overlay-bg);
+   z-index: 999;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
 
-    .overlay.active {
-       opacity: 1;
-       visibility: visible;
-    }
+.overlay.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"] {
+   transform: translateX(-100%);
+   z-index: 1000;
+   position: fixed;
+   left: 0;
+   top: 0;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].open {
+   transform: translateX(0) !important;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].sidebar-right {
+   transform: translateX(100%);
+   left: auto;
+   right: 0;
+}
+
+[WfSidebar][data-wfsidebar-mode="mobile"].sidebar-right.open {
+   transform: translateX(0) !important;
 }
 
 @media (min-width: 791px) {
@@ -594,9 +592,13 @@ html.wfday-night {
     checkResponsive() {
       const isMobile = window.innerWidth <= this.getBreakpointValue();
 
-      if (!isMobile && this.isOpen) {
-        // Se mudou para desktop e está aberto, fechar
-        this.close();
+      if (isMobile) {
+        this.element.setAttribute("data-wfsidebar-mode", "mobile");
+      } else {
+        this.element.removeAttribute("data-wfsidebar-mode");
+        if (this.isOpen) {
+          this.close();
+        }
       }
     }
 

@@ -429,7 +429,7 @@ allComponents.forEach(componentName => {
 
                <div style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: left;">
                   <h4><i class="wf wf-edit"></i> Código JavaScript:</h4>
-                  <pre WfCode><script type="text/plain">
+                  <pre WfCode WfCode-lang="html"><script type="text/plain">
 // Este código foi carregado via WfDiv
 // e o WfCode foi re-inicializado automaticamente!
 
