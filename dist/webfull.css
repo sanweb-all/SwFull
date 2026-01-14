@@ -376,12 +376,12 @@ article, footer, header, main, section {
     font-family: wficons;
     font-weight: 400;
     font-style: normal;
-    src: url('/assets/fonts/wficons.eot');
-    src: url('/assets/fonts/wficons.eot') format('embedded-opentype'),
-        url('/assets/fonts/wficons.woff2') format('woff2'),
-        url('/assets/fonts/wficons.woff') format('woff'),
-        url('/assets/fonts/wficons.ttf') format('truetype'),
-        url('/assets/fonts/wficons.svg#wficons') format('svg');
+    src: url('/fonts/wficons.eot');
+    src: url('/fonts/wficons.eot') format('embedded-opentype'),
+        url('/fonts/wficons.woff2') format('woff2'),
+        url('/fonts/wficons.woff') format('woff'),
+        url('/fonts/wficons.ttf') format('truetype'),
+        url('/fonts/wficons.svg#wficons') format('svg');
 }
 
 .wf-spin, .wf-spin-hover:hover {
